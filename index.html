@@ -1,267 +1,399 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tobia Miniutti – Portfolio</title>
-  <style>
-    /* === RESET === */
-    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif;}
-    html, body {background: #0a0a0a; color: #f5f5f5; scroll-behavior: smooth;}
-    a {text-decoration: none; color: inherit;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tobia Miniutti | Portfolio</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet" />
 
-    /* === NAVBAR === */
-    .navbar {
-      width: 100%;
-      padding: 20px 5%;
+  <style>
+    :root {
+      --carbon: #121212;
+      --carbon-deep: #0d0d0d;
+      --golden: #c9a74c;
+      --anthracite: #b3b3b3;
+      --white: #ffffff;
+      --transition: 0.3s ease-in-out;
+      --border-radius: 20px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--carbon);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    header {
+      backdrop-filter: blur(14px);
+      background: rgba(255 255 255 / 0.05);
+      padding: 1.3rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: fixed;
-      top: 0; left: 0;
-      background: rgba(10,10,10,0.8);
-      backdrop-filter: blur(10px);
-      z-index: 100;
+      position: sticky;
+      top: 0;
+      z-index: 1100;
+      box-shadow: 0 2px 25px rgba(0, 0, 0, 0.85);
     }
-    .logo {font-size: 1.3rem; font-weight: 600; letter-spacing: 1px;}
-    .nav-links {display: flex; gap: 25px; list-style: none;}
-    .nav-links a {transition: color .3s;}
-    .nav-links a:hover {color: #d4af37;}
-    .btn-golden {
-      border: 1px solid #d4af37;
-      padding: 8px 18px;
-      border-radius: 50px;
-      color: #d4af37;
-      transition: all .3s ease;
-    }
-    .btn-golden:hover {background: #d4af37; color: #0a0a0a;}
 
-    /* === HERO === */
+    .logo {
+      height: 42px;
+      filter: drop-shadow(0 0 1.5px rgba(0,0,0,0.6));
+      user-select: none;
+    }
+
+    nav a {
+      position: relative;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 2.5rem;
+      padding-bottom: 4px;
+      font-size: 1rem;
+      user-select: none;
+      transition: color var(--transition);
+      cursor: pointer;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #008C45, #F4F5F0, #CD212A);
+      border-radius: 3px 3px 0 0;
+      transition: width var(--transition);
+    }
+
+    nav a:hover::after,
+    nav a:focus-visible::after {
+      width: 100%;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--golden);
+      outline: none;
+    }
+
+    /* Hero */
     .hero {
+      position: relative;
       height: 100vh;
+      background: url('assets/hero.jpg') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
       text-align: center;
+      color: var(--white);
       overflow: hidden;
     }
-    .hero-video {
+
+    .hero::after {
+      content: "";
       position: absolute;
       top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      opacity: 0.4;
-      z-index: -1;
-    }
-    .hero-content h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .hero-content p {
-      font-size: 1.1rem;
-      color: #ccc;
-      margin-bottom: 25px;
-    }
-
-    /* === PROJECTS === */
-    .projects {
-      padding: 120px 8% 100px;
-      text-align: center;
-      background: #111;
-    }
-    .projects h2 {font-size: 2rem; margin-bottom: 40px;}
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-    .project-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 16px;
-      cursor: pointer;
-    }
-    .project-card img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      transition: transform .6s ease;
+      background: rgba(0, 0, 0, 0.55);
     }
-    .project-card:hover img {transform: scale(1.1);}
-    .overlay {
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(to top, rgba(10,10,10,0.85), rgba(10,10,10,0));
-      opacity: 0;
-      transition: opacity .4s;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 25px;
-    }
-    .project-card:hover .overlay {opacity: 1;}
-    .overlay h3 {margin-bottom: 10px; font-size: 1.2rem;}
-    .btn-light {
-      display: inline-block;
-      border: 1px solid #f5f5f5;
-      padding: 8px 18px;
-      border-radius: 50px;
-      transition: all .3s ease;
-      font-size: 0.9rem;
-    }
-    .btn-light:hover {background: #f5f5f5; color: #0a0a0a;}
-    .center {margin-top: 50px; display: inline-block;}
 
-    /* === ABOUT === */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      color: var(--golden);
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--anthracite);
+      margin-bottom: 2rem;
+    }
+
+    .btn-golden {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      border: 2px solid var(--golden);
+      border-radius: 40px;
+      color: var(--golden);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all var(--transition);
+    }
+
+    .btn-golden:hover {
+      background: var(--golden);
+      color: var(--carbon);
+      box-shadow: 0 8px 20px rgba(201, 167, 76, 0.5);
+    }
+
+    /* Section base */
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 5rem 2rem;
+    }
+
+    section {
+      margin-bottom: 5rem;
+    }
+
+    h2.section-title {
+      font-size: 2.4rem;
+      color: var(--golden);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    /* Progetti */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.4rem;
+    }
+
+    .project-card {
+      background: var(--carbon-deep);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      transition: transform var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      height: 200px;
+    }
+
+    .project-info {
+      padding: 1.6rem;
+    }
+
+    .project-info h3 {
+      color: var(--golden);
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-info p {
+      color: var(--anthracite);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.4rem;
+    }
+
+    /* Chi sono */
     .about {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 60px;
-      padding: 120px 8%;
-      background: #0e0e0e;
+      gap: 2rem;
+      background: var(--carbon-deep);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
     }
-    .about-content img {
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    .text {max-width: 600px;}
-    .text h2 {font-size: 2rem; margin-bottom: 20px;}
-    .text p {line-height: 1.7; color: #ccc; margin-bottom: 25px;}
 
-    /* === CONTACT CTA === */
+    .about img {
+      width: 320px;
+      border-radius: 20px;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text h2 {
+      color: var(--golden);
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      color: var(--anthracite);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    /* CTA finale */
     .contact-cta {
       text-align: center;
-      padding: 100px 8%;
-      background: linear-gradient(180deg,#111,#0a0a0a);
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, rgba(201,167,76,0.05), rgba(0,0,0,0.8));
+      border-radius: 20px;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.5);
     }
-    .contact-cta h2 {font-size: 2rem; margin-bottom: 10px;}
-    .contact-cta p {color: #ccc; margin-bottom: 25px;}
 
-    /* === FOOTER === */
+    .contact-cta h2 {
+      color: var(--golden);
+      margin-bottom: 1rem;
+    }
+
+    .contact-cta p {
+      color: var(--anthracite);
+      margin-bottom: 2rem;
+    }
+
+    /* Footer */
     footer {
-      background: #0a0a0a;
-      padding: 30px 8%;
-      border-top: 1px solid #222;
+      background: var(--carbon-deep);
+      padding: 3rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-col h4 {
+      color: var(--golden);
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin: 0.6rem 0;
+    }
+
+    .footer-col ul li a {
+      color: var(--anthracite);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      grid-column: 1 / -1;
       text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--anthracite);
     }
-    .socials {margin-top: 10px;}
-    .socials a {
-      margin: 0 10px;
-      color: #d4af37;
-      transition: opacity .3s;
+
+    /* Animazioni */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .socials a:hover {opacity: 0.7;}
+    .fade-up { animation: fadeIn 1.5s ease forwards; }
 
-    /* === ANIMAZIONI === */
-    .fade-in, .fade-up {opacity: 0; transform: translateY(40px); transition: all .9s ease;}
-    .show {opacity: 1; transform: translateY(0);}
-    @keyframes fadeIn {from {opacity:0;} to {opacity:1;}}
-
-    /* === RESPONSIVE === */
     @media (max-width: 768px) {
-      .hero-content h1 {font-size: 2.2rem;}
-      .about {flex-direction: column; text-align: center;}
+      .about { flex-direction: column; text-align: center; }
+      .about img { width: 100%; max-width: 400px; }
+      nav a { margin-left: 1rem; }
     }
   </style>
 </head>
-
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="logo">Tobia Miniutti</div>
-    <ul class="nav-links">
-      <li><a href="#" class="active">Home</a></li>
-      <li><a href="#">Portfolio</a></li>
-      <li><a href="#">Chi sono</a></li>
-      <li><a href="#" class="btn-golden">Contatti</a></li>
-    </ul>
-  </nav>
 
-  <!-- HERO -->
-  <section class="hero fade-in">
-    <video autoplay muted loop playsinline class="hero-video">
-      <source src="assets/bg-reel.mp4" type="video/mp4">
-    </video>
+  <header>
+    <a href="index.html"><img src="favicon.png" alt="Logo miniutti.it" class="logo" /></a>
+    <nav>
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+  </header>
+
+  <section class="hero">
     <div class="hero-content">
       <h1>Tobia Miniutti</h1>
       <p>Fotografo e Videomaker • Bologna</p>
-      <a href="#" class="btn-golden">Scopri i miei lavori</a>
+      <a href="#portfolio" class="btn-golden">Scopri i miei lavori</a>
     </div>
   </section>
 
-  <!-- PROGETTI -->
-  <section class="projects fade-up">
-    <h2>Portfolio Selezionato</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="assets/project1.jpg" alt="Ritratto Urbano">
-        <div class="overlay">
-          <h3>Ritratto Urbano</h3>
-          <a href="#" class="btn-light">Vedi di più</a>
+  <main>
+    <section id="portfolio" class="fade-up">
+      <h2 class="section-title">Portfolio Selezionato</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="assets/project1.jpg" alt="Orologio SBB">
+          <div class="project-info">
+            <h3>Orologio SBB</h3>
+            <p>Riproduzione digitale fedele del celebre orologio svizzero delle Ferrovie Federali, sviluppata in JavaScript e CSS.</p>
+            <a href="https://miniutti.it/clock" target="_blank" class="btn-golden">Visita il progetto</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="assets/project2.jpg" alt="Orbea Alma H50">
+          <div class="project-info">
+            <h3>Progetto Orbea Alma H50</h3>
+            <p>Studio grafico e tecnico della MTB Orbea Alma H50 2022, con focus su design, materiali e prestazioni.</p>
+            <a href="#" class="btn-golden" aria-disabled="true">In arrivo</a>
+          </div>
         </div>
       </div>
-      <div class="project-card">
-        <img src="assets/project2.jpg" alt="Atmosfere Notturne">
-        <div class="overlay">
-          <h3>Atmosfere Notturne</h3>
-          <a href="#" class="btn-light">Vedi di più</a>
-        </div>
-      </div>
-      <div class="project-card">
-        <img src="assets/project3.jpg" alt="Videostorytelling">
-        <div class="overlay">
-          <h3>Videostorytelling</h3>
-          <a href="#" class="btn-light">Vedi di più</a>
-        </div>
-      </div>
-    </div>
-    <a href="#" class="btn-golden center">Vedi tutto il portfolio</a>
-  </section>
+    </section>
 
-  <!-- CHI SONO -->
-  <section class="about fade-up">
-    <div class="about-content">
+    <section class="about fade-up">
       <img src="assets/profile.jpg" alt="Tobia Miniutti">
-      <div class="text">
+      <div class="about-text">
         <h2>Chi sono</h2>
         <p>Sono Tobia, fotografo e videomaker di Bologna.  
-        Mi occupo di creare contenuti visivi curati, con un approccio cinematografico e una forte attenzione alla luce, ai dettagli e all’emozione visiva.</p>
-        <a href="#" class="btn-light">Scopri di più</a>
+        Creo contenuti visivi con stile cinematografico, precisione tecnica e una forte attenzione ai dettagli e alla luce.</p>
+        <a href="contatti.html" class="btn-golden">Collabora con me</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTATTI -->
-  <section class="contact-cta fade-up">
-    <h2>Hai un progetto in mente?</h2>
-    <p>Raccontamelo — realizziamolo insieme.</p>
-    <a href="#" class="btn-golden">Contattami</a>
-  </section>
+    <section class="contact-cta fade-up">
+      <h2>Hai un progetto in mente?</h2>
+      <p>Parliamone — realizziamolo insieme.</p>
+      <a href="contatti.html" class="btn-golden">Contattami</a>
+    </section>
+  </main>
 
-  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Tobia Miniutti — Tutti i diritti riservati</p>
-    <div class="socials">
-      <a href="#">Instagram</a>
-      <a href="#">YouTube</a>
-      <a href="#">Contatti</a>
+    <div class="footer-col">
+      <h4>Miniutti.it</h4>
+      <p>Portfolio ufficiale di Tobia Miniutti — progetti, idee e sviluppo.</p>
     </div>
+    <div class="footer-col">
+      <h4>Link rapidi</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contatti</h4>
+      <ul>
+        <li><a href="mailto:tobia@miniutti.it">Email: tobia@miniutti.it</a></li>
+        <li><a href="tel:+393791128232">Tel: +39 379 112 8232</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">© 2025 miniutti.it — Tutti i diritti riservati</div>
   </footer>
 
-  <script>
-    const faders = document.querySelectorAll('.fade-in, .fade-up');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) entry.target.classList.add('show');
-      });
-    });
-    faders.forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>
