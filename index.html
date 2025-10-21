@@ -311,6 +311,18 @@
       .about img { width: 100%; max-width: 400px; }
       nav a { margin-left: 1rem; }
     }
+
+    .fade-up, .hero-content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.fade-up.visible, .hero-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
   </style>
 </head>
 <body>
@@ -387,12 +399,34 @@
     <div class="footer-col">
       <h4>Contatti</h4>
       <ul>
-        <li><a href="mailto:tobia@miniutti.it">Email: tobia@miniutti.it</a></li>
+        <li><a href="mailto:info@tobia.me">Email: info@tobia.me</a></li>
         <li><a href="tel:+393791128232">Tel: +39 379 112 8232</a></li>
       </ul>
     </div>
-    <div class="footer-bottom">© 2025 miniutti.it — Tutti i diritti riservati</div>
+    <div class="footer-bottom">© 2025 tobia.me — Tutti i diritti riservati</div>
   </footer>
+<script>
+  
+  // Seleziona tutti gli elementi da animare
+  const faders = document.querySelectorAll('.fade-up, .hero-content');
 
+  const appearOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      appearOnScroll.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+</script>
+  
 </body>
 </html>
