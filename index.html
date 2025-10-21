@@ -1,219 +1,267 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tobia Miniutti | Fotografo e Videomaker</title>
-  <link rel="icon" href="favicon.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tobia Miniutti – Portfolio</title>
   <style>
-    :root {
-      --carbon: #121212;
-      --carbon-deep: #0d0d0d;
-      --golden: #c9a74c;
-      --anthracite: #b3b3b3;
-      --white: #ffffff;
-      --transition: 0.3s ease-in-out;
-      --radius: 20px;
-    }
+    /* === RESET === */
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif;}
+    html, body {background: #0a0a0a; color: #f5f5f5; scroll-behavior: smooth;}
+    a {text-decoration: none; color: inherit;}
 
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {
-      font-family: 'Outfit', sans-serif;
-      background-color: var(--carbon);
-      color: var(--white);
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-    }
-
-    /* NAVBAR */
-    header {
-      backdrop-filter: blur(14px);
-      background: rgba(255 255 255 / 0.05);
-      padding: 1.3rem 2rem;
+    /* === NAVBAR === */
+    .navbar {
+      width: 100%;
+      padding: 20px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1100;
-      box-shadow: 0 2px 25px rgba(0,0,0,0.85);
+      position: fixed;
+      top: 0; left: 0;
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(10px);
+      z-index: 100;
     }
-    .logo { height:42px; filter:drop-shadow(0 0 1.5px rgba(0,0,0,0.6)); user-select:none; }
-    nav a {
-      position:relative; color:var(--white); text-decoration:none;
-      font-weight:600; margin-left:2.5rem; padding-bottom:4px;
-      transition:color var(--transition); font-size:1rem;
-    }
-    nav a::after {
-      content:""; position:absolute; bottom:0; left:0; width:0; height:3px;
-      background:linear-gradient(90deg, #008C45, #F4F5F0, #CD212A);
-      transition:width var(--transition);
-    }
-    nav a:hover::after { width:100%; }
-    nav a:hover { color:var(--golden); }
-
-    /* SEZIONE HERO */
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('hero-bg.jpg') center/cover no-repeat;
-      padding: 10rem 2rem;
-      text-align: center;
-      color: var(--white);
-    }
-    .hero h1 {
-      font-size: 3rem;
-      color: var(--golden);
-      margin-bottom: 1rem;
-      animation: fadeUp 1.2s ease forwards;
-    }
-    .hero p {
-      font-size: 1.3rem;
-      color: var(--anthracite);
-      margin-bottom: 2.5rem;
-      animation: fadeUp 1.5s ease forwards;
-    }
-
-    /* PULSANTI GLOBALI */
+    .logo {font-size: 1.3rem; font-weight: 600; letter-spacing: 1px;}
+    .nav-links {display: flex; gap: 25px; list-style: none;}
+    .nav-links a {transition: color .3s;}
+    .nav-links a:hover {color: #d4af37;}
     .btn-golden {
-      display: inline-block;
-      padding: 0.9rem 2rem;
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--golden);
-      border: 2px solid var(--golden);
-      border-radius: 40px;
-      text-decoration: none;
-      transition: background-color var(--transition), color var(--transition), box-shadow var(--transition);
+      border: 1px solid #d4af37;
+      padding: 8px 18px;
+      border-radius: 50px;
+      color: #d4af37;
+      transition: all .3s ease;
     }
-    .btn-golden:hover, .btn-golden:focus-visible {
-      background-color: var(--golden);
-      color: var(--carbon);
-      box-shadow: 0 8px 20px rgba(201, 167, 76, 0.5);
-    }
+    .btn-golden:hover {background: #d4af37; color: #0a0a0a;}
 
-    /* SEZIONI */
-    main { max-width:1100px; margin:auto; padding:4rem 2rem; }
-    .section {
-      background: var(--carbon-deep);
-      border-radius: var(--radius);
-      padding: 3rem 2rem;
-      margin-bottom: 4rem;
-      box-shadow: 0 10px 50px rgba(0,0,0,0.4);
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .section:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 60px rgba(0,0,0,0.5);
-    }
-    .section h2 {
-      color: var(--golden);
-      font-size: 2.2rem;
-      margin-bottom: 1.2rem;
+    /* === HERO === */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
       text-align: center;
+      overflow: hidden;
     }
-    .section p {
-      text-align: center;
-      color: var(--anthracite);
+    .hero-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+      z-index: -1;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .hero-content p {
       font-size: 1.1rem;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto 2rem auto;
+      color: #ccc;
+      margin-bottom: 25px;
     }
-    .center { text-align:center; }
 
-    /* FOOTER */
-    footer {
-      background: var(--carbon-deep);
-      padding: 3rem 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-      gap: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-    .footer-col h4 { color: var(--golden); margin-bottom: 1rem; font-size: 1.2rem; }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin: 0.6rem 0; }
-    .footer-col ul li a { color: var(--anthracite); text-decoration: none; transition: var(--transition); }
-    .footer-col ul li a:hover { color: var(--white); }
-    .footer-bottom {
-      grid-column: 1 / -1;
+    /* === PROJECTS === */
+    .projects {
+      padding: 120px 8% 100px;
       text-align: center;
-      margin-top: 2rem;
+      background: #111;
+    }
+    .projects h2 {font-size: 2rem; margin-bottom: 40px;}
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      cursor: pointer;
+    }
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+    .project-card:hover img {transform: scale(1.1);}
+    .overlay {
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to top, rgba(10,10,10,0.85), rgba(10,10,10,0));
+      opacity: 0;
+      transition: opacity .4s;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 25px;
+    }
+    .project-card:hover .overlay {opacity: 1;}
+    .overlay h3 {margin-bottom: 10px; font-size: 1.2rem;}
+    .btn-light {
+      display: inline-block;
+      border: 1px solid #f5f5f5;
+      padding: 8px 18px;
+      border-radius: 50px;
+      transition: all .3s ease;
       font-size: 0.9rem;
-      color: var(--anthracite);
     }
+    .btn-light:hover {background: #f5f5f5; color: #0a0a0a;}
+    .center {margin-top: 50px; display: inline-block;}
 
-    /* ANIMAZIONI */
-    @keyframes fadeUp {
-      from {opacity:0; transform:translateY(30px);}
-      to {opacity:1; transform:none;}
+    /* === ABOUT === */
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 60px;
+      padding: 120px 8%;
+      background: #0e0e0e;
     }
+    .about-content img {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .text {max-width: 600px;}
+    .text h2 {font-size: 2rem; margin-bottom: 20px;}
+    .text p {line-height: 1.7; color: #ccc; margin-bottom: 25px;}
 
-    @media (max-width:768px){
-      .hero h1 {font-size:2.3rem;}
-      .hero p {font-size:1.1rem;}
-      nav a {margin-left:1rem;}
+    /* === CONTACT CTA === */
+    .contact-cta {
+      text-align: center;
+      padding: 100px 8%;
+      background: linear-gradient(180deg,#111,#0a0a0a);
+    }
+    .contact-cta h2 {font-size: 2rem; margin-bottom: 10px;}
+    .contact-cta p {color: #ccc; margin-bottom: 25px;}
+
+    /* === FOOTER === */
+    footer {
+      background: #0a0a0a;
+      padding: 30px 8%;
+      border-top: 1px solid #222;
+      text-align: center;
+    }
+    .socials {margin-top: 10px;}
+    .socials a {
+      margin: 0 10px;
+      color: #d4af37;
+      transition: opacity .3s;
+    }
+    .socials a:hover {opacity: 0.7;}
+
+    /* === ANIMAZIONI === */
+    .fade-in, .fade-up {opacity: 0; transform: translateY(40px); transition: all .9s ease;}
+    .show {opacity: 1; transform: translateY(0);}
+    @keyframes fadeIn {from {opacity:0;} to {opacity:1;}}
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .hero-content h1 {font-size: 2.2rem;}
+      .about {flex-direction: column; text-align: center;}
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <a href="index.html"><img src="favicon.png" alt="Logo" class="logo" /></a>
-    <nav>
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="contatti.html">Contatti</a>
-      <a href="login.html">Login</a>
-    </nav>
-  </header>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">Tobia Miniutti</div>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Chi sono</a></li>
+      <li><a href="#" class="btn-golden">Contatti</a></li>
+    </ul>
+  </nav>
 
-  <section class="hero">
-    <h1>Tobia Miniutti</h1>
-    <p>Fotografo e Videomaker. Racconto storie attraverso luce, movimento e precisione visiva.</p>
-    <a href="portfolio.html" class="btn-golden">Vedi il Portfolio</a>
+  <!-- HERO -->
+  <section class="hero fade-in">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="assets/bg-reel.mp4" type="video/mp4">
+    </video>
+    <div class="hero-content">
+      <h1>Tobia Miniutti</h1>
+      <p>Fotografo e Videomaker • Bologna</p>
+      <a href="#" class="btn-golden">Scopri i miei lavori</a>
+    </div>
   </section>
 
-  <main>
-    <section class="section">
-      <h2>Chi sono</h2>
-      <p>Un giovane creativo con radici tra Svizzera, Germania e Friuli, specializzato in video, fotografia e sviluppo digitale. Unisco visione estetica e tecnica per trasformare idee in immagini concrete e memorabili.</p>
-      <div class="center">
-        <a href="contatti.html" class="btn-golden">Contattami</a>
+  <!-- PROGETTI -->
+  <section class="projects fade-up">
+    <h2>Portfolio Selezionato</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="assets/project1.jpg" alt="Ritratto Urbano">
+        <div class="overlay">
+          <h3>Ritratto Urbano</h3>
+          <a href="#" class="btn-light">Vedi di più</a>
+        </div>
       </div>
-    </section>
-
-    <section class="section">
-      <h2>Progetti in evidenza</h2>
-      <p>Alcuni dei miei lavori più rappresentativi, tra design visivo, storytelling e produzione tecnica.</p>
-      <div class="center">
-        <a href="portfolio.html" class="btn-golden">Esplora i progetti</a>
+      <div class="project-card">
+        <img src="assets/project2.jpg" alt="Atmosfere Notturne">
+        <div class="overlay">
+          <h3>Atmosfere Notturne</h3>
+          <a href="#" class="btn-light">Vedi di più</a>
+        </div>
       </div>
-    </section>
-  </main>
+      <div class="project-card">
+        <img src="assets/project3.jpg" alt="Videostorytelling">
+        <div class="overlay">
+          <h3>Videostorytelling</h3>
+          <a href="#" class="btn-light">Vedi di più</a>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="btn-golden center">Vedi tutto il portfolio</a>
+  </section>
 
+  <!-- CHI SONO -->
+  <section class="about fade-up">
+    <div class="about-content">
+      <img src="assets/profile.jpg" alt="Tobia Miniutti">
+      <div class="text">
+        <h2>Chi sono</h2>
+        <p>Sono Tobia, fotografo e videomaker di Bologna.  
+        Mi occupo di creare contenuti visivi curati, con un approccio cinematografico e una forte attenzione alla luce, ai dettagli e all’emozione visiva.</p>
+        <a href="#" class="btn-light">Scopri di più</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section class="contact-cta fade-up">
+    <h2>Hai un progetto in mente?</h2>
+    <p>Raccontamelo — realizziamolo insieme.</p>
+    <a href="#" class="btn-golden">Contattami</a>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-col">
-      <h4>Tobia Miniutti</h4>
-      <p>Fotografo e Videomaker — Portfolio ufficiale.</p>
+    <p>© 2025 Tobia Miniutti — Tutti i diritti riservati</p>
+    <div class="socials">
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+      <a href="#">Contatti</a>
     </div>
-    <div class="footer-col">
-      <h4>Link rapidi</h4>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="contatti.html">Contatti</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contatti</h4>
-      <ul>
-        <li><a href="mailto:tobia@miniutti.it">tobia@miniutti.it</a></li>
-        <li><a href="tel:+393791128232">+39 379 112 8232</a></li>
-      </ul>
-    </div>
-    <div class="footer-bottom">© 2025 tobia.me — Tutti i diritti riservati</div>
   </footer>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-in, .fade-up');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('show');
+      });
+    });
+    faders.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
