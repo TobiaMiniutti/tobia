@@ -1,1 +1,230 @@
-home
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tobia Miniutti | Fotografo & Videomaker</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --carbon: #121212;
+  --carbon-deep: #0d0d0d;
+  --golden: #c9a74c;
+  --anthracite: #b3b3b3;
+  --white: #ffffff;
+  --tricolor-start: #008C45;
+  --tricolor-middle: #F4F5F0;
+  --tricolor-end: #CD212A;
+  --transition: 0.3s ease-in-out;
+  --border-radius: 20px;
+}
+
+* {margin:0;padding:0;box-sizing:border-box;}
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--carbon);
+  color: var(--white);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAVBAR */
+header {
+  backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.05);
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.8);
+}
+.logo {height:42px;filter:drop-shadow(0 0 1.5px rgba(0,0,0,0.6));user-select:none;}
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  margin-left: 2rem;
+  font-weight: 600;
+  position: relative;
+  transition: color var(--transition);
+}
+nav a::after {
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--tricolor-start),var(--tricolor-middle),var(--tricolor-end));
+  border-radius:3px;
+  transition:width var(--transition);
+}
+nav a:hover::after {width:100%;}
+nav a:hover {color:var(--golden);}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.75)),
+              url('https://www.tobia.me/hero.jpg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+}
+.hero h1 {
+  font-size: 3.5rem;
+  color: var(--golden);
+  text-shadow: 0 4px 14px rgba(0,0,0,0.7);
+}
+.hero p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: var(--anthracite);
+  max-width: 700px;
+  line-height: 1.8;
+}
+
+/* PORTFOLIO GRID */
+main {max-width:1200px;margin:auto;padding:4rem 2rem;}
+.section {
+  background: var(--carbon-deep);
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  margin-bottom: 4rem;
+  transition: transform var(--transition);
+}
+.section:hover {transform:translateY(-4px);}
+.section h3 {font-size:2rem;margin-bottom:1rem;color:var(--white);}
+.section p {color:var(--anthracite);line-height:1.8;}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+.card img, .card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition), filter var(--transition);
+}
+.card:hover img, .card:hover video {
+  transform: scale(1.05);
+  filter: brightness(0.8);
+}
+.card::after {
+  content: attr(data-title);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: var(--golden);
+  text-align: center;
+  padding: 0.7rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* FOOTER */
+footer {
+  background: var(--carbon-deep);
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+footer h4 {color:var(--golden);margin-bottom:1rem;}
+footer a {color:var(--anthracite);text-decoration:none;transition:var(--transition);}
+footer a:hover {color:var(--white);}
+.footer-bottom {grid-column:1/-1;text-align:center;margin-top:2rem;color:var(--anthracite);font-size:0.9rem;}
+
+/* ANIMAZIONI */
+@keyframes fadeIn {from{opacity:0;}to{opacity:1;}}
+@media (max-width:768px){
+  .hero h1{font-size:2.5rem;}
+  nav a{margin-left:1rem;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html"><img src="favicon.png" alt="Logo Tobia Miniutti" class="logo"></a>
+  <nav>
+    <a href="#about">Chi sono</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contatti</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Tobia Miniutti</h1>
+  <p>Fotografo e videomaker. Racconto storie attraverso immagini e luce, unendo tecnica, colore e narrazione.</p>
+</section>
+
+<main>
+  <section class="section" id="about">
+    <h3>Chi sono</h3>
+    <p>Sono Tobia, fotografo e videomaker di Bologna. Mi piace creare contenuti autentici e dinamici, con un’estetica pulita e curata.  
+    Lavoro su progetti personali e collaborazioni che uniscono **passione visiva e precisione tecnica**.</p>
+  </section>
+
+  <section class="section" id="portfolio">
+    <h3>Portfolio</h3>
+    <div class="portfolio-grid">
+      <div class="card" data-title="Ritratto Urbano"><img src="gallery/portrait1.jpg" alt=""></div>
+      <div class="card" data-title="Video promozionale"><video src="gallery/promo1.mp4" muted autoplay loop></video></div>
+      <div class="card" data-title="Scatti Notturni"><img src="gallery/night1.jpg" alt=""></div>
+      <div class="card" data-title="Evento sportivo"><img src="gallery/event1.jpg" alt=""></div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h3>Contatti</h3>
+    <p>Per collaborazioni o progetti:</p>
+    <ul>
+      <li><a href="mailto:tobia@tobia.me">📧 tobia@tobia.me</a></li>
+      <li><a href="tel:+393791128232">📞 +39 379 112 8232</a></li>
+      <li><a href="https://www.instagram.com/tobia.miniutti" target="_blank">📷 Instagram</a></li>
+      <li><a href="https://www.youtube.com/@tobia" target="_blank">🎬 YouTube</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <div>
+    <h4>Tobia.me</h4>
+    <p>Portfolio ufficiale di Tobia Miniutti — fotografia e videomaking professionale.</p>
+  </div>
+  <div>
+    <h4>Link rapidi</h4>
+    <a href="#about">Chi sono</a><br>
+    <a href="#portfolio">Portfolio</a><br>
+    <a href="#contact">Contatti</a>
+  </div>
+  <div>
+    <h4>Contatti</h4>
+    <p>Email: <a href="mailto:tobia@tobia.me">tobia@tobia.me</a><br>
+    Tel: <a href="tel:+393791128232">+39 379 112 8232</a></p>
+  </div>
+  <div class="footer-bottom">© 2025 Tobia Miniutti — Tutti i diritti riservati</div>
+</footer>
+
+</body>
+</html>
