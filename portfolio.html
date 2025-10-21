@@ -1,265 +1,175 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tobia Miniutti | Portfolio</title>
-  <link rel="icon" href="favicon.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portfolio | Tobia Miniutti</title>
+<link rel="icon" href="favicon.png" type="image/png" />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet" />
 
-  <style>
-    :root {
-      --carbon: #121212;
-      --carbon-deep: #0d0d0d;
-      --golden: #c9a74c;
-      --anthracite: #b3b3b3;
-      --white: #ffffff;
-      --transition: 0.3s ease-in-out;
-      --border-radius: 20px;
-    }
+<style>
+:root {
+  --carbon: #121212;
+  --carbon-deep: #0d0d0d;
+  --golden: #c9a74c;
+  --anthracite: #b3b3b3;
+  --white: #ffffff;
+  --transition: 0.3s ease-in-out;
+  --border-radius: 20px;
+}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    body {
-      font-family: 'Outfit', sans-serif;
-      background-color: var(--carbon);
-      color: var(--white);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--carbon);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
 
-    /* Navbar */
-    header {
-      backdrop-filter: blur(14px);
-      background: rgba(255 255 255 / 0.05);
-      padding: 1.3rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1100;
-      box-shadow: 0 2px 25px rgba(0,0,0,0.85);
-    }
-    .logo { height: 42px; filter: drop-shadow(0 0 1.5px rgba(0,0,0,0.6)); user-select: none; }
-    nav a {
-      position: relative;
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 600;
-      margin-left: 2.5rem;
-      padding-bottom: 4px;
-      font-size: 1rem;
-      user-select: none;
-      transition: color var(--transition);
-      cursor: pointer;
-    }
-    nav a::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #008C45, #F4F5F0, #CD212A);
-      border-radius: 3px 3px 0 0;
-      transition: width var(--transition);
-    }
-    nav a:hover::after,
-    nav a:focus-visible::after { width: 100%; }
-    nav a:hover, nav a:focus-visible { color: var(--golden); outline: none; }
+/* Navbar */
+header {
+  backdrop-filter: blur(14px);
+  background: rgba(255 255 255 / 0.05);
+  padding: 1.3rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+  box-shadow: 0 2px 25px rgba(0,0,0,0.85);
+}
+.logo { height:42px; filter: drop-shadow(0 0 1.5px rgba(0,0,0,0.6)); }
+nav a { color: var(--white); text-decoration:none; font-weight:600; margin-left:2.5rem; font-size:1rem; position:relative; transition: color var(--transition); }
+nav a::after { content:""; position:absolute; bottom:0; left:0; width:0; height:3px; background: linear-gradient(90deg, #008C45, #F4F5F0, #CD212A); border-radius:3px 3px 0 0; transition: width var(--transition); }
+nav a:hover::after, nav a:focus-visible::after { width:100%; }
+nav a:hover, nav a:focus-visible { color: var(--golden); outline:none; }
 
-    /* Main */
-    main { max-width: 1100px; margin: auto; padding: 5rem 2rem; }
-    h2.section-title { font-size: 2.4rem; color: var(--golden); text-align: center; margin-bottom: 2rem; }
+/* Main */
+main { max-width:1100px; margin:auto; padding:5rem 2rem; }
+h2.section-title { font-size:2.4rem; color:var(--golden); text-align:center; margin-bottom:2rem; }
 
-    /* Projects Grid */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.4rem;
-    }
+/* Projects Grid */
+.projects-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap:2.4rem;
+}
 
-    .project-card {
-      position: relative;
-      background: var(--carbon-deep);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-      transform: translateY(30px);
-      opacity: 0;
-      transition: transform 0.8s ease, opacity 0.8s ease, box-shadow 0.4s ease;
-    }
-    .project-card.visible { transform: translateY(0); opacity:1; }
+.project-card {
+  position:relative;
+  background: var(--carbon-deep);
+  border-radius: var(--border-radius);
+  overflow:hidden;
+  box-shadow:0 10px 40px rgba(0,0,0,0.5);
+  transform: translateY(30px);
+  opacity:0;
+  transition: transform 0.8s ease, opacity 0.8s ease, box-shadow 0.4s ease;
+}
+.project-card.visible { transform: translateY(0); opacity:1; }
 
-    .project-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-    .project-card:hover img { transform: scale(1.05); }
+.project-card img {
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+  transition: transform 0.5s ease;
+}
+.project-card:hover img { transform: scale(1.05); }
 
-    .project-info {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      padding: 1.6rem;
-      background: rgba(0,0,0,0.65);
-      transform: translateY(100%);
-      opacity: 0;
-      transition: transform 0.5s ease, opacity 0.5s ease;
-      border-top: 1px solid rgba(201,167,76,0.4);
-    }
-    .project-card:hover .project-info { transform: translateY(0); opacity: 1; }
+.project-info {
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding:1.6rem;
+  background: rgba(0,0,0,0.65);
+  transform: translateY(100%);
+  opacity:0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  border-top:1px solid rgba(201,167,76,0.4);
+}
+.project-card:hover .project-info { transform:translateY(0); opacity:1; }
 
-    .project-info h3 { color: var(--golden); font-size: 1.4rem; margin-bottom: 0.8rem; }
-    .project-info p { color: var(--anthracite); font-size: 1rem; line-height: 1.6; margin-bottom: 1.2rem; }
-    .btn-golden {
-      display: inline-block;
-      padding: 0.75rem 1.8rem;
-      border: 2px solid var(--golden);
-      border-radius: 40px;
-      color: var(--golden);
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    .project-card:hover { box-shadow: 0 15px 50px rgba(201,167,76,0.45); }
+.project-info h3 { color: var(--golden); font-size:1.4rem; margin-bottom:0.8rem; }
+.project-info p { color: var(--anthracite); font-size:1rem; line-height:1.6; margin-bottom:1.2rem; }
+.btn-golden {
+  display:inline-block;
+  padding:0.75rem 1.8rem;
+  border:2px solid var(--golden);
+  border-radius:40px;
+  color:var(--golden);
+  text-decoration:none;
+  font-weight:600;
+  transition: all 0.3s ease;
+}
+.project-card:hover { box-shadow: 0 15px 50px rgba(201,167,76,0.45); }
 
-    /* About */
-    .about { display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; background: var(--carbon-deep); border-radius: 20px; padding: 3rem; box-shadow: 0 10px 40px rgba(0,0,0,0.4); transform: translateY(30px); opacity:0; transition: transform 0.8s ease, opacity 0.8s ease; }
-    .about.visible { transform: translateY(0); opacity:1; }
-    .about img { width: 320px; border-radius: 20px; }
-    .about-text { flex: 1; }
-    .about-text h2 { color: var(--golden); margin-bottom: 1rem; }
-    .about-text p { color: var(--anthracite); line-height: 1.6; margin-bottom: 1.5rem; }
-
-    /* Contact CTA */
-    .contact-cta {
-      text-align: center;
-      padding: 4rem 2rem;
-      background: linear-gradient(180deg, rgba(201,167,76,0.05), rgba(0,0,0,0.8));
-      border-radius: 20px;
-      box-shadow: 0 5px 30px rgba(0,0,0,0.5);
-      transform: translateY(30px);
-      opacity: 0;
-      transition: transform 0.8s ease, opacity 0.8s ease;
-    }
-    .contact-cta.visible { transform: translateY(0); opacity:1; }
-    .contact-cta h2 { color: var(--golden); margin-bottom: 1rem; }
-    .contact-cta p { color: var(--anthracite); margin-bottom: 2rem; }
-
-    /* Footer */
-    footer {
-      background: var(--carbon-deep);
-      padding: 3rem 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .footer-col h4 { color: var(--golden); margin-bottom: 1rem; }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin: 0.6rem 0; }
-    .footer-col ul li a { color: var(--anthracite); text-decoration: none; transition: var(--transition); }
-    .footer-col ul li a:hover { color: var(--white); }
-    .footer-bottom { grid-column: 1 / -1; text-align: center; margin-top: 2rem; font-size: 0.9rem; color: var(--anthracite); }
-
-    @media (max-width: 768px) {
-      .about { flex-direction: column; text-align: center; }
-      .about img { width: 100%; max-width: 400px; }
-      nav a { margin-left: 1rem; }
-    }
-  </style>
+@media (max-width:768px) { nav a { margin-left:1rem; } }
+</style>
 </head>
 <body>
 
-  <header>
-    <a href="index.html"><img src="favicon.png" alt="Logo miniutti.it" class="logo" /></a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="portfolio.html" aria-current="page">Portfolio</a>
-      <a href="contatti.html">Contatti</a>
-    </nav>
-  </header>
+<header>
+  <a href="index.html"><img src="favicon.png" alt="Logo miniutti.it" class="logo" /></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html" aria-current="page">Portfolio</a>
+    <a href="contatti.html">Contatti</a>
+  </nav>
+</header>
 
-  <main>
-    <section class="about">
-      <img src="assets/profile.jpg" alt="Tobia Miniutti">
-      <div class="about-text">
-        <h2>Chi sono</h2>
-        <p>Sono Tobia, fotografo e videomaker di Bologna.  
-        Creo contenuti visivi con stile cinematografico, precisione tecnica e una forte attenzione ai dettagli e alla luce.</p>
+<main>
+  <h2 class="section-title">I miei lavori</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <img src="assets/project1.jpg" alt="Progetto 1">
+      <div class="project-info">
+        <h3>Progetto 1</h3>
+        <p>Descrizione accurata del progetto 1.</p>
+        <a href="#" class="btn-golden">Visita il progetto</a>
       </div>
-    </section>
-
-    <section id="portfolio">
-      <h2 class="section-title">I miei lavori</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <img src="assets/project1.jpg" alt="Progetto 1">
-          <div class="project-info">
-            <h3>Progetto 1</h3>
-            <p>Descrizione accurata del progetto 1.</p>
-            <a href="#" class="btn-golden">Visita il progetto</a>
-          </div>
-        </div>
-        <div class="project-card">
-          <img src="assets/project2.jpg" alt="Progetto 2">
-          <div class="project-info">
-            <h3>Progetto 2</h3>
-            <p>Descrizione accurata del progetto 2.</p>
-            <a href="#" class="btn-golden">Visita il progetto</a>
-          </div>
-        </div>
+    </div>
+    <div class="project-card">
+      <img src="assets/project2.jpg" alt="Progetto 2">
+      <div class="project-info">
+        <h3>Progetto 2</h3>
+        <p>Descrizione accurata del progetto 2.</p>
+        <a href="#" class="btn-golden">Visita il progetto</a>
       </div>
-    </section>
-
-    <section class="contact-cta">
-      <h2>Hai un progetto in mente?</h2>
-      <p>Parliamone — realizziamolo insieme.</p>
-      <a href="contatti.html" class="btn-golden">Contattami</a>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-col">
-      <h4>Miniutti.it</h4>
-      <p>Portfolio ufficiale di Tobia Miniutti — progetti, idee e sviluppo.</p>
     </div>
-    <div class="footer-col">
-      <h4>Link rapidi</h4>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="contatti.html">Contatti</a></li>
-      </ul>
+    <div class="project-card">
+      <img src="assets/project3.jpg" alt="Progetto 3">
+      <div class="project-info">
+        <h3>Progetto 3</h3>
+        <p>Descrizione accurata del progetto 3.</p>
+        <a href="#" class="btn-golden">Visita il progetto</a>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Contatti</h4>
-      <ul>
-        <li><a href="mailto:info@tobia.me">Email: info@tobia.me</a></li>
-        <li><a href="tel:+393791128232">Tel: +39 379 112 8232</a></li>
-      </ul>
+    <div class="project-card">
+      <img src="assets/project4.jpg" alt="Progetto 4">
+      <div class="project-info">
+        <h3>Progetto 4</h3>
+        <p>Descrizione accurata del progetto 4.</p>
+        <a href="#" class="btn-golden">Visita il progetto</a>
+      </div>
     </div>
-    <div class="footer-bottom">© 2025 tobia.me — Tutti i diritti riservati</div>
-  </footer>
+  </div>
+</main>
 
 <script>
-  // Fade-up progressivo
-  const faders = document.querySelectorAll('.project-card, .about, .contact-cta');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-  faders.forEach(el => observer.observe(el));
+const faders = document.querySelectorAll('.project-card');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+faders.forEach(el => observer.observe(el));
 </script>
 
 </body>
