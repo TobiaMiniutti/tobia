@@ -427,6 +427,23 @@
     appearOnScroll.observe(fader);
   });
 </script>
+
+<script>
+  // Seleziona tutti gli elementi con classe .fade-up o .hero-content
+  const faders = document.querySelectorAll('.fade-up, .hero-content');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // animazione una sola volta
+      }
+    });
+  }, { threshold: 0.2 });
+
+  faders.forEach(el => observer.observe(el));
+</script>
+
   
 </body>
 </html>
