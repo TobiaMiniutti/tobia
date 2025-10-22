@@ -9,20 +9,21 @@
 
 <style>
 :root {
-  --carbon: #121212;
-  --carbon-deep: #0d0d0d;
+  --carbon: #0b0b0b;
+  --carbon-deep: #070707;
   --golden: #c9a74c;
+  --golden-light: #f3d97a;
   --anthracite: #b3b3b3;
   --white: #ffffff;
-  --transition: 0.3s ease-in-out;
-  --border-radius: 20px;
+  --transition: 0.35s ease-in-out;
+  --radius: 18px;
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
 
 body {
   font-family: 'Outfit', sans-serif;
-  background-color: var(--carbon);
+  background: linear-gradient(180deg, var(--carbon) 0%, var(--carbon-deep) 100%);
   color: var(--white);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -42,40 +43,61 @@ header {
   box-shadow: 0 2px 25px rgba(0,0,0,0.85);
 }
 .logo { height:42px; filter: drop-shadow(0 0 1.5px rgba(0,0,0,0.6)); }
-nav a { color: var(--white); text-decoration:none; font-weight:600; margin-left:2.5rem; font-size:1rem; position:relative; transition: color var(--transition); }
-nav a::after { content:""; position:absolute; bottom:0; left:0; width:0; height:3px; background: linear-gradient(90deg, #008C45, #F4F5F0, #CD212A); border-radius:3px 3px 0 0; transition: width var(--transition); }
-nav a:hover::after, nav a:focus-visible::after { width:100%; }
-nav a:hover, nav a:focus-visible { color: var(--golden); outline:none; }
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 2.5rem;
+  font-size: 1rem;
+  position: relative;
+  transition: color var(--transition);
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #008C45, #F4F5F0, #CD212A);
+  border-radius: 3px 3px 0 0;
+  transition: width var(--transition);
+}
+nav a:hover::after, nav a:focus-visible::after { width: 100%; }
+nav a:hover, nav a:focus-visible { color: var(--golden); outline: none; }
 
 /* Main */
 main {
-  max-width: 900px;
+  max-width: 850px;
   margin: auto;
-  padding: 6rem 2rem;
+  padding: 6rem 2rem 5rem;
   text-align: center;
 }
 
 h2.section-title {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   color: var(--golden);
-  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  margin-bottom: 1.2rem;
 }
 
 p.section-desc {
   color: var(--anthracite);
-  font-size: 1.1rem;
-  margin-bottom: 3rem;
+  font-size: 1.15rem;
+  margin-bottom: 3.2rem;
 }
 
-/* Contact Form */
+/* Form */
 form {
-  background: var(--carbon-deep);
-  padding: 2.5rem;
-  border-radius: var(--border-radius);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  background: rgba(255,255,255,0.03);
+  padding: 2.8rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow: 0 8px 35px rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.8rem;
   transform: translateY(30px);
   opacity: 0;
   transition: transform 0.8s ease, opacity 0.8s ease;
@@ -85,42 +107,57 @@ form.visible { transform: translateY(0); opacity: 1; }
 input, textarea {
   width: 100%;
   padding: 1rem 1.2rem;
-  border: 2px solid rgba(201,167,76,0.4);
+  border: 2px solid rgba(201,167,76,0.25);
   border-radius: 12px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.02);
   color: var(--white);
   font-size: 1rem;
-  transition: border var(--transition), background var(--transition);
+  transition: all var(--transition);
 }
 input:focus, textarea:focus {
   outline: none;
-  border-color: var(--golden);
-  background: rgba(255,255,255,0.05);
+  border-color: var(--golden-light);
+  box-shadow: 0 0 15px rgba(201,167,76,0.25);
+  background: rgba(255,255,255,0.04);
 }
 
-textarea { resize: vertical; min-height: 150px; }
+textarea { resize: vertical; min-height: 160px; }
 
 button {
-  padding: 1rem 2.2rem;
-  background: transparent;
-  border: 2px solid var(--golden);
-  color: var(--golden);
+  padding: 1rem 2.3rem;
+  background: linear-gradient(90deg, var(--golden) 0%, var(--golden-light) 100%);
+  border: none;
+  color: var(--carbon);
+  font-weight: 700;
   border-radius: 50px;
-  font-weight: 600;
   font-size: 1rem;
+  letter-spacing: 0.4px;
   cursor: pointer;
   transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
 }
+button::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255,255,255,0.4);
+  transform: skewX(-25deg);
+  transition: 0.6s;
+}
+button:hover::before { left: 130%; }
 button:hover {
-  background: var(--golden);
-  color: var(--carbon);
-  box-shadow: 0 0 20px rgba(201,167,76,0.4);
+  box-shadow: 0 0 25px rgba(201,167,76,0.4);
+  transform: translateY(-2px);
 }
 
 .status {
   margin-top: 1rem;
   font-size: 0.95rem;
   color: var(--anthracite);
+  min-height: 20px;
 }
 
 /* Footer */
@@ -140,6 +177,10 @@ footer a {
 }
 footer a:hover { color: var(--white); }
 
+@media (max-width: 600px) {
+  h2.section-title { font-size: 2rem; }
+  form { padding: 2rem; }
+}
 </style>
 </head>
 
@@ -156,7 +197,7 @@ footer a:hover { color: var(--white); }
 
 <main>
   <h2 class="section-title">Contattami</h2>
-  <p class="section-desc">Hai un progetto, una collaborazione o una proposta? Scrivimi direttamente da qui.</p>
+  <p class="section-desc">Raccontami la tua idea, un progetto o una collaborazione. Ti risponderò il prima possibile.</p>
 
   <form id="contactForm">
     <input type="text" name="nome" placeholder="Il tuo nome" required />
@@ -172,7 +213,7 @@ footer a:hover { color: var(--white); }
 </footer>
 
 <script>
-// Fade-in animazione
+// Fade-in del form
 const form = document.querySelector('form');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -184,7 +225,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 observer.observe(form);
 
-// Invio form via webhook Make
+// Invia form via Make webhook
 document.getElementById("contactForm").addEventListener("submit", async function(e){
   e.preventDefault();
   const status = document.getElementById("status");
@@ -203,9 +244,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
       status.style.color = "var(--golden)";
       status.textContent = "Messaggio inviato con successo!";
       this.reset();
-    } else {
-      throw new Error();
-    }
+    } else throw new Error();
   } catch {
     status.style.color = "#ff4444";
     status.textContent = "Errore durante l'invio. Riprova.";
