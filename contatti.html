@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contatti | Tobia Miniutti</title>
+<link rel="icon" href="favicon.png" type="image/png" />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --carbon: #121212;
+  --carbon-deep: #0d0d0d;
+  --golden: #c9a74c;
+  --anthracite: #b3b3b3;
+  --white: #ffffff;
+  --transition: 0.3s ease-in-out;
+  --border-radius: 20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--carbon);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+header {
+  backdrop-filter: blur(14px);
+  background: rgba(255 255 255 / 0.05);
+  padding: 1.3rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+  box-shadow: 0 2px 25px rgba(0,0,0,0.85);
+}
+.logo { height:42px; filter: drop-shadow(0 0 1.5px rgba(0,0,0,0.6)); }
+nav a { color: var(--white); text-decoration:none; font-weight:600; margin-left:2.5rem; font-size:1rem; position:relative; transition: color var(--transition); }
+nav a::after { content:""; position:absolute; bottom:0; left:0; width:0; height:3px; background: linear-gradient(90deg, #008C45, #F4F5F0, #CD212A); border-radius:3px 3px 0 0; transition: width var(--transition); }
+nav a:hover::after, nav a:focus-visible::after { width:100%; }
+nav a:hover, nav a:focus-visible { color: var(--golden); outline:none; }
+
+/* Main */
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+h2.section-title {
+  font-size: 2.4rem;
+  color: var(--golden);
+  margin-bottom: 1.5rem;
+}
+
+p.section-desc {
+  color: var(--anthracite);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+/* Contact Form */
+form {
+  background: var(--carbon-deep);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+form.visible { transform: translateY(0); opacity: 1; }
+
+input, textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 2px solid rgba(201,167,76,0.4);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  color: var(--white);
+  font-size: 1rem;
+  transition: border var(--transition), background var(--transition);
+}
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--golden);
+  background: rgba(255,255,255,0.05);
+}
+
+textarea { resize: vertical; min-height: 150px; }
+
+button {
+  padding: 1rem 2.2rem;
+  background: transparent;
+  border: 2px solid var(--golden);
+  color: var(--golden);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+button:hover {
+  background: var(--golden);
+  color: var(--carbon);
+  box-shadow: 0 0 20px rgba(201,167,76,0.4);
+}
+
+.status {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--anthracite);
+}
+
+/* Footer */
+footer {
+  background: rgba(255,255,255,0.04);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--anthracite);
+  margin-top: 5rem;
+}
+footer a {
+  color: var(--golden);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+footer a:hover { color: var(--white); }
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html"><img src="favicon.png" alt="Logo miniutti.it" class="logo" /></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contatti.html" aria-current="page">Contatti</a>
+  </nav>
+</header>
+
+<main>
+  <h2 class="section-title">Contattami</h2>
+  <p class="section-desc">Hai un progetto, una collaborazione o una proposta? Scrivimi direttamente da qui.</p>
+
+  <form id="contactForm">
+    <input type="text" name="nome" placeholder="Il tuo nome" required />
+    <input type="email" name="email" placeholder="La tua email" required />
+    <textarea name="messaggio" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+    <button type="submit">Invia messaggio</button>
+    <div class="status" id="status"></div>
+  </form>
+</main>
+
+<footer>
+  <p>© 2025 Tobia Miniutti — Tutti i diritti riservati</p>
+</footer>
+
+<script>
+// Fade-in animazione
+const form = document.querySelector('form');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+observer.observe(form);
+
+// Invio form via webhook Make
+document.getElementById("contactForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+  const status = document.getElementById("status");
+  status.textContent = "Invio in corso...";
+  try {
+    const res = await fetch("https://hook.eu2.make.com/lndbgsb8ujjcwdrrwrpcxuqimnx6tjid", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        nome: this.nome.value,
+        email: this.email.value,
+        messaggio: this.messaggio.value
+      })
+    });
+    if (res.ok) {
+      status.style.color = "var(--golden)";
+      status.textContent = "Messaggio inviato con successo!";
+      this.reset();
+    } else {
+      throw new Error();
+    }
+  } catch {
+    status.style.color = "#ff4444";
+    status.textContent = "Errore durante l'invio. Riprova.";
+  }
+});
+</script>
+
+</body>
+</html>
