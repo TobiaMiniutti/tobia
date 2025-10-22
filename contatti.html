@@ -235,9 +235,9 @@ document.getElementById("contactForm").addEventListener("submit", async function
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        nome: this.nome.value,
+        name: this.nome.value,
         email: this.email.value,
-        messaggio: this.messaggio.value
+        message: this.messaggio.value
       })
     });
     if (res.ok) {
