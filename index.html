@@ -1,7 +1,111 @@
 <!DOCTYPE html>
 <html lang="it">
+
   
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="c37c9760-3506-4b81-a2ec-fa0c3b1b5566"  type="text/javascript"></script>
+<link rel="stylesheet" id="silktide-consent-manager-css" href="path-to-css/silktide-consent-manager.css">
+<script src="path-to-js/silktide-consent-manager.js"></script>
+<script>
+silktideCookieBannerManager.updateCookieBannerConfig({
+  background: {
+    showBackground: true
+  },
+  cookieIcon: {
+    position: "bottomLeft"
+  },
+  cookieTypes: [
+    {
+      id: "necessari",
+      name: "Necessari",
+      description: "<p>Questi cookie sono essenziali per il funzionamento del sito e non possono essere disattivati nei nostri sistemi.<br data-start=\"1313\" data-end=\"1316\">\nVengono impostati solo in risposta ad azioni da te compiute, come la gestione delle impostazioni sulla privacy, l’accesso o la compilazione di moduli.<br data-start=\"1466\" data-end=\"1469\">\n<span data-start=\"1469\" data-end=\"1488\">Base giuridica:</span> legittimo interesse (art. 6, par. 1, lett. f GDPR).</p>",
+      required: true,
+      onAccept: function() {
+        console.log('Add logic for the required Necessari here');
+      }
+    },
+    {
+      id: "analisi",
+      name: "Analisi",
+      description: "<p>Ci permettono di comprendere come gli utenti interagiscono con il sito, in modo anonimo e aggregato.<br data-start=\"1687\" data-end=\"1690\">\nUtilizziamo strumenti di analisi (Google Analytics) per migliorare contenuti e funzionalità.<br data-start=\"1806\" data-end=\"1809\">\n<span data-start=\"1809\" data-end=\"1828\">Base giuridica:</span> consenso (art. 6, par. 1, lett. a GDPR).</p>",
+      required: false,
+      onAccept: function() {
+        gtag('consent', 'update', {
+          analytics_storage: 'granted',
+        });
+        dataLayer.push({
+          'event': 'consent_accepted_analisi',
+        });
+      },
+      onReject: function() {
+        gtag('consent', 'update', {
+          analytics_storage: 'denied',
+        });
+      }
+    },
+    {
+      id: "preferenze",
+      name: "Preferenze",
+      description: "<p>Consentono al sito di ricordare le tue scelte (come lingua o area geografica) e offrire funzionalità personalizzate.<br data-start=\"2023\" data-end=\"2026\">\n<span data-start=\"2026\" data-end=\"2045\">Base giuridica:</span> consenso (art. 6, par. 1, lett. a GDPR).</p>",
+      required: false,
+      onAccept: function() {
+        gtag('consent', 'update', {
+          functionality_storage: 'granted',
+        });
+        dataLayer.push({
+          'event': 'consent_accepted_preferenze',
+        });
+      },
+      onReject: function() {
+        gtag('consent', 'update', {
+          functionality_storage: 'denied',
+        });
+      }
+    },
+    {
+      id: "marketing",
+      name: "Marketing",
+      description: "Questi cookie vengono utilizzati, previo tuo consenso, per mostrarti contenuti e annunci pertinenti ai tuoi interessi, anche su siti di terze parti.<br data-start=\"2284\" data-end=\"2287\">\nLe informazioni possono essere condivise con partner pubblicitari per creare un profilo basato sulle tue preferenze.<br data-start=\"2403\" data-end=\"2406\">\n<span data-start=\"2406\" data-end=\"2425\">Base giuridica:</span> consenso (art. 6, par. 1, lett. a GDPR).",
+      required: false,
+      onAccept: function() {
+        gtag('consent', 'update', {
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted',
+        });
+        dataLayer.push({
+          'event': 'consent_accepted_marketing',
+        });
+      },
+      onReject: function() {
+        gtag('consent', 'update', {
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+        });
+      }
+    }
+  ],
+  text: {
+    banner: {
+      description: "<p>We use cookies on our site to enhance your user experience, provide personalized content, and analyze our traffic. <a href=\"https://your-website.com/cookie-policy\" target=\"_blank\">Cookie Policy.</a></p>",
+      acceptAllButtonText: "Accetta tutti",
+      acceptAllButtonAccessibleLabel: "Accetta tutti i cookie",
+      rejectNonEssentialButtonText: "Rifiuta non necessari",
+      rejectNonEssentialButtonAccessibleLabel: "Rifiuta i non necessari",
+      preferencesButtonText: "Preferenze",
+      preferencesButtonAccessibleLabel: "Preferenze"
+    },
+    preferences: {
+      title: "Gestisci le tue preferenze sui cookie ",
+      description: "<p>Puoi scegliere se consentire o meno determinati tipi di cookie. Le preferenze che imposti verranno applicate in modo coerente durante la tua navigazione sul nostro sito.</p>",
+      creditLinkText: "www.tobia.me",
+      creditLinkAccessibleLabel: "www.tobia.me"
+    }
+  },
+  position: {
+    banner: "bottomCenter"
+  }
+});
+</script>
   
   
 <head>
