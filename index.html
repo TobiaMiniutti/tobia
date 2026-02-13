@@ -484,77 +484,84 @@
     }
 
     /* LOGO WALL (Certificazioni + Collaborazioni) */
-.logo-wall {
-  padding: 2.6rem;
-}
+    .logo-wall {
+      padding: 2.6rem;
+    }
 
-.logo-wall h2{
-  color: var(--golden);
-  font-size: clamp(1.7rem, 2.7vw, 2rem);
-  margin-bottom: 0.7rem;
-  line-height: 1.2;
-}
+    .logo-wall h2{
+      color: var(--golden);
+      font-size: clamp(1.7rem, 2.7vw, 2rem);
+      margin-bottom: 0.7rem;
+      line-height: 1.2;
+    }
 
-.logo-wall .intro{
-  color: var(--anthracite);
-  margin-bottom: 1.25rem;
-  max-width: 72ch;
-  line-height: 1.75;
-}
+    .logo-wall .intro{
+      color: var(--anthracite);
+      margin-bottom: 1.25rem;
+      max-width: 72ch;
+      line-height: 1.75;
+    }
 
-.logo-grid{
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.9rem;
-}
+    .logo-grid{
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
 
-@media (max-width: 920px){
-  .logo-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 520px){
-  .logo-grid{ grid-template-columns: 1fr; }
-}
+    @media (max-width: 920px){
+      .logo-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 520px){
+      .logo-grid{ grid-template-columns: 1fr; }
+    }
 
-.logo-item{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 86px;
-  padding: 0.95rem;
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(201, 167, 76, 0.18);
-  background: rgba(255,255,255,0.012);
-  transition: transform var(--transition), border-color var(--transition),
-              background var(--transition), box-shadow var(--transition);
-  overflow: hidden;
-}
+    .logo-item{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 86px;
+      padding: 0.95rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(201, 167, 76, 0.18);
+      background: rgba(255,255,255,0.012);
+      transition: transform var(--transition), border-color var(--transition),
+      background var(--transition), box-shadow var(--transition);
+      overflow: hidden;
+    }
 
-.logo-item:hover{
-  transform: translateY(-3px);
-  border-color: rgba(201, 167, 76, 0.38);
-  background: rgba(255,255,255,0.028);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.28),
+    .logo-item:hover{
+      transform: translateY(-3px);
+      border-color: rgba(201, 167, 76, 0.38);
+      background: rgba(255,255,255,0.028);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.28),
               0 0 0 1px rgba(201,167,76,0.08) inset;
-}
+    }
 
-.logo-item img{
-  max-width: 170px;
-  max-height: 46px;
-  width: auto;
-  height: auto;
-  opacity: 0.92;
-  filter: drop-shadow(0 0 1px rgba(0,0,0,0.55));
-}
+    .logo-item img{
+      max-width: 170px;
+      max-height: 46px;
+      width: auto;
+      height: auto;
+      opacity: 0.92;
+      filter: drop-shadow(0 0 1px rgba(0,0,0,0.55));
+    }
 
-.logo-item:hover img{ opacity: 1; }
+    .logo-item:hover img{ opacity: 1; }
 
-.logo-item span{
-  color: var(--anthracite);
-  font-weight: 600;
-  letter-spacing: 0.2px;
-  text-align: center;
-  font-size: 0.98rem;
-}
+    .logo-item span{
+      color: var(--anthracite);
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      text-align: center;
+      font-size: 0.98rem;
+    }
+
+    .logo-item{ text-decoration: none; color: inherit; }
+    .logo-item:focus-visible{
+      outline: 2px solid rgba(201, 167, 76, 0.55);
+      outline-offset: 3px;
+    }
+
 
 
     /* FOOTER */
@@ -758,27 +765,28 @@
 <section class="logo-wall panel fade-up" aria-labelledby="certificazioni-title">
   <h2 id="certificazioni-title">Certificazioni</h2>
   <p class="intro">
-    Opero con certificazioni e coperture assicurative in regola, per lavorare in modo
-    sicuro e trasparente.
+    Opero con certificazioni e coperture assicurative in regola, per lavorare in modo sicuro e trasparente.
   </p>
 
   <div class="logo-grid" role="list" aria-label="Loghi certificazioni">
-    <!-- Consiglio: metti PNG/SVG puliti (sfondo trasparente). -->
-    <div class="logo-item" role="listitem">
-      <img src="assets/logos/patentino-a1a3.png" alt="Patentino drone A1-A3">
+    <!-- A1-A3 -->
+    <div class="logo-item" role="listitem" title="Patentino Drone A1-A3">
+      <img src="assets/logos/cert-a1a3.svg" alt="Patentino Drone A1-A3">
     </div>
 
-    <div class="logo-item" role="listitem">
-      <img src="assets/logos/coverdrone.png" alt="Assicurazione Coverdrone">
+    <!-- CoverDrone Professionale -->
+    <div class="logo-item" role="listitem" title="Assicurazione CoverDrone Professionale">
+      <img src="assets/logos/cert-coverdrone-pro.svg" alt="Assicurazione CoverDrone Professionale">
     </div>
 
-    <!-- Placeholder se non hai ancora i loghi -->
-    <div class="logo-item" role="listitem">
-      <span>Operatore UAS (QR / registrazione)</span>
+    <!-- Codice Operatore (placeholder) -->
+    <div class="logo-item" role="listitem" title="Codice Operatore UAS (in arrivo)">
+      <img src="assets/logos/cert-operatore-blank.svg" alt="Codice Operatore UAS (in arrivo)">
     </div>
 
-    <div class="logo-item" role="listitem">
-      <span>Privacy / liberatorie su richiesta</span>
+    <!-- Privacy / Liberatorie -->
+    <div class="logo-item" role="listitem" title="Privacy & Liberatorie su richiesta">
+      <img src="assets/logos/cert-privacy.svg" alt="Privacy e liberatorie su richiesta">
     </div>
   </div>
 </section>
@@ -791,24 +799,21 @@
   </p>
 
   <div class="logo-grid" role="list" aria-label="Loghi collaborazioni e clienti">
-    <!-- Esempi: sostituisci con i tuoi -->
-    <div class="logo-item" role="listitem">
-      <img src="assets/logos/cliente-1.png" alt="Logo Cliente 1">
-    </div>
+    <!-- ESEMPIO cliccabile: sostituisci in futuro con brand reali -->
+    <a class="logo-item" role="listitem"
+       href="https://tobia.me"
+       target="_blank" rel="noopener"
+       title="Visita tobia.me">
+      <img src="assets/logos/collab-tobia-me.svg" alt="tobia.me">
+    </a>
 
-    <div class="logo-item" role="listitem">
-      <img src="assets/logos/cliente-2.png" alt="Logo Cliente 2">
-    </div>
-
-    <div class="logo-item" role="listitem">
-      <span>Cliente abituale</span>
-    </div>
-
-    <div class="logo-item" role="listitem">
-      <span>Partner creativo</span>
-    </div>
+    <!-- placeholder pronti -->
+    <div class="logo-item" role="listitem"><span>Cliente abituale</span></div>
+    <div class="logo-item" role="listitem"><span>Partner creativo</span></div>
+    <div class="logo-item" role="listitem"><span>Collaborazione</span></div>
   </div>
 </section>
+
 
 
     <section class="contact-cta fade-up" aria-labelledby="cta-title">
