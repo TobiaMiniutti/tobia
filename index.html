@@ -135,13 +135,20 @@
       width: 100%;
     }
 
-    /* Quando passi su altre voci, nasconde l'underline della pagina attuale */
+    nav a[aria-current="page"] {
+      color: var(--golden);
+    }
+
+
+    /* Mantieni underline su pagina corrente.
+       Lo nascondi solo se hover/focus è su una voce DIVERSA */
     @supports selector(nav:has(a:hover)) {
-      nav:has(a:hover) a[aria-current="page"]::after,
-      nav:has(a:focus-visible) a[aria-current="page"]::after {
+      nav:has(a:hover:not([aria-current="page"])) a[aria-current="page"]::after,
+      nav:has(a:focus-visible:not([aria-current="page"])) a[aria-current="page"]::after {
         width: 0;
       }
     }
+
 
 
     /* HERO */
@@ -358,7 +365,7 @@
     }
 
     .service-card {
-      border: 1px solid var(--line);
+      border: 1px solid rgba(201, 167, 76, 0.24); /* oro leggero */
       border-radius: var(--radius-lg);
       padding: 1.05rem 1.05rem 1rem;
       background: rgba(255,255,255,0.015);
@@ -368,29 +375,20 @@
 
     .service-card:hover {
       transform: translateY(-3px);
-      border-color: var(--line-strong);
+      border-color: rgba(201, 167, 76, 0.42);
       background: rgba(255,255,255,0.03);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.28), 0 0 0 1px rgba(201,167,76,0.08) inset;
     }
 
     .service-card h3 {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
       font-size: 1.04rem;
       margin-bottom: 0.5rem;
       color: var(--white);
       line-height: 1.3;
     }
 
-    .service-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--golden);
-      box-shadow: 0 0 10px rgba(201,167,76,0.6);
-      flex: 0 0 7px;
-    }
+    .service-dot { display: none; }
+
 
     .service-card p {
       color: var(--anthracite);
