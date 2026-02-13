@@ -203,6 +203,61 @@
       .about img { width:100%; max-width:400px; }
       nav a { margin-left:1rem; }
     }
+
+    .services {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.services h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.services-intro {
+  opacity: 0.9;
+  margin-bottom: 28px;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.service-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.service-card h3 {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.service-card p {
+  opacity: 0.88;
+  line-height: 1.55;
+}
+
+@media (max-width: 820px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -237,24 +292,34 @@
       </div>
     </section>
 
-    <section class="about fade-up">
-      <img src="assets/services.jpg" alt="Servizi video di Tobia Miniutti">
-      <div class="about-text">
-        <h2>Cosa offro</h2>
-        <p>Servizi video professionali per privati, feste, eventi e realtà aziendali.</p>
+    <section class="services fade-up">
+  <h2>Cosa offro</h2>
+  <p class="services-intro">
+    Creo contenuti video per privati, eventi e attività, con riprese da terra e da aria.
+  </p>
 
-        <ul>
-          <li>Riprese video da terra con attrezzatura professionale</li>
-          <li>Riprese aeree con drone DJI Air 3S</li>
-          <li>Video per feste private, cerimonie ed eventi</li>
-          <li>Contenuti video per attività, brand e aziende</li>
-          <li>Montaggio e post-produzione curata nei dettagli</li>
-          <li>Consegna in formato ottimizzato per social e web</li>
-          <li>Contatto diretto e supporto durante tutto il progetto</li>
-        </ul>
-      </div>
-    </section>
+  <div class="services-grid">
+    <article class="service-card">
+      <h3>Riprese da terra</h3>
+      <p>Scene dinamiche, dettagli e inquadrature pulite per raccontare al meglio ogni progetto.</p>
+    </article>
 
+    <article class="service-card">
+      <h3>Riprese aeree</h3>
+      <p>Riprese drone con DJI Air 3S per dare più impatto e profondità al video.</p>
+    </article>
+
+    <article class="service-card">
+      <h3>Montaggio video</h3>
+      <p>Editing curato, ritmo giusto e resa finale pronta per social, web o uso personale.</p>
+    </article>
+
+    <article class="service-card">
+      <h3>Collaborazione diretta</h3>
+      <p>Contatto semplice e continuo: ascolto le tue idee e le trasformo in un risultato concreto.</p>
+    </article>
+  </div>
+</section>
 
     <section id="portfolio" class="fade-up">
       <h2 class="section-title">I miei lavori</h2>
