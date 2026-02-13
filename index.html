@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
-  
 <head>
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>tobia.me | Portfolio</title>
@@ -43,7 +41,11 @@
       box-shadow: 0 2px 25px rgba(0,0,0,0.85);
     }
 
-    .logo { height:42px; filter: drop-shadow(0 0 1.5px rgba(0,0,0,0.6)); user-select:none; }
+    .logo {
+      height:42px;
+      filter: drop-shadow(0 0 1.5px rgba(0,0,0,0.6));
+      user-select:none;
+    }
 
     nav a {
       position: relative;
@@ -107,8 +109,17 @@
 
     .hero-content.visible { opacity:1; transform:translateY(0); }
 
-    .hero-content h1 { font-size:3rem; color:var(--golden); margin-bottom:1rem; }
-    .hero-content p { font-size:1.2rem; color:var(--anthracite); margin-bottom:2rem; }
+    .hero-content h1 {
+      font-size:3rem;
+      color:var(--golden);
+      margin-bottom:1rem;
+    }
+
+    .hero-content p {
+      font-size:1.2rem;
+      color:var(--anthracite);
+      margin-bottom:2rem;
+    }
 
     .btn-golden {
       display:inline-block;
@@ -129,12 +140,21 @@
 
     main { max-width:1100px; margin:auto; padding:5rem 2rem; }
     section { margin-bottom:5rem; }
-    h2.section-title { font-size:2.4rem; color:var(--golden); text-align:center; margin-bottom:2rem; }
+    h2.section-title {
+      font-size:2.4rem;
+      color:var(--golden);
+      text-align:center;
+      margin-bottom:2rem;
+    }
 
-    .fade-up { opacity:0; transform:translateY(30px); transition: opacity 1.2s ease, transform 1.2s ease; }
+    .fade-up {
+      opacity:0;
+      transform:translateY(30px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
     .fade-up.visible { opacity:1; transform:translateY(0); }
 
-    /* Progetti uniformi */
+    /* Progetti */
     .projects-grid {
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
@@ -156,23 +176,118 @@
 
     .project-card:hover { transform: translateY(-5px); }
 
-    .project-card img { width:100%; display:block; object-fit:cover; height:200px; }
-    .project-info { padding:1.6rem; display:flex; flex-direction:column; flex:1; }
-
-    .project-info h3 { color:var(--golden); font-size:1.4rem; margin-bottom:0.8rem; }
-    .project-info p { color:var(--anthracite); font-size:1rem; line-height:1.6; margin-bottom:1.4rem; flex:1; }
-
-    /* About e CTA */
-    .about {
-      display:flex; flex-wrap:wrap; align-items:center; gap:2rem;
-      background:var(--carbon-deep); border-radius:20px;
-      padding:3rem; box-shadow:0 10px 40px rgba(0,0,0,0.4);
+    .project-card img {
+      width:100%;
+      display:block;
+      object-fit:cover;
+      height:200px;
     }
-    .about img { width:320px; border-radius:20px; }
-    .about-text { flex:1; }
-    .about-text h2 { color:var(--golden); margin-bottom:1rem; }
-    .about-text p { color:var(--anthracite); line-height:1.6; margin-bottom:1.5rem; }
 
+    .project-info {
+      padding:1.6rem;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+
+    .project-info h3 {
+      color:var(--golden);
+      font-size:1.4rem;
+      margin-bottom:0.8rem;
+    }
+
+    .project-info p {
+      color:var(--anthracite);
+      font-size:1rem;
+      line-height:1.6;
+      margin-bottom:1.4rem;
+      flex:1;
+    }
+
+    /* About */
+    .about {
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:2rem;
+      background:var(--carbon-deep);
+      border-radius:20px;
+      padding:3rem;
+      box-shadow:0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .about img { width:320px; border-radius:20px; }
+
+    .about-text { flex:1; }
+
+    .about-text h2 {
+      color:var(--golden);
+      margin-bottom:1rem;
+      font-size:2rem;
+      line-height:1.2;
+    }
+
+    .about-text p {
+      color:var(--anthracite);
+      line-height:1.7;
+      margin-bottom:1.5rem;
+    }
+
+    /* Services - coerente con About */
+    .services {
+      background: var(--carbon-deep);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .services h2 {
+      color: var(--golden);
+      font-size: 2rem;
+      margin-bottom: 0.9rem;
+      line-height: 1.2;
+    }
+
+    .services-intro {
+      color: var(--anthracite);
+      margin-bottom: 1.8rem;
+      max-width: 760px;
+      line-height: 1.7;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .service-card {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 1.15rem 1.1rem;
+      background: rgba(255, 255, 255, 0.02);
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .service-card h3 {
+      margin-bottom: 0.55rem;
+      font-size: 1.05rem;
+      color: var(--white);
+    }
+
+    .service-card p {
+      color: var(--anthracite);
+      line-height: 1.6;
+      font-size: 0.98rem;
+    }
+
+    /* CTA */
     .contact-cta {
       text-align:center;
       padding:4rem 2rem;
@@ -180,9 +295,11 @@
       border-radius:20px;
       box-shadow:0 5px 30px rgba(0,0,0,0.5);
     }
+
     .contact-cta h2 { color:var(--golden); margin-bottom:1rem; }
     .contact-cta p { color:var(--anthracite); margin-bottom:2rem; }
 
+    /* Footer */
     footer {
       background:var(--carbon-deep);
       padding:3rem 2rem;
@@ -191,79 +308,47 @@
       gap:2rem;
       border-top:1px solid rgba(255,255,255,0.05);
     }
+
     .footer-col h4 { color:var(--golden); margin-bottom:1rem; }
+
     .footer-col ul { list-style:none; }
+
     .footer-col ul li { margin:0.6rem 0; }
-    .footer-col ul li a { color:var(--anthracite); text-decoration:none; transition:var(--transition); }
+
+    .footer-col ul li a {
+      color:var(--anthracite);
+      text-decoration:none;
+      transition:var(--transition);
+    }
+
     .footer-col ul li a:hover { color:var(--white); }
-    .footer-bottom { grid-column:1 / -1; text-align:center; margin-top:2rem; font-size:0.9rem; color:var(--anthracite); }
+
+    .footer-bottom {
+      grid-column:1 / -1;
+      text-align:center;
+      margin-top:2rem;
+      font-size:0.9rem;
+      color:var(--anthracite);
+    }
+
+    @media (max-width: 900px) {
+      .about, .services { padding: 2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+    }
 
     @media(max-width:768px) {
       .about { flex-direction:column; text-align:center; }
       .about img { width:100%; max-width:400px; }
       nav a { margin-left:1rem; }
+      .hero-content h1 { font-size: 2.4rem; }
+      .hero-content p { font-size: 1.05rem; }
     }
-
-    .services {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 80px 24px;
-}
-
-.services h2 {
-  font-size: 2rem;
-  margin-bottom: 12px;
-}
-
-.services-intro {
-  opacity: 0.9;
-  margin-bottom: 28px;
-  max-width: 700px;
-  line-height: 1.6;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.service-card {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-  padding: 18px;
-  background: rgba(255, 255, 255, 0.02);
-  transition: transform .2s ease, border-color .2s ease, background .2s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.service-card h3 {
-  margin-bottom: 8px;
-  font-size: 1.05rem;
-}
-
-.service-card p {
-  opacity: 0.88;
-  line-height: 1.55;
-}
-
-@media (max-width: 820px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
   </style>
 </head>
 <body>
 
   <header>
-    <a href="index.html"><img src="favicon.png" alt="Logo miniutti.it" class="logo" /></a>
+    <a href="index.html"><img src="favicon.png" alt="Logo tobia.me" class="logo" /></a>
     <nav>
       <a href="index.html" aria-current="page">Home</a>
       <a href="portfolio.html">Portfolio</a>
@@ -284,42 +369,46 @@
       <img src="assets/profile.jpg" alt="Tobia Miniutti">
       <div class="about-text">
         <h2>Chi sono</h2>
-        <p>Sono Tobia, fotografo videomaker di Bologna.  
-        Offro servizi video professionali per privati, feste, eventi e realtà aziendali.
-
-        Ogni lavoro è seguito con attenzione in tutte le fasi: idea iniziale, riprese e montaggio finale.
-        Per me non conta solo il risultato visivo, ma anche il percorso: mantengo un contatto diretto con il cliente, ascolto le esigenze e costruisco un video coerente con lo stile e l’obiettivo richiesto.</p>
+        <p>
+          Sono Tobia, fotografo e videomaker di Bologna.
+          Offro servizi video professionali per privati, feste, eventi e realtà aziendali.
+        </p>
+        <p>
+          Ogni lavoro è seguito con attenzione in tutte le fasi: idea iniziale, riprese e montaggio finale.
+          Per me non conta solo il risultato visivo, ma anche il percorso: mantengo un contatto diretto con il cliente,
+          ascolto le esigenze e costruisco un video coerente con lo stile e l’obiettivo richiesto.
+        </p>
       </div>
     </section>
 
     <section class="services fade-up">
-  <h2>Cosa offro</h2>
-  <p class="services-intro">
-    Creo contenuti video per privati, eventi e attività, con riprese da terra e da aria.
-  </p>
+      <h2>Cosa offro</h2>
+      <p class="services-intro">
+        Creo contenuti video per privati, eventi e attività, con riprese da terra e da aria.
+      </p>
 
-  <div class="services-grid">
-    <article class="service-card">
-      <h3>Riprese da terra</h3>
-      <p>Scene dinamiche, dettagli e inquadrature pulite per raccontare al meglio ogni progetto.</p>
-    </article>
+      <div class="services-grid">
+        <article class="service-card">
+          <h3>Riprese da terra</h3>
+          <p>Scene dinamiche, dettagli e inquadrature pulite per raccontare al meglio ogni progetto.</p>
+        </article>
 
-    <article class="service-card">
-      <h3>Riprese aeree</h3>
-      <p>Riprese drone con DJI Air 3S per dare più impatto e profondità al video.</p>
-    </article>
+        <article class="service-card">
+          <h3>Riprese aeree</h3>
+          <p>Riprese drone con DJI Air 3S per dare più impatto e profondità al video.</p>
+        </article>
 
-    <article class="service-card">
-      <h3>Montaggio video</h3>
-      <p>Editing curato, ritmo giusto e resa finale pronta per social, web o uso personale.</p>
-    </article>
+        <article class="service-card">
+          <h3>Montaggio video</h3>
+          <p>Editing curato, ritmo giusto e resa finale pronta per social, web o uso personale.</p>
+        </article>
 
-    <article class="service-card">
-      <h3>Collaborazione diretta</h3>
-      <p>Contatto semplice e continuo: ascolto le tue idee e le trasformo in un risultato concreto.</p>
-    </article>
-  </div>
-</section>
+        <article class="service-card">
+          <h3>Collaborazione diretta</h3>
+          <p>Contatto semplice e continuo: ascolto le tue idee e le trasformo in un risultato concreto.</p>
+        </article>
+      </div>
+    </section>
 
     <section id="portfolio" class="fade-up">
       <h2 class="section-title">I miei lavori</h2>
@@ -329,15 +418,16 @@
           <div class="project-info">
             <h3>Progetto 1</h3>
             <p>Descrizione accurata del progetto 1.</p>
-            <a href="https://tobia.me/portfolio" target="_blank" class="btn-golden">Visita il progetto</a>
+            <a href="https://tobia.me/portfolio" target="_blank" rel="noopener" class="btn-golden">Visita il progetto</a>
           </div>
         </div>
+
         <div class="project-card">
           <img src="assets/project2.jpg" alt="Progetto 2">
           <div class="project-info">
             <h3>Progetto 2</h3>
             <p>Descrizione accurata del progetto 2.</p>
-            <a href="https://tobia.me/portfolio" target="_blank" class="btn-golden">Visita il progetto</a>
+            <a href="https://tobia.me/portfolio" target="_blank" rel="noopener" class="btn-golden">Visita il progetto</a>
           </div>
         </div>
       </div>
@@ -352,18 +442,19 @@
 
   <footer>
     <div class="footer-col">
-      <h4>Miniutti.it</h4>
-      <p>Portfolio fotografico di Tobia Miniutti — progetti, idee e sviluppo.</p>
+      <h4>tobia.me</h4>
+      <p>Portfolio fotografico e video di Tobia Miniutti — progetti, idee e sviluppo.</p>
     </div>
+
     <div class="footer-col">
       <h4>Link rapidi</h4>
       <ul>
-        <li><a href="https://www.iniutti.it">Portolio</a></li>
-        <li><a href="index.html">Home</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="contatti.html">Contatti</a></li>
       </ul>
     </div>
+
     <div class="footer-col">
       <h4>Contatti</h4>
       <ul>
@@ -371,12 +462,14 @@
         <li><a href="tel:+393791128232">Tel: +39 379 112 8232</a></li>
       </ul>
     </div>
+
     <div class="footer-bottom">© 2025 tobia.me — Tutti i diritti riservati</div>
   </footer>
 
   <script>
     const faders = document.querySelectorAll('.fade-up, .hero-content');
     const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
@@ -384,6 +477,7 @@
         observer.unobserve(entry.target);
       });
     }, appearOptions);
+
     faders.forEach(fader => appearOnScroll.observe(fader));
   </script>
 </body>
