@@ -1,174 +1,505 @@
 <!DOCTYPE html>
 <html lang="it">
-  
-  
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>tobia.me | Portfolio</title>
+  <meta name="description" content="Portfolio di Tobia Miniutti — videomaker a Bologna. Progetti video, riprese da terra e aeree." />
+  <meta name="theme-color" content="#121212" />
   <link rel="icon" href="favicon.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    :root {
-      --carbon: #121212;
-      --carbon-deep: #0d0d0d;
-      --golden: #c9a74c;
-      --anthracite: #b3b3b3;
-      --white: #ffffff;
-      --transition: 0.3s ease-in-out;
-      --border-radius: 20px;
+    :root{
+      --carbon:#121212;
+      --carbon-deep:#0d0d0d;
+      --surface:#141414;
+
+      --golden:#c9a74c;
+      --golden-soft: rgba(201, 167, 76, 0.18);
+
+      --anthracite:#b3b3b3;
+      --white:#ffffff;
+
+      --line: rgba(255,255,255,0.10);
+      --line-strong: rgba(255,255,255,0.20);
+
+      --shadow-xl: 0 14px 44px rgba(0,0,0,0.45);
+      --shadow-lg: 0 10px 30px rgba(0,0,0,0.35);
+
+      --radius-xl: 20px;
+      --radius-lg: 14px;
+
+      --transition: 0.28s ease;
+      --container: 1140px;
+      --header-h: 78px;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Outfit', sans-serif; background: var(--carbon); color: var(--white); overflow-x: hidden; }
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+
+    body{
+      font-family:'Outfit',sans-serif;
+      background:
+        radial-gradient(1200px 700px at 80% -10%, rgba(201,167,76,0.08), transparent 60%),
+        radial-gradient(800px 500px at -10% 30%, rgba(201,167,76,0.05), transparent 60%),
+        var(--carbon);
+      color:var(--white);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x:hidden;
+      line-height:1.6;
+    }
+
+    /* Accessibilità */
+    .skip-link{
+      position:absolute;
+      left:-999px;
+      top:10px;
+      background:var(--white);
+      color:#000;
+      padding:10px 14px;
+      border-radius:10px;
+      z-index:9999;
+      font-weight:600;
+    }
+    .skip-link:focus{ left:10px; }
+
+    a:focus-visible{
+      outline: 2px solid rgba(201, 167, 76, 0.65);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    /* Progress bar */
+    .scroll-progress{
+      position:fixed;
+      top:0; left:0;
+      width:0%;
+      height:2px;
+      z-index:1300;
+      background: linear-gradient(90deg, rgba(201,167,76,0.9), rgba(201,167,76,0.35));
+      box-shadow: 0 0 12px rgba(201,167,76,0.55);
+    }
 
     /* Navbar */
-    header {
+    header{
+      height: var(--header-h);
       backdrop-filter: blur(14px);
-      background: rgba(255 255 255 / 0.05);
-      padding: 1.3rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1100;
-      box-shadow: 0 2px 25px rgba(0, 0, 0, 0.85);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(12,12,12,0.58);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0 2rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1200;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.5);
     }
-    .logo { height: 42px; filter: drop-shadow(0 0 1.5px rgba(0,0,0,0.6)); user-select: none; }
-    nav a {
-      position: relative; color: var(--white); text-decoration: none; font-weight: 600; margin-left: 2.5rem;
-      padding-bottom: 4px; font-size: 1rem; transition: color var(--transition); cursor: pointer;
+
+    .logo{
+      height:40px;
+      width:auto;
+      user-select:none;
+      filter: drop-shadow(0 0 1.5px rgba(0,0,0,0.6));
     }
-    nav a::after {
-      content:""; position: absolute; bottom:0; left:0; width:0; height:3px;
-      background: linear-gradient(90deg, #008C45, #F4F5F0, #CD212A); border-radius:3px 3px 0 0;
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:1.8rem;
+    }
+
+    nav a{
+      position:relative;
+      color:var(--white);
+      text-decoration:none;
+      font-weight:600;
+      font-size:0.98rem;
+      padding-bottom:6px;
+      transition: color var(--transition);
+      outline:none;
+    }
+
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:0;
+      height:3px;
+      border-radius:3px 3px 0 0;
+      background: linear-gradient(90deg, #008C45, #F4F5F0, #CD212A);
       transition: width var(--transition);
     }
-    nav a:hover::after, nav a:focus-visible::after { width:100%; }
-    nav a:hover, nav a:focus-visible { color: var(--golden); outline:none; }
 
-    main { max-width: 1100px; margin:auto; padding:5rem 2rem; }
-    h2.section-title { font-size:2.4rem; color:var(--golden); text-align:center; margin-bottom:2rem; }
+    /* Stato attivo: underline sempre visibile */
+    nav a[aria-current="page"]{ color:var(--white); }
+    nav a[aria-current="page"]::after{ width:100%; }
 
-    /* Portfolio Grid */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.4rem;
+    /* Hover/focus: oro + underline */
+    nav a:hover,
+    nav a:focus-visible{ color:var(--golden); }
+
+    nav a:hover::after,
+    nav a:focus-visible::after{ width:100%; }
+
+    /* Hover su voce diversa: underline della corrente sparisce */
+    @supports selector(nav:has(a:hover)) {
+      nav:has(a:hover:not([aria-current="page"])) a[aria-current="page"]::after,
+      nav:has(a:focus-visible:not([aria-current="page"])) a[aria-current="page"]::after{
+        width:0;
+      }
     }
-    .project-card {
-      background: var(--carbon-deep); border-radius: 20px; overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5); transform: translateY(30px); opacity:0;
-      transition: transform 0.8s ease, opacity 0.8s ease;
-    }
-    .project-card.visible { transform: translateY(0); opacity:1; }
-    .project-card img { width:100%; height:200px; object-fit:cover; display:block; }
-    .project-info { padding:1.6rem; }
-    .project-info h3 { color: var(--golden); font-size:1.4rem; margin-bottom:0.8rem; }
-    .project-info p { color: var(--anthracite); font-size:1rem; line-height:1.6; margin-bottom:1.4rem; }
-    .btn-golden { display:inline-block; padding:0.85rem 2rem; border:2px solid var(--golden); border-radius:40px;
-      color: var(--golden); text-decoration:none; font-weight:600; transition: all var(--transition);}
-    .btn-golden:hover { background: var(--golden); color: var(--carbon); box-shadow:0 8px 20px rgba(201,167,76,0.5); }
 
-    /* Footer */
-    footer {
-      background: var(--carbon-deep); padding:3rem 2rem; display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:2rem; border-top:1px solid rgba(255,255,255,0.05);
+    /* Layout */
+    main{
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 5rem 2rem 5.5rem;
     }
-    .footer-col h4 { color: var(--golden); margin-bottom:1rem; }
-    .footer-col ul { list-style:none; }
-    .footer-col ul li { margin:0.6rem 0; }
-    .footer-col ul li a { color: var(--anthracite); text-decoration:none; transition: var(--transition); }
-    .footer-col ul li a:hover { color: var(--white); }
-    .footer-bottom { grid-column:1/-1; text-align:center; margin-top:2rem; font-size:0.9rem; color: var(--anthracite); }
 
-    @media (max-width: 768px) {
-      nav a { margin-left:1rem; }
+    main > section{
+      margin-bottom: 4.5rem;
+      scroll-margin-top: calc(var(--header-h) + 24px);
+      content-visibility:auto;
+      contain-intrinsic-size: 700px;
+    }
+
+    .section-title{
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: var(--golden);
+      text-align:center;
+      margin-bottom: 1.8rem;
+      line-height:1.2;
+    }
+
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Motion */
+    .fade-up{
+      opacity:0;
+      transform: translateY(24px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .fade-up.visible{
+      opacity:1;
+      transform: translateY(0);
+    }
+
+    /* Portfolio grid + cards */
+    .projects-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.4rem;
+      align-items: stretch;
+    }
+
+    .project-card{
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      min-height: 390px;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .project-card:hover{
+      transform: translateY(-4px);
+      border-color: var(--line-strong);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.46);
+    }
+
+    .project-media{
+      aspect-ratio: 16 / 10;
+      overflow:hidden;
+      border-bottom: 1px solid var(--line);
+      background: rgba(0,0,0,0.25);
+    }
+
+    .project-media img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      transition: transform 0.45s ease;
+    }
+
+    .project-card:hover .project-media img{
+      transform: scale(1.04);
+    }
+
+    /* iframe responsive dentro media */
+    .project-media iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
+    .project-info{
+      padding: 1.2rem 1.2rem 1.3rem;
+      display:flex;
+      flex-direction:column;
+      gap:0.7rem;
+      flex:1;
+    }
+
+    .project-info h3{
+      color: var(--golden);
+      font-size: 1.25rem;
+      line-height:1.25;
+    }
+
+    .project-info p{
+      color: var(--anthracite);
+      line-height:1.65;
+      flex:1;
+    }
+
+    .btn-golden{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding: 0.85rem 1.9rem;
+      border:2px solid var(--golden);
+      border-radius:999px;
+      color: var(--golden);
+      text-decoration:none;
+      font-weight:600;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+      will-change: transform;
+      width: fit-content;
+    }
+
+    .btn-golden:hover,
+    .btn-golden:focus-visible{
+      transform: translateY(-2px);
+      background: var(--golden);
+      color: var(--carbon);
+      box-shadow: 0 10px 24px rgba(201,167,76,0.38);
+      outline:none;
+    }
+
+    /* Footer (wrap coerente) */
+    footer{
+      background: var(--carbon-deep);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2.6rem 2rem 2rem;
+    }
+
+    .footer-wrap{
+      max-width: var(--container);
+      margin: 0 auto;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .footer-col h4{
+      color: var(--golden);
+      margin-bottom: 0.8rem;
+      font-size: 1.03rem;
+    }
+
+    .footer-col p,
+    .footer-col li,
+    .footer-col a{
+      color: var(--anthracite);
+      text-decoration:none;
+      line-height:1.7;
+    }
+
+    .footer-col ul{ list-style:none; }
+
+    .footer-col a:hover,
+    .footer-col a:focus-visible{
+      color: var(--white);
+      outline:none;
+    }
+
+    .footer-bottom{
+      max-width: var(--container);
+      margin: 1.8rem auto 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 1rem;
+      text-align:center;
+      color: var(--anthracite);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      header{ padding:0 1rem; }
+      nav{ gap:1rem; }
+      main{ padding: 4rem 1rem 4.5rem; }
+    }
+
+    @media (max-width: 640px){
+      :root{ --header-h: 72px; }
+      nav a{ font-size: 0.92rem; }
+      .project-info p{ line-height:1.7; }
+    }
+
+    /* Motion safety */
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      *, *::before, *::after{
+        animation:none !important;
+        transition:none !important;
+      }
+      .fade-up{ opacity:1 !important; transform:none !important; }
     }
   </style>
 </head>
+
 <body>
+  <a class="skip-link" href="#contenuto">Salta al contenuto</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
-<header>
-  <a href="index.html"><img src="favicon.png" alt="Logo miniutti.it" class="logo" /></a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="portfolio.html" aria-current="page">Portfolio</a>
-    <a href="contatti.html">Contatti</a>
-  </nav>
-</header>
+  <header>
+    <a href="index.html" aria-label="Torna alla home">
+      <img src="favicon.png" alt="Logo tobia.me" class="logo" />
+    </a>
 
-<main>
-  <section id="portfolio">
-    <h2 class="section-title">I miei lavori</h2>
-    <div class="projects-grid">
-      <div class="project-card"><iframe width="560" height="315" src="https://www.youtube.com/embed/GM1dVLFfNEg?si=lWUUeQSUrYaO3mx8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        <div class="project-info">
-          <h3>Colli by Air</h3>
-          <p>Riprese aeree sui colli di Bologna: strade panoramiche, colline e scorci sulla città visti dall’alto.
-Volo realizzato con DJI Air 3S, cercando movimenti fluidi e inquadrature pensate per valorizzare il paesaggio.
-</p>
-          <a href="https://youtu.be/GM1dVLFfNEg?si=lWUUeQSUrYaO3mx8o" target="_blank" class="btn-golden">Visita il progetto</a>
-        </div>
+    <nav aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html" aria-current="page">Portfolio</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+  </header>
+
+  <main id="contenuto">
+    <section id="portfolio" class="fade-up" aria-labelledby="portfolio-title">
+      <h2 id="portfolio-title" class="section-title">I miei lavori</h2>
+
+      <div class="projects-grid">
+        <!-- 1 -->
+        <article class="project-card panel fade-up">
+          <div class="project-media">
+            <iframe
+              src="https://www.youtube.com/embed/GM1dVLFfNEg?si=lWUUeQSUrYaO3mx8"
+              title="Colli by Air — YouTube"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="project-info">
+            <h3>Colli by Air</h3>
+            <p>
+              Riprese aeree sui colli di Bologna: strade panoramiche, colline e scorci sulla città visti dall’alto.
+              Volo realizzato con DJI Air 3S, con movimenti fluidi e inquadrature pensate per valorizzare il paesaggio.
+            </p>
+            <a class="btn-golden" href="https://youtu.be/GM1dVLFfNEg?si=lWUUeQSUrYaO3mx8" target="_blank" rel="noopener noreferrer">
+              Visita il progetto
+            </a>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="project-card panel fade-up">
+          <div class="project-media">
+            <img src="progetto_2.png" alt="Anteprima First car shooting" loading="lazy" decoding="async" />
+          </div>
+
+          <div class="project-info">
+            <h3>First car shooting</h3>
+            <p>
+              Primo shooting automobilistico: Aixam 721 Sport con modifiche estetiche. Video dedicato con tagli rapidi
+              e dettagli sul mezzo.
+            </p>
+            <a class="btn-golden" href="https://youtube.com/shorts/UdVv1yjxa_o" target="_blank" rel="noopener noreferrer">
+              Visita il progetto
+            </a>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="project-card panel fade-up">
+          <div class="project-media">
+            <img src="progetto_3.png" alt="Anteprima Progetto 3" loading="lazy" decoding="async" />
+          </div>
+
+          <div class="project-info">
+            <h3>Progetto 3</h3>
+            <p>Descrizione accurata del progetto 3.</p>
+            <a class="btn-golden" href="https://tobia.me/portfolio" target="_blank" rel="noopener noreferrer">
+              Visita il progetto
+            </a>
+          </div>
+        </article>
       </div>
-      <div class="project-card"><img src="progetto_2.png" alt="Progetto 2">
-        <div class="project-info">
-          <h3>First car shooting</h3>
-          <p>Il mio primo shooting automobilistico ha come protagonista un’Aixam 721 Sport. Il proprietario, dopo aver apportato alcune modifiche estetiche al mezzo, mi ha chiesto di realizzare uno shooting dedicato: puoi guardare il video cliccando il tasto qui sotto.</p>
-          <a href="https://youtube.com/shorts/UdVv1yjxa_o" target="_blank" class="btn-golden">Visita il progetto</a>
-        </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-wrap">
+      <div class="footer-col">
+        <h4>tobia.me</h4>
+        <p>Portfolio ufficiale di Tobia Miniutti — progetti, idee e sviluppo.</p>
       </div>
-      <div class="project-card"><img src="progetto_3.png" alt="Progetto 3">
-        <div class="project-info">
-          <h3>Progetto 3</h3>
-          <p>Descrizione accurata del progetto 3.</p>
-          <a href="https://miniutti.it/portfolio" target="_blank" class="btn-golden">Visita il progetto</a>
-        </div>
+
+      <div class="footer-col">
+        <h4>Link rapidi</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contatti</h4>
+        <ul>
+          <li><a href="mailto:hello@tobia.me">Email: hello@tobia.me</a></li>
+          <li><a href="tel:+393791128232">Tel: +39 379 112 8232</a></li>
+        </ul>
       </div>
     </div>
-  </section>
-</main>
 
-<footer>
-  <div class="footer-col">
-    <h4>Miniutti.it</h4>
-    <p>Portfolio ufficiale di Tobia Miniutti — progetti, idee e sviluppo.</p>
-  </div>
-  <div class="footer-col">
-    <h4>Link rapidi</h4>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="contatti.html">Contatti</a></li>
-    </ul>
-  </div>
-  <div class="footer-col">
-    <h4>Contatti</h4>
-    <ul>
-      <li><a href="mailto:hello@tobia.me">Email: hello@tobia.me</a></li>
-      <li><a href="tel:+393791128232">Tel: +39 379 112 8232</a></li>
-    </ul>
-  </div>
-  <div class="footer-bottom">© 2025 tobia.me — Tutti i diritti riservati</div>
-</footer>
+    <div class="footer-bottom">© 2025 tobia.me — Tutti i diritti riservati</div>
+  </footer>
 
-<script>
-  const cards = document.querySelectorAll('.project-card');
+  <script>
+    // Reveal on scroll (fade-up)
+    const faders = document.querySelectorAll('.fade-up');
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, index * 200); // delay progressivo: 0, 0.2s, 0.4s...
-        observer.unobserve(entry.target);
-      }
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.16, rootMargin: "0px 0px -40px 0px" });
+
+    faders.forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i * 45, 220)}ms`;
+      revealObserver.observe(el);
     });
-  }, { threshold: 0.2 });
 
-  cards.forEach(card => observer.observe(card));
-</script>
-
+    // Scroll progress
+    const progress = document.querySelector('.scroll-progress');
+    const updateProgress = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = pct + '%';
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+  </script>
 </body>
 </html>
