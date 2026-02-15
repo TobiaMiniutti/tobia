@@ -484,6 +484,74 @@
     }
 
     /* LOGO WALL (Certificazioni + Collaborazioni) */
+
+    .logo-strip{ padding: 2.6rem; }
+
+.strip-head{
+  text-align: center;
+  margin-bottom: 1.4rem;
+}
+
+.strip-head h2{
+  color: var(--golden);
+  font-size: clamp(1.7rem, 2.7vw, 2rem);
+  margin: 0 0 .6rem 0;
+}
+
+.strip-head p{
+  color: var(--anthracite);
+  max-width: 74ch;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* Riga loghi (statica se pochi) */
+.strip-row{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;                 /* pochi = vanno a capo, tutto centrato */
+}
+
+/* “tile” */
+.strip-item{
+  flex: 0 0 320px;                 /* larghezza card (desktop) */
+  max-width: 420px;
+  height: 120px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(201, 167, 76, 0.18);
+  background: rgba(255,255,255,0.012);
+  transition: transform var(--transition), border-color var(--transition),
+              background var(--transition), box-shadow var(--transition);
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.strip-item:hover{
+  transform: translateY(-3px);
+  border-color: rgba(201, 167, 76, 0.38);
+  background: rgba(255,255,255,0.028);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.28),
+              0 0 0 1px rgba(201,167,76,0.08) inset;
+}
+
+.strip-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* Mobile */
+@media (max-width: 720px){
+  .strip-item{ flex-basis: 100%; height: 110px; }
+}
+
     .logo-wall {
       padding: 2.6rem;
     }
@@ -519,8 +587,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 86px;
-      padding: 0.95rem;
+      min-height: 120px;
+      padding: 0;
       border-radius: var(--radius-lg);
       border: 1px solid rgba(201, 167, 76, 0.18);
       background: rgba(255,255,255,0.012);
@@ -538,13 +606,19 @@
     }
 
     .logo-item img{
-      max-width: 170px;
-      max-height: 46px;
-      width: auto;
-      height: auto;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      max-height: none;
+
+      object-fit: contain;
+      padding: 18px;
+      box-sizing: border-box;
+
       opacity: 0.92;
       filter: drop-shadow(0 0 1px rgba(0,0,0,0.55));
     }
+
 
     .logo-item:hover img{ opacity: 1; }
 
@@ -762,34 +836,20 @@
     </section>
 
     <!-- CERTIFICAZIONI -->
-<section class="logo-wall panel fade-up" aria-labelledby="certificazioni-title">
-  <h2 id="certificazioni-title">Certificazioni</h2>
-  <p class="intro">
-    Opero con certificazioni e coperture assicurative in regola, per lavorare in modo sicuro e trasparente.
-  </p>
+<section class="logo-strip panel fade-up" aria-labelledby="certificazioni-title">
+  <header class="strip-head">
+    <h2 id="certificazioni-title">Certificazioni</h2>
+    <p>Opero con certificazioni e coperture assicurative in regola, per lavorare in modo sicuro e trasparente.</p>
+  </header>
 
-  <div class="logo-grid" role="list" aria-label="Loghi certificazioni">
-    <!-- A1-A3 -->
-    <div class="logo-item" role="listitem" title="Patentino Drone A1-A3">
-      <img src="cert-a1a3.png" alt="Patentino Drone A1-A3">
-    </div>
-
-    <!-- CoverDrone Professionale -->
-    <div class="logo-item" role="listitem" title="Assicurazione CoverDrone Professionale">
-      <img src="cert-coverdrone-pro.png" alt="Assicurazione CoverDrone Professionale">
-    </div>
-
-    <!-- Codice Operatore (placeholder) -->
-    <div class="logo-item" role="listitem" title="Codice Operatore UAS (in arrivo)">
-      <img src="cert-operatore-uas.png" alt="Codice Operatore UAS (in arrivo)">
-    </div>
-
-    <!-- Privacy / Liberatorie -->
-    <div class="logo-item" role="listitem" title="Privacy & Liberatorie su richiesta">
-      <img src="cert-privacy.png" alt="Privacy e liberatorie su richiesta">
-    </div>
+  <div class="strip-row" aria-label="Loghi certificazioni">
+    <div class="strip-item"><img src="cert-a1a3.png" alt="A1-A3"></div>
+    <div class="strip-item"><img src="cert-coverdrone-pro.png" alt="CoverDrone Professionale"></div>
+    <div class="strip-item"><img src="cert-operatore-uas.png" alt="d-flight (operatore)"></div>
+    <div class="strip-item"><img src="cert-privacy.png" alt="Privacy / GDPR"></div>
   </div>
 </section>
+
 
 <!-- COLLABORAZIONI -->
 <section class="logo-wall panel fade-up" aria-labelledby="collaborazioni-title">
