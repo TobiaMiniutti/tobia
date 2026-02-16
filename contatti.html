@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>tobia.me | Contatti</title>
@@ -13,36 +10,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <style>
     :root{
       --carbon:#121212;
       --carbon-deep:#0d0d0d;
-      --surface:#141414;
-
       --golden:#c9a74c;
-      --golden-soft: rgba(201, 167, 76, 0.18);
-
       --anthracite:#b3b3b3;
       --white:#ffffff;
-
       --line: rgba(255,255,255,0.10);
       --line-strong: rgba(255,255,255,0.20);
-
       --shadow-xl: 0 14px 44px rgba(0,0,0,0.45);
-      --shadow-lg: 0 10px 30px rgba(0,0,0,0.35);
-
       --radius-xl: 20px;
       --radius-lg: 14px;
-
       --transition: 0.28s ease;
       --container: 1140px;
       --header-h: 78px;
-
       --tricolor-start:#008C45;
       --tricolor-middle:#F4F5F0;
       --tricolor-end:#CD212A;
-
       --error-red:#cc4444;
     }
 
@@ -63,17 +50,11 @@
       min-height:100vh;
     }
 
-    /* Accessibilità */
     .skip-link{
-      position:absolute;
-      left:-999px;
-      top:10px;
-      background:var(--white);
-      color:#000;
-      padding:10px 14px;
-      border-radius:10px;
-      z-index:9999;
-      font-weight:600;
+      position:absolute; left:-999px; top:10px;
+      background:var(--white); color:#000;
+      padding:10px 14px; border-radius:10px;
+      z-index:9999; font-weight:600;
     }
     .skip-link:focus{ left:10px; }
 
@@ -83,12 +64,9 @@
       border-radius: 8px;
     }
 
-    /* Progress bar */
     .scroll-progress{
-      position:fixed;
-      top:0; left:0;
-      width:0%;
-      height:2px;
+      position:fixed; top:0; left:0;
+      width:0%; height:2px;
       z-index:1300;
       background: linear-gradient(90deg, rgba(201,167,76,0.9), rgba(201,167,76,0.35));
       box-shadow: 0 0 12px rgba(201,167,76,0.55);
@@ -104,26 +82,15 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      position:sticky;
-      top:0;
+      position:sticky; top:0;
       z-index:1200;
       box-shadow: 0 2px 20px rgba(0,0,0,0.5);
     }
 
-    .logo{
-      height:40px;
-      width:auto;
-      user-select:none;
-      filter: drop-shadow(0 0 1.5px rgba(0,0,0,0.6));
-    }
+    .logo{ height:40px; width:auto; user-select:none; filter: drop-shadow(0 0 1.5px rgba(0,0,0,0.6)); }
 
-    nav{
-      display:flex;
-      align-items:center;
-      gap:1.8rem;
-    }
+    nav{ display:flex; align-items:center; gap:1.8rem; }
 
-    /* Navbar: attivo underline sempre; hover su altra voce toglie underline all’attiva */
     nav a{
       position:relative;
       color:var(--white);
@@ -136,30 +103,20 @@
     }
     nav a::after{
       content:"";
-      position:absolute;
-      left:0;
-      bottom:0;
-      width:0;
-      height:3px;
+      position:absolute; left:0; bottom:0;
+      width:0; height:3px;
       border-radius:3px 3px 0 0;
       background: linear-gradient(90deg,var(--tricolor-start),var(--tricolor-middle),var(--tricolor-end));
       transition: width var(--transition);
       pointer-events:none;
     }
-    nav a[aria-current="page"]{ color:var(--white); }
     nav a[aria-current="page"]::after{ width:100%; }
-
-    nav a:hover,
-    nav a:focus-visible{ color:var(--golden); }
-
-    nav a:hover::after,
-    nav a:focus-visible::after{ width:100%; }
+    nav a:hover, nav a:focus-visible{ color:var(--golden); }
+    nav a:hover::after, nav a:focus-visible::after{ width:100%; }
 
     @supports selector(nav:has(a:hover)) {
       nav:has(a:hover:not([aria-current="page"])) a[aria-current="page"]::after,
-      nav:has(a:focus-visible:not([aria-current="page"])) a[aria-current="page"]::after{
-        width: 0;
-      }
+      nav:has(a:focus-visible:not([aria-current="page"])) a[aria-current="page"]::after{ width:0; }
     }
 
     main{
@@ -192,18 +149,13 @@
       box-shadow: var(--shadow-xl);
     }
 
-    /* Motion */
     .fade-up{
       opacity:0;
       transform: translateY(24px);
       transition: opacity 0.9s ease, transform 0.9s ease;
     }
-    .fade-up.visible{
-      opacity:1;
-      transform: translateY(0);
-    }
+    .fade-up.visible{ opacity:1; transform: translateY(0); }
 
-    /* Contact layout */
     .contact-wrap{
       display:grid;
       grid-template-columns: 1.2fr 0.8fr;
@@ -211,9 +163,7 @@
       align-items:start;
     }
 
-    form{
-      padding: 2.4rem;
-    }
+    form{ padding: 2.4rem; }
 
     .form-grid{
       display:grid;
@@ -222,25 +172,11 @@
       margin-top: 0.3rem;
     }
 
-    .field{
-      display:flex;
-      flex-direction:column;
-      gap: 0.45rem;
-    }
-
+    .field{ display:flex; flex-direction:column; gap: 0.45rem; }
     .field.full{ grid-column: 1 / -1; }
 
-    label{
-      font-weight:600;
-      font-size:0.98rem;
-      color: var(--white);
-      cursor:pointer;
-    }
-
-    .req{
-      color: var(--golden);
-      margin-left: 0.15rem;
-    }
+    label{ font-weight:600; font-size:0.98rem; color: var(--white); cursor:pointer; }
+    .req{ color: var(--golden); margin-left: 0.15rem; }
 
     input[type="text"], input[type="email"], textarea{
       background: rgba(255,255,255,0.012);
@@ -254,10 +190,7 @@
       outline:none;
     }
 
-    textarea{
-      min-height: 160px;
-      resize: vertical;
-    }
+    textarea{ min-height: 160px; resize: vertical; }
 
     input:focus, textarea:focus{
       border-color: rgba(201,167,76,0.55);
@@ -272,7 +205,6 @@
       display:none;
       margin-top: 0.1rem;
     }
-
     .field.invalid .error-message{ display:block; }
 
     .btn-golden{
@@ -287,7 +219,7 @@
       background: transparent;
       text-decoration:none;
       font-weight:600;
-      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition), opacity var(--transition);
       will-change: transform;
       cursor:pointer;
       margin-top: 0.6rem;
@@ -305,45 +237,52 @@
       cursor:not-allowed;
       transform:none !important;
       box-shadow:none !important;
+      background: transparent !important;
+      color: var(--golden) !important;
     }
 
-    .sidecard{
-      padding: 2.1rem;
-    }
+    .cf-turnstile{ margin-top: 0.7rem; }
 
-    .side-title{
-      color: var(--golden);
-      font-size: 1.25rem;
-      margin-bottom: 0.8rem;
-      line-height:1.2;
-    }
-
-    .sidecard p{
-      color: var(--anthracite);
-      margin-bottom: 1rem;
-      line-height:1.75;
-    }
-
-    .contact-list{
-      list-style:none;
+    /* GDPR / privacy row */
+    .consent-row{
+      margin-top: 0.9rem;
       display:flex;
-      flex-direction:column;
-      gap:0.6rem;
-      margin-top: 0.4rem;
+      gap: 0.7rem;
+      align-items:flex-start;
+      padding: 0.85rem 0.95rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.01);
     }
 
-    .contact-list a{
+    .consent-row input[type="checkbox"]{
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--golden);
+      cursor:pointer;
+      flex: 0 0 auto;
+    }
+
+    .consent-text{
+      font-size: 0.95rem;
+      color: var(--anthracite);
+      line-height: 1.55;
+    }
+    .consent-text a{
       color: var(--golden);
       text-decoration:none;
       transition: color var(--transition);
     }
+    .consent-text a:hover,
+    .consent-text a:focus-visible{ color: var(--white); outline:none; }
 
-    .contact-list a:hover,
-    .contact-list a:focus-visible{
-      color: var(--white);
-      outline:none;
-    }
-
+    .sidecard{ padding: 2.1rem; }
+    .side-title{ color: var(--golden); font-size: 1.25rem; margin-bottom: 0.8rem; line-height:1.2; }
+    .sidecard p{ color: var(--anthracite); margin-bottom: 1rem; line-height:1.75; }
+    .contact-list{ list-style:none; display:flex; flex-direction:column; gap:0.6rem; margin-top: 0.4rem; }
+    .contact-list a{ color: var(--golden); text-decoration:none; transition: color var(--transition); }
+    .contact-list a:hover, .contact-list a:focus-visible{ color: var(--white); outline:none; }
     .micro{
       font-size: 0.93rem;
       color: rgba(179,179,179,0.92);
@@ -353,10 +292,34 @@
       line-height:1.65;
     }
 
-    /* Overlay */
+    footer{
+      background: var(--carbon-deep);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2.6rem 2rem 2rem;
+    }
+    .footer-wrap{
+      max-width: var(--container);
+      margin: 0 auto;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+    }
+    .footer-col h4{ color: var(--golden); margin-bottom: 0.8rem; font-size: 1.03rem; }
+    .footer-col p, .footer-col li, .footer-col a{ color: var(--anthracite); text-decoration:none; line-height: 1.7; }
+    .footer-col ul{ list-style:none; }
+    .footer-col a:hover, .footer-col a:focus-visible{ color: var(--white); outline:none; }
+    .footer-bottom{
+      max-width: var(--container);
+      margin: 1.8rem auto 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 1rem;
+      text-align:center;
+      color: var(--anthracite);
+      font-size:0.9rem;
+    }
+
     .overlay{
-      position:fixed;
-      inset:0;
+      position:fixed; inset:0;
       background: rgba(0,0,0,0.85);
       display:flex;
       align-items:center;
@@ -382,59 +345,9 @@
       transition: transform 0.4s ease;
     }
     .overlay.active .overlay-box{ transform: scale(1); }
-    .overlay-box h2{
-      color: var(--golden);
-      font-size: 1.55rem;
-      margin-bottom: 0.6rem;
-      line-height:1.2;
-    }
-    .overlay-box p{
-      color: var(--anthracite);
-      line-height:1.7;
-    }
+    .overlay-box h2{ color: var(--golden); font-size: 1.55rem; margin-bottom: 0.6rem; line-height:1.2; }
+    .overlay-box p{ color: var(--anthracite); line-height:1.7; }
 
-    /* Footer (come reference) */
-    footer{
-      background: var(--carbon-deep);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 2.6rem 2rem 2rem;
-    }
-    .footer-wrap{
-      max-width: var(--container);
-      margin: 0 auto;
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.8rem;
-    }
-    .footer-col h4{
-      color: var(--golden);
-      margin-bottom: 0.8rem;
-      font-size: 1.03rem;
-    }
-    .footer-col p,
-    .footer-col li,
-    .footer-col a{
-      color: var(--anthracite);
-      text-decoration:none;
-      line-height: 1.7;
-    }
-    .footer-col ul{ list-style:none; }
-    .footer-col a:hover,
-    .footer-col a:focus-visible{
-      color: var(--white);
-      outline:none;
-    }
-    .footer-bottom{
-      max-width: var(--container);
-      margin: 1.8rem auto 0;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding-top: 1rem;
-      text-align:center;
-      color: var(--anthracite);
-      font-size:0.9rem;
-    }
-
-    /* Responsive */
     @media (max-width: 920px){
       header{ padding: 0 1rem; }
       nav{ gap: 1rem; }
@@ -449,13 +362,9 @@
       form, .sidecard{ padding: 1.6rem; }
     }
 
-    /* Motion safety */
     @media (prefers-reduced-motion: reduce){
       html{ scroll-behavior:auto; }
-      *, *::before, *::after{
-        animation:none !important;
-        transition:none !important;
-      }
+      *, *::before, *::after{ animation:none !important; transition:none !important; }
       .fade-up{ opacity:1 !important; transform:none !important; }
       .overlay-box{ transform:none !important; }
     }
@@ -512,16 +421,31 @@
           </div>
         </div>
 
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAACdQWou_a1sY6i7S"></div>
+        <!-- Turnstile (enable submit via callbacks) -->
+        <div
+          class="cf-turnstile"
+          data-sitekey="0x4AAAAAACdQWou_a1sY6i7S"
+          data-callback="onTurnstileSuccess"
+          data-expired-callback="onTurnstileExpired"
+          data-error-callback="onTurnstileError"
+        ></div>
 
-        <button class="btn-golden" id="submitBtn" type="submit">Invia</button>
+        <!-- GDPR consent -->
+        <div class="consent-row">
+          <input type="checkbox" id="privacyConsent" name="privacyConsent" />
+          <div class="consent-text">
+            <strong style="color:var(--white); font-weight:600;">Privacy (GDPR)</strong><br>
+            Autorizzo il trattamento dei dati per rispondere alla richiesta, secondo l’
+            <a href="privacy.html">informativa privacy</a>.
+          </div>
+        </div>
+
+        <button class="btn-golden" id="submitBtn" type="submit" disabled>Invia</button>
       </form>
 
       <aside class="panel sidecard fade-up" aria-label="Informazioni contatto">
         <h2 class="side-title">Contatti diretti</h2>
-        <p>
-          Preferisci scrivere direttamente o chiamare? Qui trovi tutto.
-        </p>
+        <p>Preferisci scrivere direttamente o chiamare? Qui trovi tutto.</p>
 
         <ul class="contact-list">
           <li><strong style="color:var(--white); font-weight:600;">Email:</strong>
@@ -576,7 +500,7 @@
   </div>
 
   <script>
-    // Reveal on scroll + delay (come reference)
+    // ====== Reveal on scroll ======
     const faders = document.querySelectorAll('.fade-up');
     const revealObserver = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
@@ -591,7 +515,7 @@
       revealObserver.observe(el);
     });
 
-    // Scroll progress
+    // ====== Scroll progress ======
     const progress = document.querySelector('.scroll-progress');
     const updateProgress = () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -603,13 +527,39 @@
     window.addEventListener('scroll', updateProgress, { passive: true });
     window.addEventListener('resize', updateProgress);
 
-    // Form logic
+    // ====== Form ======
     const form = document.getElementById('contactForm');
     const overlay = document.getElementById('overlay');
     const submitBtn = document.getElementById('submitBtn');
+    const consent = document.getElementById('privacyConsent');
 
+    // endpoint Worker
     const GATE_URL = 'https://tobia.me/api/contact';
     const startedAt = Date.now();
+
+    let turnstileToken = "";
+
+    // Turnstile callbacks (global per data-callback)
+    window.onTurnstileSuccess = (token) => {
+      turnstileToken = token || "";
+      updateSubmitState();
+    };
+    window.onTurnstileExpired = () => {
+      turnstileToken = "";
+      updateSubmitState();
+    };
+    window.onTurnstileError = () => {
+      turnstileToken = "";
+      updateSubmitState();
+    };
+
+    function updateSubmitState(){
+      // abilita solo se: consenso privacy + token presente
+      const ok = !!turnstileToken && consent.checked;
+      submitBtn.disabled = !ok;
+    }
+
+    consent.addEventListener('change', updateSubmitState);
 
     const isEmailValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
@@ -634,6 +584,10 @@
       if (honeypot && honeypot.value.trim() !== '') return;
       if ((Date.now() - startedAt) < 1500) return;
 
+      // Gate: consenso + token (in teoria già gestito dal disabled)
+      if (!consent.checked) return;
+      if (!turnstileToken) return;
+
       const nome = form.nome.value.trim();
       const email = form.email.value.trim();
       const messaggio = form.messaggio.value.trim();
@@ -654,13 +608,12 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Invio...';
 
-      const token = form.querySelector('input[name="cf-turnstile-response"]')?.value || "";
-      if (!token) {
-        alert('Completa la verifica anti-spam.');
-        return;
-      }
-
-      const formData = { name: nome, email: email, message: messaggio, turnstileToken: token };
+      const formData = {
+        name: nome,
+        email: email,
+        message: messaggio,
+        turnstileToken
+      };
 
       try {
         const res = await fetch(GATE_URL, {
@@ -669,17 +622,24 @@
           body: JSON.stringify(formData)
         });
 
-        if (!res.ok) throw new Error('Errore invio modulo');
+        if (!res.ok) throw new Error('Errore invio');
 
         overlay.classList.add('active');
         overlay.setAttribute('aria-hidden', 'false');
+
         form.reset();
+        consent.checked = false;
+
+        turnstileToken = "";
         if (window.turnstile) window.turnstile.reset();
+        updateSubmitState();
+
       } catch (err) {
         console.error(err);
         alert('Si è verificato un errore durante l’invio. Riprova tra poco.');
+        // se errore: riabilita (se token ancora valido + consenso)
+        updateSubmitState();
       } finally {
-        submitBtn.disabled = false;
         submitBtn.textContent = 'Invia';
       }
     });
@@ -689,7 +649,6 @@
       overlay.setAttribute('aria-hidden', 'true');
     }
 
-    // Chiudi overlay con ESC
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && overlay.classList.contains('active')) closeOverlay();
     });
