@@ -1,256 +1,833 @@
-<style>
-  /* Extra legal styling (coerente con tobia.me style guide) */
-  .legal-wrap{max-width:var(--container);margin:0 auto;}
-  .legal-panel{padding:2.2rem; border-radius:var(--radius-xl); border:1px solid var(--line); background:rgba(255,255,255,0.012); box-shadow:var(--shadow-lg);}
-  .legal-hero{margin-bottom:1.4rem; text-align:center;}
-  .legal-title{font-size:clamp(2rem,3.6vw,2.7rem); line-height:1.15; color:var(--white); margin:0;}
-  .legal-title span{color:var(--golden);}
-  .legal-sub{max-width:78ch; margin:.9rem auto 0; color:var(--anthracite); line-height:1.85;}
-  .legal-meta{margin-top:.75rem; color:var(--anthracite); opacity:.9;}
-  .legal-badges{display:flex; flex-wrap:wrap; gap:.55rem; justify-content:center; margin:1.1rem 0 0;}
-  .legal-badge{padding:.45rem .7rem; border-radius:999px; border:1px solid rgba(201,167,76,.22); background:rgba(201,167,76,.06); color:var(--white); font-size:.92rem;}
-  .legal-toc{margin:1.6rem 0 1.2rem; padding:1.1rem 1.1rem; border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,255,255,0.01);}
-  .legal-toc h2{margin:0 0 .6rem; font-size:1.05rem; color:var(--white);}
-  .legal-toc a{color:var(--anthracite); text-decoration:none; border-bottom:1px solid transparent; transition:color var(--transition), border-color var(--transition);}
-  .legal-toc a:hover{color:var(--white); border-color:rgba(201,167,76,.55);}
-  .legal-grid{display:grid; grid-template-columns:1fr; gap:1rem;}
-  .legal-card{padding:1.25rem 1.25rem; border-radius:var(--radius-lg); border:1px solid var(--line); background:rgba(255,255,255,0.01);}
-  .legal-card h2{margin:.15rem 0 .7rem; font-size:1.35rem; color:var(--golden);}
-  .legal-card h3{margin:1rem 0 .4rem; font-size:1.05rem; color:var(--white);}
-  .legal-card p, .legal-card li{color:var(--anthracite); line-height:1.9;}
-  .legal-card ul{margin:.55rem 0 0 1.15rem;}
-  .legal-note{margin-top:.9rem; padding:.9rem 1rem; border-radius:var(--radius-lg); border:1px solid rgba(201,167,76,.18); background:rgba(201,167,76,.05); color:var(--anthracite); line-height:1.85;}
-  .legal-note strong{color:var(--white);}
-  .legal-links{margin-top:1.2rem; padding-top:1rem; border-top:1px solid var(--line); color:var(--anthracite);}
-  .legal-links a{color:var(--white); text-decoration:none; border-bottom:1px solid rgba(201,167,76,.35);}
-  .legal-links a:hover{border-bottom-color:rgba(201,167,76,.7);}
-</style>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>tobia.me | Privacy Policy</title>
+  <meta name="description" content="Informativa Privacy (GDPR + nFADP/LPD): come Tobia Miniutti tratta i dati su tobia.me / miniutti.it, cookie, contatti e diritti." />
+  <meta name="theme-color" content="#121212" />
+  <link rel="icon" href="favicon.png" type="image/png" />
 
-<main class="legal-wrap">
-  <section class="panel legal-panel fade-up">
-    <header class="legal-hero">
-      <h1 class="legal-title">Privacy <span>Policy</span></h1>
-      <p class="legal-sub">
-        Questa informativa descrive come <strong>Tobia Miniutti</strong> tratta i dati personali degli utenti che visitano il sito
-        e/o inviano richieste tramite modulo contatti. È pensata per la conformità al <strong>GDPR</strong> (UE/SEE) e,
-        per gli utenti in Svizzera, ai principi della <strong>nFADP/LPD</strong>.
-      </p>
-      <div class="legal-meta"><strong>Ultimo aggiornamento:</strong> 16/02/2026</div>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-      <div class="legal-badges" aria-label="Punti chiave">
-        <div class="legal-badge">Nessuna vendita dati</div>
-        <div class="legal-badge">Nessun advertising comportamentale</div>
-        <div class="legal-badge">Analytics solo con consenso</div>
-        <div class="legal-badge">Anti-abuso sul form</div>
-      </div>
-    </header>
+  <style>
+    :root{
+      --carbon:#121212;
+      --carbon-deep:#0d0d0d;
+      --surface:#141414;
+      --golden:#c9a74c;
+      --golden-soft:rgba(201,167,76,0.18);
+      --anthracite:#b3b3b3;
+      --white:#ffffff;
+      --line:rgba(255,255,255,0.10);
+      --line-strong:rgba(255,255,255,0.20);
+      --shadow-xl:0 14px 44px rgba(0,0,0,0.45);
+      --shadow-lg:0 10px 30px rgba(0,0,0,0.35);
+      --radius-xl:20px;
+      --radius-lg:14px;
+      --transition:0.28s ease;
+      --container:1140px;
+      --header-h:78px;
+    }
 
-    <nav class="legal-toc" aria-label="Indice">
-      <h2>Indice</h2>
-      <div style="display:grid; gap:.35rem;">
-        <a href="#titolare">1. Titolare e contatti</a>
-        <a href="#dati">2. Dati trattati</a>
-        <a href="#finalita">3. Finalità e basi giuridiche</a>
-        <a href="#cookie">4. Cookie e misurazione traffico</a>
-        <a href="#destinatari">5. Destinatari e categorie di fornitori</a>
-        <a href="#trasferimenti">6. Trasferimenti internazionali</a>
-        <a href="#conservazione">7. Conservazione</a>
-        <a href="#sicurezza">8. Sicurezza</a>
-        <a href="#diritti">9. Diritti</a>
-        <a href="#reclami">10. Reclami</a>
-        <a href="#minori">11. Minori</a>
-        <a href="#trasparenza">12. Trasparenza</a>
-        <a href="#modifiche">13. Modifiche</a>
-      </div>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:'Outfit',sans-serif;
+      color:var(--white);
+      background:
+        radial-gradient(1200px 700px at 80% -10%, rgba(201,167,76,0.08), transparent 60%),
+        radial-gradient(800px 500px at -10% 30%, rgba(201,167,76,0.05), transparent 60%),
+        var(--carbon);
+      min-height:100vh;
+    }
+
+    /* Skip link */
+    .skip-link{
+      position:absolute;
+      left:-999px;
+      top:12px;
+      background:rgba(0,0,0,0.85);
+      border:1px solid rgba(201,167,76,0.35);
+      color:var(--white);
+      padding:.65rem .9rem;
+      border-radius:12px;
+      z-index:1400;
+      text-decoration:none;
+    }
+    .skip-link:focus{left:12px;}
+
+    /* Scroll progress */
+    .scroll-progress{
+      position:fixed;
+      top:0;left:0;
+      width:0%;
+      height:2px;
+      z-index:1300;
+      background:linear-gradient(90deg, rgba(201,167,76,0.9), rgba(201,167,76,0.35));
+      box-shadow:0 0 12px rgba(201,167,76,0.55);
+    }
+
+    /* Header / Navbar (da style guide) */
+    header{
+      height:var(--header-h);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      background:rgba(12,12,12,0.58);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      padding:0 2rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1200;
+      box-shadow:0 2px 20px rgba(0,0,0,0.5);
+    }
+    .logo{
+      height:40px;
+      width:auto;
+      user-select:none;
+      filter:drop-shadow(0 0 1.5px rgba(0,0,0,0.6));
+    }
+    nav{
+      display:flex;
+      align-items:center;
+      gap:1.8rem;
+    }
+    nav a{
+      position:relative;
+      color:var(--white);
+      text-decoration:none;
+      font-weight:600;
+      font-size:0.98rem;
+      padding-bottom:6px;
+      transition:color var(--transition);
+      outline:none;
+    }
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:0;
+      height:3px;
+      border-radius:3px 3px 0 0;
+      background:linear-gradient(90deg,#008C45,#F4F5F0,#CD212A);
+      transition:width var(--transition);
+    }
+    nav a[aria-current="page"]{color:var(--white);}
+    nav a[aria-current="page"]::after{width:100%;}
+    nav a:hover, nav a:focus-visible{color:var(--golden);}
+    nav a:hover::after, nav a:focus-visible::after{width:100%;}
+    @supports selector(nav:has(a:hover)){
+      nav:has(a:hover:not([aria-current="page"])) a[aria-current="page"]::after,
+      nav:has(a:focus-visible:not([aria-current="page"])) a[aria-current="page"]::after{width:0;}
+    }
+
+    /* Main */
+    main{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:4rem 2rem 4.5rem;
+    }
+
+    /* Motion */
+    .fade-up{
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity 0.9s ease, transform 0.9s ease;
+    }
+    .fade-up.visible{opacity:1;transform:translateY(0);}
+
+    /* Panels */
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid var(--line);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow-xl);
+    }
+
+    /* Legal layout */
+    .legal-hero{
+      padding:2.6rem;
+      text-align:center;
+      margin-bottom:1.6rem;
+      position:relative;
+      overflow:hidden;
+    }
+    .legal-hero::before{
+      content:"";
+      position:absolute;
+      inset:-60px;
+      background:
+        radial-gradient(520px 260px at 50% 10%, rgba(201,167,76,0.16), transparent 60%),
+        radial-gradient(420px 240px at 15% 85%, rgba(201,167,76,0.10), transparent 65%);
+      pointer-events:none;
+    }
+    .legal-hero > *{position:relative; z-index:1;}
+    .legal-hero h1{
+      font-size:clamp(2rem, 3.2vw, 2.7rem);
+      line-height:1.15;
+      margin-bottom:.8rem;
+    }
+    .legal-hero h1 span{color:var(--golden);}
+    .legal-hero p{
+      color:var(--anthracite);
+      line-height:1.85;
+      max-width:82ch;
+      margin:0 auto;
+      font-size:1.03rem;
+    }
+    .meta-row{
+      margin-top:1rem;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:.55rem;
+    }
+    .pill{
+      border:1px solid rgba(201,167,76,0.22);
+      background:rgba(201,167,76,0.06);
+      border-radius:999px;
+      padding:.45rem .75rem;
+      color:var(--white);
+      font-size:.92rem;
+      white-space:nowrap;
+    }
+
+    .legal-grid{
+      display:grid;
+      grid-template-columns: 340px 1fr;
+      gap:1.4rem;
+      align-items:start;
+    }
+    .toc{
+      position:sticky;
+      top:calc(var(--header-h) + 16px);
+      padding:1.25rem;
+      border-radius:var(--radius-xl);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.012);
+      box-shadow:var(--shadow-lg);
+    }
+    .toc h2{
+      font-size:1.05rem;
+      color:var(--golden);
+      margin-bottom:.7rem;
+    }
+    .toc a{
+      display:block;
+      padding:.42rem .2rem;
+      text-decoration:none;
+      color:var(--anthracite);
+      transition:color var(--transition), transform var(--transition);
+      line-height:1.35;
+    }
+    .toc a:hover, .toc a:focus-visible{
+      color:var(--white);
+      transform:translateX(2px);
+      outline:none;
+    }
+    .content{
+      display:grid;
+      gap:1.2rem;
+    }
+    .section{
+      padding:2.0rem;
+    }
+    .section h2{
+      color:var(--golden);
+      font-size:1.45rem;
+      margin-bottom:.8rem;
+      line-height:1.25;
+    }
+    .section h3{
+      color:var(--white);
+      font-size:1.08rem;
+      margin:1rem 0 .45rem;
+      line-height:1.25;
+    }
+    .section p, .section li{
+      color:var(--anthracite);
+      line-height:1.9;
+      font-size:1.02rem;
+    }
+    .section ul{margin:.5rem 0 0 1.15rem;}
+    .callout{
+      margin-top:1rem;
+      padding:1rem 1.05rem;
+      border-radius:var(--radius-lg);
+      border:1px solid rgba(201,167,76,0.18);
+      background:rgba(201,167,76,0.05);
+    }
+    .callout strong{color:var(--white);}
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:.95rem;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+      padding:.15rem .35rem;
+      border-radius:8px;
+      color:var(--white);
+    }
+    .snippet{
+      margin-top:.6rem;
+      padding:1rem 1.05rem;
+      border-radius:var(--radius-lg);
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(0,0,0,0.25);
+      overflow:auto;
+    }
+    .snippet pre{
+      margin:0;
+      color:rgba(255,255,255,0.88);
+      line-height:1.7;
+      font-size:.95rem;
+      white-space:pre-wrap;
+    }
+
+    /* Footer (da style guide) */
+    footer{
+      background:var(--carbon-deep);
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:2.6rem 2rem 2rem;
+    }
+    .footer-wrap{
+      max-width:var(--container);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:1.8rem;
+    }
+    .footer-col h4{
+      color:var(--golden);
+      margin-bottom:.8rem;
+      font-size:1.03rem;
+    }
+    .footer-col p,
+    .footer-col li,
+    .footer-col a{
+      color:var(--anthracite);
+      text-decoration:none;
+      line-height:1.7;
+    }
+    .footer-col ul{list-style:none;}
+    .footer-col a:hover,
+    .footer-col a:focus-visible{color:var(--white); outline:none;}
+    .footer-bottom{
+      max-width:var(--container);
+      margin:1.8rem auto 0;
+      border-top:1px solid rgba(255,255,255,0.05);
+      padding-top:1rem;
+      text-align:center;
+      color:var(--anthracite);
+      font-size:.9rem;
+    }
+
+    /* Focus */
+    a:focus-visible{
+      outline:2px solid rgba(201,167,76,0.65);
+      outline-offset:3px;
+      border-radius:8px;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      header{padding:0 1rem;}
+      main{padding:3.2rem 1rem 4rem;}
+      .legal-grid{grid-template-columns:1fr; }
+      .toc{position:relative; top:auto;}
+    }
+    @media (max-width: 640px){
+      :root{--header-h:72px;}
+      nav{gap:1rem;}
+      nav a{font-size:0.92rem;}
+      .legal-hero{padding:2.0rem 1.2rem;}
+      .section{padding:1.55rem;}
+      .section p, .section li{font-size:1.0rem;}
+    }
+
+    /* Motion safety */
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto;}
+      *,*::before,*::after{animation:none !important; transition:none !important;}
+      .fade-up{opacity:1 !important; transform:none !important;}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenuto">Salta al contenuto</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <header>
+    <a href="index.html" aria-label="Torna alla home">
+      <img src="favicon.png" alt="Logo tobia.me" class="logo" />
+    </a>
+    <nav aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contatti.html">Contatti</a>
+      <a href="privacy.html" aria-current="page">Privacy</a>
     </nav>
+  </header>
 
-    <div class="legal-grid">
+  <main id="contenuto">
+    <section class="panel legal-hero fade-up" aria-label="Introduzione privacy">
+      <h1>Privacy <span>Policy</span></h1>
+      <p>
+        Questa informativa descrive come <strong>Tobia Miniutti</strong> (Titolare) tratta i dati personali quando visiti
+        <strong>tobia.me</strong> e/o <strong>miniutti.it</strong> (siti portfolio e modulo contatti). È pensata per la conformità al
+        <strong>GDPR</strong> (UE/SEE) e, per gli utenti in Svizzera, ai principi della <strong>nFADP/LPD</strong>.
+      </p>
+      <div class="meta-row" aria-label="Punti chiave">
+        <span class="pill"><strong>Contatto privacy:</strong> privacy@miniutti.it</span>
+        <span class="pill"><strong>Analytics:</strong> solo con consenso</span>
+        <span class="pill"><strong>Anti-bot:</strong> attivo sul form</span>
+        <span class="pill"><strong>Nessuna vendita dati</strong></span>
+        <span class="pill"><strong>Ultimo aggiornamento:</strong> 16/02/2026</span>
+      </div>
+    </section>
 
-      <article class="legal-card" id="titolare">
-        <h2>1) Titolare e contatti</h2>
-        <p><strong>Titolare del trattamento:</strong> Tobia Miniutti (persona fisica).</p>
-        <p><strong>Contatto privacy:</strong> <a href="mailto:privacy@miniutti.it">privacy@miniutti.it</a></p>
-        <p><strong>Stato di riferimento:</strong> Italia (trattamenti principalmente rivolti a utenti in Italia; copertura anche UE/SEE e Svizzera).</p>
+    <section class="legal-grid fade-up" aria-label="Contenuto privacy">
+      <!-- TOC -->
+      <aside class="toc" aria-label="Indice">
+        <h2>Indice</h2>
+        <a href="#s1">1. Titolare, ambito, definizioni</a>
+        <a href="#s2">2. Dati trattati</a>
+        <a href="#s3">3. Finalità e basi giuridiche</a>
+        <a href="#s4">4. Cookie, misurazione traffico, embed</a>
+        <a href="#s5">5. Destinatari e accessi</a>
+        <a href="#s6">6. Trasferimenti internazionali</a>
+        <a href="#s7">7. Conservazione</a>
+        <a href="#s8">8. Sicurezza</a>
+        <a href="#s9">9. Diritti e richieste</a>
+        <a href="#s10">10. Reclami</a>
+        <a href="#s11">11. Minori</a>
+        <a href="#s12">12. Trasparenza e casi particolari</a>
+        <a href="#s13">13. Modifiche</a>
+        <a href="#s14">Appendice: testo checkbox form</a>
+      </aside>
 
-        <div class="legal-note">
-          <strong>Minimizzazione contatti pubblici:</strong> per ridurre l’esposizione di dati personali, questa pagina pubblica come canale ufficiale <strong>solo l’email privacy</strong>.
-          Dati ulteriori (es. recapiti postali completi) vengono forniti quando necessari per comunicazioni formali.
-        </div>
-      </article>
+      <!-- CONTENT -->
+      <div class="content">
+        <article class="panel section" id="s1">
+          <h2>1) Titolare, ambito, definizioni</h2>
 
-      <article class="legal-card" id="dati">
-        <h2>2) Dati trattati</h2>
+          <h3>1.1 Titolare del trattamento</h3>
+          <p>
+            <strong>Titolare:</strong> Tobia Miniutti (persona fisica).<br>
+            <strong>Canale ufficiale privacy:</strong> <a href="mailto:privacy@miniutti.it">privacy@miniutti.it</a><br>
+            <strong>Nota:</strong> per minimizzare l’esposizione pubblica di dati personali, questa pagina indica come contatto principale solo l’email privacy.
+            Informazioni ulteriori (es. recapiti postali completi) vengono fornite quando necessarie per comunicazioni formali o su richiesta.
+          </p>
 
-        <h3>2.1 Dati di navigazione e sicurezza</h3>
-        <p>
-          Dati tecnici trattati durante la visita: indirizzo IP, data/ora, pagine richieste, informazioni su browser/dispositivo (user-agent),
-          referrer, eventi di sicurezza/diagnostica e log necessari al funzionamento del sito e alla prevenzione abusi.
-        </p>
+          <h3>1.2 Ambito</h3>
+          <p>
+            La policy si applica al trattamento dei dati effettuato tramite le pagine del sito e i canali direttamente collegati (es. modulo contatti).
+            Non si applica ai siti/servizi di terze parti raggiungibili tramite link: per quelli valgono le rispettive informative.
+          </p>
 
-        <h3>2.2 Dati inviati tramite modulo contatti</h3>
-        <p>
-          Il modulo contatti raccoglie <strong>Nome e Cognome</strong>, <strong>email</strong> e <strong>messaggio</strong>.
-          <strong>Nessun allegato</strong>. Finalità: gestione richiesta e proposta/valutazione di un eventuale lavoro di videomaking.
-        </p>
+          <h3>1.3 Definizioni (essenziali)</h3>
+          <ul>
+            <li><strong>Dati personali:</strong> informazioni riferite a una persona identificata o identificabile.</li>
+            <li><strong>Trattamento:</strong> qualunque operazione sui dati (raccolta, uso, conservazione, comunicazione, cancellazione).</li>
+            <li><strong>Interessato:</strong> la persona cui si riferiscono i dati (tu).</li>
+            <li><strong>Responsabile del trattamento:</strong> fornitore che tratta dati per conto del Titolare, con istruzioni e obblighi contrattuali.</li>
+          </ul>
 
-        <h3>2.3 Dati non richiesti</h3>
-        <p>
-          Non richiediamo categorie particolari di dati (es. salute, convinzioni religiose/politiche). Se inseriti spontaneamente nel messaggio,
-          saranno trattati solo per rispondere, con minimizzazione.
-        </p>
+          <div class="callout">
+            <strong>Contesto del sito:</strong> portfolio + modulo contatti per richieste di lavoro (videomaking / produzione contenuti).
+            Non è previsto login, area clienti o e-commerce (se in futuro verranno attivati, aggiorneremo l’informativa).
+          </div>
+        </article>
 
-        <h3>2.4 Dati tramite contenuti incorporati</h3>
-        <p>
-          Se presenti contenuti incorporati (es. video), i relativi fornitori possono trattare dati (es. IP, cookie/identificativi) secondo le loro policy.
-        </p>
+        <article class="panel section" id="s2">
+          <h2>2) Dati trattati</h2>
 
-        <h3>2.5 Origine dei dati</h3>
+          <h3>2.1 Dati di navigazione e log tecnici</h3>
+          <p>
+            Quando visiti il sito, possono essere trattati automaticamente dati tecnici necessari al funzionamento e alla sicurezza:
+            indirizzo IP, data/ora, risorsa richiesta, referrer, user-agent, informazioni su errori, performance, eventi di sicurezza.
+            Questi dati possono essere trattati anche per prevenire abusi e garantire la continuità del servizio.
+          </p>
+
+          <h3>2.2 Dati inviati dall’utente (modulo contatti / email)</h3>
+          <p>
+            Se usi il modulo contatti, raccogliamo <strong>Nome e Cognome</strong>, <strong>email</strong>, <strong>messaggio</strong>.
+            <strong>Nessun allegato</strong>. Se ci scrivi via email, tratteremo anche i metadati del messaggio (es. oggetto, timestamp) e il contenuto.
+          </p>
+
+          <h3>2.3 Dati legati alla prevenzione bot (anti-abuso sul form)</h3>
+          <p>
+            Sul modulo contatti usiamo misure tecniche anti-abuso (es. challenge / segnali tecnici) per ridurre spam e invii automatizzati.
+            Queste misure possono comportare la raccolta di segnali tecnici (es. IP, informazioni sul client) necessari alla sicurezza.
+          </p>
+
+          <h3>2.4 Cookie e identificativi (solo dove applicabile)</h3>
+          <p>
+            Il sito può usare cookie e tecnologie simili per: funzionalità essenziali, memorizzazione preferenze e — <strong>solo se acconsenti</strong> —
+            misurazione del traffico (analytics). I dettagli completi sono nella <a href="/cookie-policy.html">Cookie Policy</a>.
+          </p>
+
+          <h3>2.5 Contenuti incorporati (es. video)</h3>
+          <p>
+            Alcune pagine possono includere contenuti incorporati (es. video). La visualizzazione può comportare trattamenti da parte del fornitore terzo
+            (es. cookie/identificativi, IP) secondo le sue regole. Dove possibile, adottiamo caricamento differito o impostazioni “privacy oriented”.
+          </p>
+
+          <h3>2.6 Dati che non chiediamo (categorie particolari)</h3>
+          <p>
+            Non richiediamo categorie particolari di dati (salute, opinioni politiche, religione, ecc.).
+            Se inseriti spontaneamente nel messaggio, verranno trattati solo per rispondere e con minimizzazione.
+          </p>
+
+          <h3>2.7 Origine dei dati</h3>
+          <ul>
+            <li><strong>Direttamente da te</strong> (form/email).</li>
+            <li><strong>Automaticamente</strong> (log tecnici e sicurezza).</li>
+            <li><strong>Da terze parti</strong> solo quando abiliti funzionalità non essenziali (es. analytics) o interagisci con embed.</li>
+          </ul>
+        </article>
+
+        <article class="panel section" id="s3">
+          <h2>3) Finalità e basi giuridiche</h2>
+
+          <h3>3.1 Gestione richieste e contatti di lavoro</h3>
+          <p>
+            <strong>Finalità:</strong> rispondere a richieste, valutare esigenze, proporre soluzioni, inviare preventivi, gestire follow-up.<br>
+            <strong>Base giuridica (GDPR):</strong> misure precontrattuali/contratto (art. 6(1)(b)) e/o legittimo interesse (art. 6(1)(f)).
+          </p>
+
+          <h3>3.2 Funzionamento, manutenzione e sicurezza</h3>
+          <p>
+            <strong>Finalità:</strong> erogare il sito, prevenire abusi (spam/bot), rilevare anomalie, proteggere infrastruttura e utenti.<br>
+            <strong>Base giuridica (GDPR):</strong> legittimo interesse (art. 6(1)(f)).
+          </p>
+
+          <h3>3.3 Misurazione del traffico (analytics)</h3>
+          <p>
+            <strong>Finalità:</strong> statistiche e miglioramento del sito (es. pagine più viste, performance).<br>
+            <strong>Base giuridica (GDPR):</strong> <strong>consenso</strong> (art. 6(1)(a)) per cookie/identificativi non essenziali.
+            Se rifiuti o revochi il consenso, l’analytics non viene eseguito.
+          </p>
+
+          <h3>3.4 Adempimenti legali e tutela diritti</h3>
+          <p>
+            <strong>Finalità:</strong> rispettare obblighi di legge, gestire richieste autorità, prevenire frodi/abusi, esercitare o difendere diritti.<br>
+            <strong>Base giuridica (GDPR):</strong> obbligo legale (art. 6(1)(c)) e/o legittimo interesse (art. 6(1)(f)).
+          </p>
+
+          <h3>3.5 Interessi legittimi (dettaglio)</h3>
+          <p>
+            Dove usiamo il legittimo interesse, valutiamo l’impatto sui diritti dell’utente e adottiamo misure di bilanciamento:
+            minimizzazione dati, limitazione accessi, tempi di conservazione ridotti, controlli anti-abuso e trasparenza.
+          </p>
+
+          <div class="callout">
+            <strong>Importante:</strong> il modulo contatti non richiede “consenso al trattamento” per poterti rispondere:
+            la base è precontrattuale/legittimo interesse. La checkbox serve a confermare la presa visione dell’informativa (vedi appendice).
+          </div>
+        </article>
+
+        <article class="panel section" id="s4">
+          <h2>4) Cookie, misurazione traffico, embed</h2>
+
+          <h3>4.1 Cookie: categorie</h3>
+          <ul>
+            <li><strong>Essenziali:</strong> necessari al funzionamento e alla sicurezza.</li>
+            <li><strong>Preferenze:</strong> memorizzano scelte (se presenti).</li>
+            <li><strong>Statistiche (analytics):</strong> attive <strong>solo dopo consenso</strong>.</li>
+            <li><strong>Contenuti incorporati:</strong> cookie/identificativi di terze parti se interagisci con embed.</li>
+          </ul>
+
+          <h3>4.2 Come gestire o revocare il consenso</h3>
+          <p>
+            Puoi accettare/rifiutare e modificare le preferenze tramite il banner/pannello cookie (se presente) o seguendo le istruzioni della
+            <a href="/cookie-policy.html">Cookie Policy</a>. La revoca non pregiudica la liceità del trattamento basato su consenso prima della revoca.
+          </p>
+
+          <h3>4.3 Embed (es. video)</h3>
+          <p>
+            Se una pagina include un video incorporato, il fornitore terzo può trattare dati (es. IP, cookie). Dove possibile, carichiamo questi contenuti
+            solo dopo interazione o con impostazioni orientate alla privacy. In ogni caso, le terze parti agiscono secondo le loro informative.
+          </p>
+
+          <div class="callout">
+            <strong>Nota:</strong> i dettagli su cookie, tecnologie simili, durate e terze parti sono nella <a href="/cookie-policy.html">Cookie Policy</a>.
+          </div>
+        </article>
+
+        <article class="panel section" id="s5">
+          <h2>5) Destinatari e accessi ai dati</h2>
+
+          <h3>5.1 Chi può trattare i dati</h3>
+          <ul>
+            <li><strong>Titolare</strong> e, se necessario, persone autorizzate con accesso limitato.</li>
+            <li><strong>Fornitori tecnici</strong> (hosting, CDN/proxy, sicurezza, email, automazione del form, analytics se consentito).</li>
+            <li><strong>Terze parti</strong> collegate a contenuti incorporati (solo quando li carichi/usi).</li>
+            <li><strong>Autorità</strong> o consulenti quando richiesto dalla legge o necessario per tutela di un diritto.</li>
+          </ul>
+
+          <h3>5.2 Perché non elenchiamo “tutti i servizi” qui</h3>
+          <p>
+            Per minimizzare informazioni operative pubbliche, questa pagina riporta <strong>categorie di destinatari</strong>.
+            L’elenco aggiornato dei responsabili/sub-responsabili rilevanti può essere fornito su richiesta a
+            <a href="mailto:privacy@miniutti.it">privacy@miniutti.it</a> (quando applicabile, nei limiti consentiti).
+          </p>
+
+          <h3>5.3 Comunicazione a terzi</h3>
+          <p>
+            Non vendiamo dati personali. Comunichiamo dati a terzi solo se necessario per erogare il sito, rispondere alla richiesta,
+            rispettare obblighi legali o tutelare diritti.
+          </p>
+        </article>
+
+        <article class="panel section" id="s6">
+          <h2>6) Trasferimenti internazionali (UE/SEE ↔ Svizzera ↔ Paesi terzi)</h2>
+          <p>
+            Alcuni fornitori possono trattare dati anche al di fuori di UE/SEE o Svizzera. In tali casi, adottiamo garanzie adeguate,
+            come clausole contrattuali standard (SCC) e misure supplementari proporzionate al rischio, ove richiesto.
+          </p>
+          <h3>6.1 Principi applicati</h3>
+          <ul>
+            <li><strong>Minimizzazione:</strong> trasferiamo solo ciò che serve.</li>
+            <li><strong>Limitazione accessi:</strong> principi di necessità e segregazione.</li>
+            <li><strong>Sicurezza:</strong> cifratura in transito, controlli e logging.</li>
+            <li><strong>Valutazione:</strong> quando opportuno, valutiamo i rischi dei trasferimenti e misure mitigative.</li>
+          </ul>
+
+          <div class="callout">
+            <strong>Svizzera:</strong> per utenti CH, i trasferimenti seguono anche i requisiti della nFADP/LPD in tema di trasparenza e protezione adeguata.
+          </div>
+        </article>
+
+        <article class="panel section" id="s7">
+          <h2>7) Conservazione</h2>
+
+          <h3>7.1 Richieste e comunicazioni</h3>
+          <p>
+            <strong>Modulo contatti / email correlate:</strong> conserviamo i dati per il tempo necessario a gestire la richiesta e per tutela in caso di contestazioni.
+            In assenza di ulteriori rapporti, la retention tipica è fino a <strong>24 mesi</strong>, salvo obblighi di legge o contenziosi.
+          </p>
+
+          <h3>7.2 Log tecnici e sicurezza</h3>
+          <p>
+            I log tecnici e di sicurezza sono conservati tipicamente fino a <strong>30 giorni</strong>, salvo necessità di indagine su abusi/incidenti
+            o richieste legali. Applichiamo minimizzazione e accesso limitato.
+          </p>
+
+          <h3>7.3 Cookie e consensi</h3>
+          <p>
+            Le preferenze cookie e i log di consenso (se presenti) sono conservati per il tempo necessario a dimostrare la scelta e a non riproporla eccessivamente,
+            secondo quanto indicato in <a href="/cookie-policy.html">Cookie Policy</a>.
+          </p>
+
+          <h3>7.4 Backup</h3>
+          <p>
+            Se vengono effettuati backup tecnici, i dati possono persistere per un periodo limitato in copie di sicurezza e vengono gestiti con misure di protezione.
+          </p>
+        </article>
+
+        <article class="panel section" id="s8">
+          <h2>8) Sicurezza</h2>
+          <p>
+            Adottiamo misure tecniche e organizzative adeguate al rischio, tra cui:
+            cifratura in transito (HTTPS/TLS), controlli anti-abuso, limitazione accessi, autenticazione e segregazione,
+            aggiornamenti e hardening, logging di sicurezza, procedure di gestione incidenti, e minimizzazione dei dati.
+          </p>
+
+          <h3>8.1 Violazioni di dati (data breach)</h3>
+          <p>
+            In caso di violazione dei dati che comporti rischi per gli utenti, gestiamo l’incidente con misure di contenimento, analisi e ripristino.
+            Quando richiesto dalla normativa, effettuiamo le comunicazioni/notifiche previste.
+          </p>
+        </article>
+
+        <article class="panel section" id="s9">
+          <h2>9) Diritti e richieste</h2>
+
+          <h3>9.1 Diritti UE/SEE (GDPR)</h3>
+          <ul>
+            <li><strong>Accesso</strong>, <strong>rettifica</strong>, <strong>cancellazione</strong>, <strong>limitazione</strong></li>
+            <li><strong>Opposizione</strong> (in particolare per legittimo interesse)</li>
+            <li><strong>Portabilità</strong> (quando applicabile)</li>
+            <li><strong>Revoca del consenso</strong> (per trattamenti basati su consenso, es. analytics)</li>
+          </ul>
+
+          <h3>9.2 Diritti in Svizzera (nFADP/LPD)</h3>
+          <p>
+            Gli utenti in Svizzera hanno diritti previsti dalla legge svizzera, inclusi diritto di informazione e altre tutele applicabili.
+          </p>
+
+          <h3>9.3 Come fare una richiesta</h3>
+          <p>
+            Scrivi a <a href="mailto:privacy@miniutti.it">privacy@miniutti.it</a> indicando: tipo di richiesta, sito/pagina coinvolta,
+            e informazioni utili per identificare i dati (senza inviare dati superflui). Potremmo chiedere una verifica d’identità.
+          </p>
+
+          <h3>9.4 Tempi e gestione</h3>
+          <p>
+            Rispondiamo <strong>senza ingiustificato ritardo</strong> e, in ogni caso, entro i termini previsti dalla normativa applicabile
+            (di norma entro <strong>1 mese</strong> per richieste GDPR, con possibili estensioni nei casi previsti).
+          </p>
+
+          <div class="callout">
+            <strong>Opposizione al legittimo interesse:</strong> se ti opponi, valuteremo la richiesta e interromperemo il trattamento
+            salvo motivi legittimi prevalenti o tutela di diritti.
+          </div>
+        </article>
+
+        <article class="panel section" id="s10">
+          <h2>10) Reclami</h2>
+          <p>
+            <strong>Italia/UE:</strong> puoi proporre reclamo all’autorità di controllo competente (es. Garante per la protezione dei dati personali)
+            o a quella del tuo Stato membro.<br>
+            <strong>Svizzera:</strong> puoi rivolgerti al FDPIC/IFPDT.
+          </p>
+        </article>
+
+        <article class="panel section" id="s11">
+          <h2>11) Minori</h2>
+          <p>
+            Il sito non è progettato per raccogliere intenzionalmente dati di minori. Se ritieni che un minore abbia inviato dati personali,
+            contattaci per valutazione e possibile rimozione.
+          </p>
+        </article>
+
+        <article class="panel section" id="s12">
+          <h2>12) Trasparenza e casi particolari (copertura “edge cases”)</h2>
+
+          <h3>12.1 Richieste delle autorità</h3>
+          <p>
+            Potremmo divulgare dati solo in presenza di richieste legalmente valide e nei limiti della legge applicabile.
+          </p>
+
+          <h3>12.2 Link esterni e social</h3>
+          <p>
+            Il sito può contenere link a social network o piattaforme esterne. Cliccando un link, sarai soggetto alle policy del servizio terzo.
+          </p>
+
+          <h3>12.3 “Do Not Track” e segnali browser</h3>
+          <p>
+            Alcuni browser inviano segnali (es. “Do Not Track”). Il sito gestisce le preferenze soprattutto tramite il meccanismo cookie (banner/pannello),
+            descritto in <a href="/cookie-policy.html">Cookie Policy</a>.
+          </p>
+
+          <h3>12.4 Funzionalità future</h3>
+          <p>
+            Se in futuro attiveremo funzionalità aggiuntive (es. newsletter, prenotazioni, area clienti), potremmo trattare ulteriori dati
+            e aggiornare questa informativa prima o contestualmente all’attivazione.
+          </p>
+
+          <h3>12.5 Nessuna profilazione pubblicitaria</h3>
+          <p>
+            Non utilizziamo i dati per advertising comportamentale o vendita dati. L’eventuale misurazione traffico è orientata a statistiche e miglioramento,
+            ed è subordinata al consenso dove richiesto.
+          </p>
+        </article>
+
+        <article class="panel section" id="s13">
+          <h2>13) Modifiche alla presente informativa</h2>
+          <p>
+            Possiamo aggiornare questa informativa per adeguamenti tecnici, evoluzioni del sito o cambi normativi.
+            Pubblicheremo la versione aggiornata su questa pagina con la nuova data di aggiornamento.
+          </p>
+        </article>
+
+        <article class="panel section" id="s14">
+          <h2>Appendice: testo checkbox form (consigliato)</h2>
+          <p>
+            Per il form contatti, consigliato usare una checkbox di <strong>presa visione</strong> (non “consenso al trattamento”),
+            con link a questa pagina.
+          </p>
+
+          <div class="snippet" role="region" aria-label="Snippet testo checkbox">
+            <pre>
+<label class="privacy-check">
+  <input type="checkbox" name="privacy_read" required>
+  <span>
+    Dichiaro di aver letto l’<a href="/privacy.html" target="_blank" rel="noopener noreferrer">Informativa Privacy</a>
+    e di comprendere che i dati saranno trattati per rispondere alla mia richiesta.
+  </span>
+</label>
+            </pre>
+          </div>
+
+          <div class="callout">
+            <strong>Nota anti-bot:</strong> se usi un sistema anti-abuso sul form, puoi aggiungere una riga sotto al form tipo:
+            “Questo sito è protetto da misure anti-spam.” (i dettagli possono stare in Cookie Policy/Privacy).
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-wrap">
+      <div class="footer-col">
+        <h4>tobia.me</h4>
+        <p>Portfolio video e contenuti di Tobia Miniutti. Progetti, stile e collaborazione.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Link rapidi</h4>
         <ul>
-          <li><strong>Direttamente da te</strong> (form contatti, email).</li>
-          <li><strong>Automaticamente</strong> durante la navigazione (dati tecnici/log).</li>
-          <li><strong>Da terze parti</strong> solo dove abiliti esplicitamente funzioni non essenziali (es. analytics via consenso cookie).</li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
         </ul>
-      </article>
+      </div>
 
-      <article class="legal-card" id="finalita">
-        <h2>3) Finalità e basi giuridiche</h2>
-
-        <h3>A) Rispondere a richieste e avviare contatti di lavoro</h3>
-        <p><strong>Finalità:</strong> gestione richieste, preventivi, follow-up per servizi video/contenuti.<br>
-          <strong>Base (GDPR):</strong> misure precontrattuali/contratto (art. 6(1)(b)) e/o legittimo interesse (art. 6(1)(f)).
-        </p>
-
-        <h3>B) Sicurezza e prevenzione abusi (anti-spam/anti-bot)</h3>
-        <p><strong>Finalità:</strong> protezione del modulo contatti e del sito da spam, bot, abuso e attacchi.<br>
-          <strong>Base (GDPR):</strong> legittimo interesse (art. 6(1)(f)).
-        </p>
-
-        <h3>C) Statistiche di utilizzo (misurazione traffico)</h3>
-        <p><strong>Finalità:</strong> comprendere uso e performance del sito in forma statistica.<br>
-          <strong>Base (GDPR):</strong> <strong>consenso</strong> (art. 6(1)(a)) quando vengono usati cookie/identificativi non essenziali.
-        </p>
-
-        <h3>D) Obblighi di legge e tutela diritti</h3>
-        <p>
-          <strong>Finalità:</strong> adempimenti legali, gestione contestazioni e difesa in giudizio.<br>
-          <strong>Base (GDPR):</strong> obbligo legale (art. 6(1)(c)) e/o legittimo interesse (art. 6(1)(f)).
-        </p>
-
-        <h3>Svizzera</h3>
-        <p>
-          Per utenti in Svizzera, il trattamento segue i principi della nFADP (liceità, proporzionalità, trasparenza, sicurezza).
-        </p>
-      </article>
-
-      <article class="legal-card" id="cookie">
-        <h2>4) Cookie e misurazione traffico</h2>
-        <p>
-          Il sito può utilizzare cookie/tecnologie simili per funzionalità essenziali e, <strong>solo con consenso</strong>, per misurazione del traffico (analytics).
-          La gestione del consenso (accetta/rifiuta/preferenze) e i dettagli (categorie, cookie, durate, fornitori) sono descritti nella <a href="/cookie-policy.html">Cookie Policy</a>.
-        </p>
-
-        <div class="legal-note">
-          <strong>Regola chiave:</strong> l’analytics basato su cookie/identificativi deve rimanere <strong>disattivato fino al consenso</strong> e deve essere possibile <strong>revocare</strong> il consenso in qualsiasi momento.
-        </div>
-      </article>
-
-      <article class="legal-card" id="destinatari">
-        <h2>5) Destinatari e categorie di fornitori</h2>
-        <p>
-          I dati possono essere trattati da soggetti esterni che supportano il sito e le comunicazioni, secondo necessità e con accesso limitato.
-          Ai sensi del GDPR, comunichiamo <strong>categorie di destinatari</strong>; l’elenco aggiornato dei responsabili del trattamento può essere fornito su richiesta via <a href="mailto:privacy@miniutti.it">privacy@miniutti.it</a>.
-        </p>
+      <div class="footer-col">
+        <h4>Legale</h4>
         <ul>
-          <li><strong>Fornitori di hosting e distribuzione contenuti</strong> (es. hosting statico, CDN, proxy).</li>
-          <li><strong>Fornitori di sicurezza</strong> (es. protezione DDoS/WAF, anti-abuso, anti-bot).</li>
-          <li><strong>Fornitori di misurazione traffico</strong> (analytics) <strong>solo dopo consenso</strong>.</li>
-          <li><strong>Fornitori di automazione/integrazione</strong> (gestione backend del form e workflow).</li>
-          <li><strong>Fornitori email</strong> (invio/ricezione comunicazioni relative alle richieste).</li>
-          <li><strong>Fornitori di contenuti incorporati</strong> (es. piattaforme video) quando visualizzi tali contenuti.</li>
-          <li><strong>Autorità</strong> o terzi quando richiesto dalla legge o necessario per tutela di un diritto.</li>
+          <li><a href="privacy.html" aria-current="page">Privacy Policy</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="termini.html">Termini &amp; Condizioni</a></li>
+          <li><a href="mailto:privacy@miniutti.it">privacy@miniutti.it</a></li>
         </ul>
-
-        <p class="legal-note">
-          <strong>Scelta di trasparenza “pulita”:</strong> i dettagli nominativi dei singoli fornitori (dove non indispensabili) sono concentrati nella <a href="/cookie-policy.html">Cookie Policy</a> e nella documentazione interna.
-          Su richiesta, forniamo l’elenco aggiornato dei responsabili del trattamento.
-        </p>
-      </article>
-
-      <article class="legal-card" id="trasferimenti">
-        <h2>6) Trasferimenti internazionali</h2>
-        <p>
-          Alcuni fornitori possono trattare dati anche al di fuori di UE/SEE o Svizzera. In tali casi, il trasferimento avviene
-          sulla base di garanzie adeguate (es. <strong>Clausole Contrattuali Standard</strong>) e misure supplementari coerenti con il rischio,
-          ove richiesto.
-        </p>
-      </article>
-
-      <article class="legal-card" id="conservazione">
-        <h2>7) Conservazione</h2>
-        <ul>
-          <li><strong>Richieste via modulo / comunicazioni correlate:</strong> fino a <strong>24 mesi</strong> per gestione richiesta e tutela; poi cancellazione/anonimizzazione salvo obblighi o contenziosi.</li>
-          <li><strong>Log tecnici e sicurezza:</strong> tipicamente fino a <strong>30 giorni</strong>, salvo necessità di analisi incidenti/abusi o obblighi di legge.</li>
-          <li><strong>Preferenze cookie:</strong> conservate per il tempo necessario a ricordare la scelta, secondo Cookie Policy.</li>
-        </ul>
-      </article>
-
-      <article class="legal-card" id="sicurezza">
-        <h2>8) Sicurezza</h2>
-        <p>
-          Applichiamo misure tecniche e organizzative adeguate, tra cui: cifratura in transito (HTTPS/TLS), controlli anti-abuso,
-          limitazione accessi, minimizzazione e buone pratiche operative. Nessun sistema è invulnerabile, ma riduciamo il rischio in modo proporzionato.
-        </p>
-      </article>
-
-      <article class="legal-card" id="diritti">
-        <h2>9) Diritti</h2>
-        <h3>UE/SEE (GDPR)</h3>
-        <p>Hai diritto a: accesso, rettifica, cancellazione, limitazione, opposizione, portabilità (quando applicabile), revoca del consenso (senza pregiudicare la liceità prima della revoca).</p>
-
-        <h3>Svizzera (nFADP/LPD)</h3>
-        <p>Hai diritto di informazione e gli altri diritti previsti dalla legge svizzera nei limiti applicabili.</p>
-
-        <p class="legal-note">
-          <strong>Come esercitarli:</strong> scrivi a <a href="mailto:privacy@miniutti.it">privacy@miniutti.it</a>. Potremmo chiedere informazioni per verificare l’identità.
-        </p>
-      </article>
-
-      <article class="legal-card" id="reclami">
-        <h2>10) Reclami</h2>
-        <p><strong>Italia/UE:</strong> puoi proporre reclamo all’autorità di controllo competente (es. Garante Privacy) o a quella del tuo Stato membro.</p>
-        <p><strong>Svizzera:</strong> puoi rivolgerti all’Incaricato federale della protezione dei dati e della trasparenza (FDPIC/IFPDT).</p>
-      </article>
-
-      <article class="legal-card" id="minori">
-        <h2>11) Minori</h2>
-        <p>
-          Il sito non è progettato per raccogliere intenzionalmente dati di minori. Se ritieni che un minore abbia inviato dati personali,
-          contattaci: valuteremo e, se appropriato, procederemo alla rimozione.
-        </p>
-      </article>
-
-      <article class="legal-card" id="trasparenza">
-        <h2>12) Trasparenza</h2>
-        <ul>
-          <li><strong>Nessuna vendita dati</strong> e nessun uso per advertising comportamentale.</li>
-          <li><strong>Minimizzazione:</strong> raccogliamo solo ciò che serve per rispondere e garantire sicurezza.</li>
-          <li><strong>Richieste autorità:</strong> rispondiamo solo a richieste legalmente valide, nei limiti di legge.</li>
-          <li><strong>Accountability:</strong> teniamo documentazione interna (misure, fornitori, basi giuridiche) per dimostrare conformità.</li>
-        </ul>
-      </article>
-
-      <article class="legal-card" id="modifiche">
-        <h2>13) Modifiche</h2>
-        <p>
-          Possiamo aggiornare questa informativa (es. nuove funzionalità o requisiti normativi).
-          La versione aggiornata sarà pubblicata qui con la nuova data di aggiornamento.
-        </p>
-      </article>
-
+      </div>
     </div>
 
-    <div class="legal-links">
-      Documenti correlati: <a href="/cookie-policy.html">Cookie Policy</a> · <a href="/termini.html">Termini &amp; Condizioni</a>
+    <div class="footer-bottom">
+      © <span id="year"></span> Tobia Miniutti · Tutti i diritti riservati
     </div>
-  </section>
-</main>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal on scroll (fade-up)
+    const faders = document.querySelectorAll('.fade-up');
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.16, rootMargin: "0px 0px -40px 0px" });
+
+    faders.forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i * 45, 220)}ms`;
+      revealObserver.observe(el);
+    });
+
+    // Scroll progress
+    const progress = document.querySelector('.scroll-progress');
+    const updateProgress = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = pct + '%';
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+  </script>
+</body>
+</html>
