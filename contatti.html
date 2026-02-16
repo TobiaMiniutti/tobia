@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+  
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>tobia.me | Contatti</title>
@@ -509,6 +512,8 @@
           </div>
         </div>
 
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAACdQWou_a1sY6i7S"></div>
+
         <button class="btn-golden" id="submitBtn" type="submit">Invia</button>
       </form>
 
@@ -603,7 +608,7 @@
     const overlay = document.getElementById('overlay');
     const submitBtn = document.getElementById('submitBtn');
 
-    const HOOK_URL = 'https://hook.eu2.make.com/lndbgsb8ujjcwdrrwrpcxuqimnx6tjid';
+    const GATE_URL = 'https://tobia.me/api/contact';
     const startedAt = Date.now();
 
     const isEmailValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -649,19 +654,27 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Invio...';
 
-      const formData = { name: nome, email: email, message: messaggio };
+      const token = form.querySelector('input[name="cf-turnstile-response"]')?.value || "";
+      if (!token) {
+        alert('Completa la verifica anti-spam.');
+        return;
+      }
+
+      const formData = { name: nome, email: email, message: messaggio, turnstileToken: token };
 
       try {
-        const res = await fetch(HOOK_URL, {
+        const res = await fetch(GATE_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData)
         });
+
         if (!res.ok) throw new Error('Errore invio modulo');
 
         overlay.classList.add('active');
         overlay.setAttribute('aria-hidden', 'false');
         form.reset();
+        if (window.turnstile) window.turnstile.reset();
       } catch (err) {
         console.error(err);
         alert('Si è verificato un errore durante l’invio. Riprova tra poco.');
