@@ -623,6 +623,31 @@
       font-size: 0.9rem;
     }
 
+    .footer-legal-btn{
+      appearance: none;
+      border: 1px solid rgba(201,167,76,0.26);
+      background: rgba(255,255,255,0.012);
+      color: var(--anthracite);
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      font: inherit;
+      cursor: pointer;
+      transition: transform var(--transition), border-color var(--transition),
+                  background var(--transition), color var(--transition), box-shadow var(--transition);
+    }
+
+    .footer-legal-btn:hover,
+    .footer-legal-btn:focus-visible{
+      transform: translateY(-2px);
+      border-color: rgba(201,167,76,0.48);
+      background: rgba(255,255,255,0.03);
+      color: var(--white);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.28),
+                  0 0 0 1px rgba(201,167,76,0.08) inset;
+      outline: none;
+    }
+
+
     /* Focus */
     a:focus-visible {
       outline: 2px solid rgba(201, 167, 76, 0.65);
@@ -859,6 +884,23 @@
         </ul>
       </div>
     </div>
+
+      <div class="footer-col">
+        <h4>Legale</h4>
+        <ul class="footer-legal">
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="cookie.html">Cookie Policy</a></li>
+          <li><a href="termini.html">Termini & Condizioni</a></li>
+
+          <!-- CTA: riapre preferenze cookie -->
+          <li>
+            <button type="button" class="footer-legal-btn" id="cookie-preferences">
+              Preferenze cookie
+            </button>
+          </li>
+        </ul>
+      </div>
+
 
     <div class="footer-bottom">© 2025-2026 tobia.me — Tutti i diritti riservati</div>
   </footer>
