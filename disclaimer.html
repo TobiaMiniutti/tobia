@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+  <!--COOKIE-->
+  <link rel="stylesheet" href="https://cookie.miniutti.it/cookiebanner.css">
+  <script defer src="https://cookie.miniutti.it/cookiebanner.js"
+          data-ga="G-Q2TKV83VYM"
+          data-policy="/cookie.html"
+          data-privacy="/privacy.html"
+          data-manage="floating"
+          data-manage-pos="br"
+          data-manage-label="Preferenze cookie"></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>tobia.me | Disclaimer</title>
+  <meta name="description" content="Disclaimer e limitazione di responsabilità per tobia.me / miniutti.it: uso del sito, contenuti, link esterni, servizi, disponibilità e tutela legale." />
+  <meta name="theme-color" content="#121212" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --carbon:#121212;
+      --carbon-deep:#0d0d0d;
+      --golden:#c9a74c;
+      --anthracite:#b3b3b3;
+      --white:#ffffff;
+      --line:rgba(255,255,255,0.10);
+      --shadow-xl:0 14px 44px rgba(0,0,0,0.45);
+      --shadow-lg:0 10px 30px rgba(0,0,0,0.35);
+      --radius-xl:20px;
+      --radius-lg:14px;
+      --transition:0.28s ease;
+      --container:1140px;
+      --header-h:78px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:'Outfit',sans-serif;
+      color:var(--white);
+      background:
+        radial-gradient(1200px 700px at 80% -10%, rgba(201,167,76,0.08), transparent 60%),
+        radial-gradient(800px 500px at -10% 30%, rgba(201,167,76,0.05), transparent 60%),
+        var(--carbon);
+      min-height:100vh;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+    }
+
+    /* Skip link */
+    .skip-link{
+      position:absolute;
+      left:-999px;
+      top:12px;
+      background:rgba(0,0,0,0.85);
+      border:1px solid rgba(201,167,76,0.35);
+      color:var(--white);
+      padding:.65rem .9rem;
+      border-radius:12px;
+      z-index:1400;
+      text-decoration:none;
+      font-weight:600;
+    }
+    .skip-link:focus{left:12px;}
+
+    /* Scroll progress */
+    .scroll-progress{
+      position:fixed;
+      top:0;left:0;
+      width:0%;
+      height:2px;
+      z-index:1300;
+      background:linear-gradient(90deg, rgba(201,167,76,0.9), rgba(201,167,76,0.35));
+      box-shadow:0 0 12px rgba(201,167,76,0.55);
+    }
+
+    /* Header / Navbar */
+    header{
+      height:var(--header-h);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      background:rgba(12,12,12,0.58);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      padding:0 2rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1200;
+      box-shadow:0 2px 20px rgba(0,0,0,0.5);
+    }
+    .logo{
+      height:40px;
+      width:auto;
+      user-select:none;
+      filter:drop-shadow(0 0 1.5px rgba(0,0,0,0.6));
+    }
+    nav{
+      display:flex;
+      align-items:center;
+      gap:1.8rem;
+    }
+    nav a{
+      position:relative;
+      color:var(--white);
+      text-decoration:none;
+      font-weight:600;
+      font-size:0.98rem;
+      padding-bottom:6px;
+      transition:color var(--transition);
+      outline:none;
+    }
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:0;
+      height:3px;
+      border-radius:3px 3px 0 0;
+      background:linear-gradient(90deg,#008C45,#F4F5F0,#CD212A);
+      transition:width var(--transition);
+    }
+    nav a[aria-current="page"]::after{width:100%;}
+    nav a:hover, nav a:focus-visible{color:var(--golden);}
+    nav a:hover::after, nav a:focus-visible::after{width:100%;}
+    @supports selector(nav:has(a:hover)){
+      nav:has(a:hover:not([aria-current="page"])) a[aria-current="page"]::after,
+      nav:has(a:focus-visible:not([aria-current="page"])) a[aria-current="page"]::after{width:0;}
+    }
+
+    /* Main */
+    main{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:3.6rem 2rem 5.2rem;
+    }
+
+    /* Panels */
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid var(--line);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow-xl);
+    }
+
+    /* Hero */
+    .legal-hero{
+      padding:2.6rem;
+      text-align:center;
+      margin-bottom:1.6rem;
+      position:relative;
+      overflow:hidden;
+    }
+    .legal-hero::before{
+      content:"";
+      position:absolute;
+      inset:-60px;
+      background:
+        radial-gradient(520px 260px at 50% 10%, rgba(201,167,76,0.16), transparent 60%),
+        radial-gradient(420px 240px at 15% 85%, rgba(201,167,76,0.10), transparent 65%);
+      pointer-events:none;
+    }
+    .legal-hero > *{position:relative; z-index:1;}
+    .legal-hero h1{
+      font-size:clamp(2rem, 3.2vw, 2.7rem);
+      line-height:1.15;
+      margin-bottom:.8rem;
+    }
+    .legal-hero h1 span{color:var(--golden);}
+    .legal-hero p{
+      color:var(--anthracite);
+      line-height:1.85;
+      max-width:92ch;
+      margin:0 auto;
+      font-size:1.03rem;
+    }
+    .meta-row{
+      margin-top:1rem;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:.55rem;
+    }
+    .pill{
+      border:1px solid rgba(201,167,76,0.22);
+      background:rgba(201,167,76,0.06);
+      border-radius:999px;
+      padding:.45rem .75rem;
+      color:var(--white);
+      font-size:.92rem;
+      white-space:nowrap;
+    }
+
+    /* Layout: TOC + content */
+    .legal-grid{
+      display:grid;
+      grid-template-columns: 340px 1fr;
+      gap:1.4rem;
+      align-items:start;
+    }
+    .toc{
+      position:sticky;
+      top:calc(var(--header-h) + 16px);
+      padding:1.25rem;
+      border-radius:var(--radius-xl);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.012);
+      box-shadow:var(--shadow-lg);
+      max-height:calc(100vh - var(--header-h) - 36px);
+      overflow:auto;
+    }
+    .toc::-webkit-scrollbar{width:10px;}
+    .toc::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.10); border-radius:12px;}
+    .toc::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.16);}
+
+    .toc h2{
+      font-size:1.05rem;
+      color:var(--golden);
+      margin-bottom:.7rem;
+    }
+    .toc a{
+      display:block;
+      padding:.42rem .2rem;
+      text-decoration:none;
+      color:var(--anthracite);
+      transition:color var(--transition), transform var(--transition);
+      line-height:1.35;
+    }
+    .toc a:hover, .toc a:focus-visible{
+      color:var(--white);
+      transform:translateX(2px);
+      outline:none;
+    }
+
+    .content{
+      display:grid;
+      gap:1.2rem;
+      min-width:0;
+    }
+    .section{padding:2.0rem;}
+    .section h2{
+      color:var(--golden);
+      font-size:1.45rem;
+      margin-bottom:.8rem;
+      line-height:1.25;
+    }
+    .section h3{
+      color:var(--white);
+      font-size:1.08rem;
+      margin:1rem 0 .45rem;
+      line-height:1.25;
+    }
+    .section p, .section li{
+      color:var(--anthracite);
+      line-height:1.9;
+      font-size:1.02rem;
+    }
+    .section ul{margin:.5rem 0 0 1.15rem;}
+    .section a{color:var(--white); text-decoration:none; border-bottom:1px solid rgba(201,167,76,0.35);}
+    .section a:hover{border-bottom-color:rgba(201,167,76,0.7);}
+
+    .callout{
+      margin-top:1rem;
+      padding:1rem 1.05rem;
+      border-radius:var(--radius-lg);
+      border:1px solid rgba(201,167,76,0.18);
+      background:rgba(201,167,76,0.05);
+    }
+    .callout strong{color:var(--white);}
+
+    .table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border-radius:var(--radius-lg);
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(0,0,0,0.18);
+      margin-top:.85rem;
+    }
+    .table th, .table td{
+      padding:.85rem .85rem;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      vertical-align:top;
+      text-align:left;
+    }
+    .table th{
+      color:rgba(255,255,255,0.92);
+      font-weight:700;
+      background:rgba(255,255,255,0.03);
+    }
+    .table td{color:var(--anthracite);}
+    .table tr:last-child td{border-bottom:none;}
+
+    /* Footer */
+    footer{
+      background:var(--carbon-deep);
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:2.6rem 2rem 2rem;
+    }
+    .footer-wrap{
+      max-width:var(--container);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:1.8rem;
+    }
+    .footer-col h4{
+      color:var(--golden);
+      margin-bottom:.8rem;
+      font-size:1.03rem;
+    }
+    .footer-col p,
+    .footer-col li,
+    .footer-col a{
+      color:var(--anthracite);
+      text-decoration:none;
+      line-height:1.7;
+    }
+    .footer-col ul{list-style:none;}
+    .footer-col a:hover,
+    .footer-col a:focus-visible{color:var(--white); outline:none;}
+    .footer-bottom{
+      max-width:var(--container);
+      margin:1.8rem auto 0;
+      border-top:1px solid rgba(255,255,255,0.05);
+      padding-top:1rem;
+      text-align:center;
+      color:var(--anthracite);
+      font-size:.9rem;
+    }
+
+    a:focus-visible{
+      outline:2px solid rgba(201,167,76,0.65);
+      outline-offset:3px;
+      border-radius:8px;
+    }
+
+    @media (max-width: 980px){
+      header{padding:0 1rem;}
+      main{padding:3.2rem 1rem 4.5rem;}
+      .legal-grid{grid-template-columns:1fr;}
+      .toc{position:relative; top:auto; max-height:none;}
+    }
+    @media (max-width: 640px){
+      :root{--header-h:72px;}
+      nav{gap:1rem;}
+      nav a{font-size:0.92rem;}
+      .legal-hero{padding:2.0rem 1.2rem;}
+      .section{padding:1.55rem;}
+      .section p, .section li{font-size:1.0rem;}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto;}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenuto">Salta al contenuto</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <header>
+    <a href="index.html" aria-label="Torna alla home">
+      <img src="favicon.png" alt="Logo tobia.me" class="logo" />
+    </a>
+    <nav aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contatti.html">Contatti</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="disclaimer.html" aria-current="page">Disclaimer</a>
+    </nav>
+  </header>
+
+  <main id="contenuto">
+    <!-- HERO -->
+    <section class="panel legal-hero">
+      <h1>Disclaimer <span>&amp; Limitazioni</span></h1>
+      <p>
+        Questo sito è un portfolio e un canale di contatto. I contenuti sono forniti “così come sono”,
+        a scopo informativo e promozionale. Usando il sito accetti le limitazioni e le condizioni qui indicate.
+      </p>
+      <div class="meta-row">
+        <span class="pill"><strong>Ultimo aggiornamento:</strong> 17/02/2026</span>
+        <span class="pill"><strong>Ambito:</strong> tobia.me / miniutti.it</span>
+      </div>
+    </section>
+
+    <!-- GRID -->
+    <section class="legal-grid">
+      <!-- TOC -->
+      <aside class="toc" aria-label="Indice">
+        <h2>Indice</h2>
+        <a href="#s1">1. Scopo del sito e definizioni</a>
+        <a href="#s2">2. Natura delle informazioni (no consulenza)</a>
+        <a href="#s3">3. Uso consentito e responsabilità dell’utente</a>
+        <a href="#s4">4. Limitazione di responsabilità</a>
+        <a href="#s5">5. Disponibilità, manutenzione, sicurezza</a>
+        <a href="#s6">6. Link esterni e contenuti di terzi</a>
+        <a href="#s7">7. Portfolio, esempi, risultati non garantiti</a>
+        <a href="#s8">8. Preventivi, prezzi, tempi, revisioni</a>
+        <a href="#s9">9. Proprietà intellettuale</a>
+        <a href="#s10">10. Materiali inviati dall’utente</a>
+        <a href="#s11">11. Indennizzo</a>
+        <a href="#s12">12. Privacy e cookie</a>
+        <a href="#s13">13. Legge applicabile e foro</a>
+        <a href="#s14">14. Modifiche e contatti</a>
+      </aside>
+
+      <!-- CONTENT -->
+      <div class="content">
+
+        <article class="panel section" id="s1">
+          <h2>1) Scopo del sito e definizioni</h2>
+          <p>
+            Il sito <strong>tobia.me</strong> e/o <strong>miniutti.it</strong> (“Sito”) presenta lavori e servizi
+            (es. produzione video, riprese, montaggio) e permette di inviare richieste tramite contatto.
+          </p>
+          <ul>
+            <li><strong>Titolare/Autore:</strong> Tobia Miniutti.</li>
+            <li><strong>Utente:</strong> chiunque navighi o interagisca con il Sito.</li>
+            <li><strong>Contenuti:</strong> testi, immagini, video, grafiche, layout, materiali e informazioni presenti.</li>
+          </ul>
+          <div class="callout">
+            <strong>Nota:</strong> se in futuro verranno attivati servizi aggiuntivi (es. area clienti, prenotazioni, newsletter),
+            potranno applicarsi condizioni specifiche.
+          </div>
+        </article>
+
+        <article class="panel section" id="s2">
+          <h2>2) Natura delle informazioni (no consulenza)</h2>
+          <p>
+            Le informazioni sul Sito sono fornite <strong>a scopo informativo e descrittivo</strong>.
+            Salvo espressa indicazione scritta, nulla sul Sito costituisce:
+          </p>
+          <ul>
+            <li>consulenza legale, fiscale, assicurativa, medica o tecnica certificata;</li>
+            <li>parere professionale vincolante;</li>
+            <li>offerta al pubblico o proposta contrattuale definitiva;</li>
+            <li>garanzia di risultato.</li>
+          </ul>
+          <div class="callout">
+            <strong>Se ti serve una decisione “da responsabilità”</strong> (es. compliance, sicurezza, assicurazioni),
+            usa il Sito solo come primo orientamento e verifica con professionisti/fornitori competenti.
+          </div>
+        </article>
+
+        <article class="panel section" id="s3">
+          <h2>3) Uso consentito e responsabilità dell’utente</h2>
+          <p>Accetti di usare il Sito in modo lecito e corretto. In particolare, ti impegni a:</p>
+          <ul>
+            <li>non tentare accessi non autorizzati, scraping aggressivo, stress test, exploit, bypass di protezioni;</li>
+            <li>non inviare contenuti illeciti, diffamatori, fraudolenti, malware o spam;</li>
+            <li>non violare diritti di terzi (copyright, marchi, privacy, segreti);</li>
+            <li>fornire informazioni veritiere nei contatti (nei limiti necessari) e aggiornate.</li>
+          </ul>
+          <p>
+            Sei responsabile del dispositivo, della connessione e della sicurezza del tuo ambiente
+            (password, sistemi, backup, ecc.).
+          </p>
+        </article>
+
+        <article class="panel section" id="s4">
+          <h2>4) Limitazione di responsabilità</h2>
+          <p>
+            Nei limiti massimi consentiti dalla legge, il Titolare declina responsabilità per danni diretti o indiretti
+            derivanti dall’uso o dall’impossibilità di usare il Sito, inclusi (a titolo esemplificativo):
+          </p>
+          <ul>
+            <li>perdita di profitti, occasioni, dati, reputazione, interruzioni operative;</li>
+            <li>decisioni prese basandosi su contenuti del Sito senza verifiche indipendenti;</li>
+            <li>errori, omissioni, refusi, aggiornamenti non tempestivi;</li>
+            <li>accessi non autorizzati o incidenti informatici non imputabili a dolo/colpa grave del Titolare.</li>
+          </ul>
+
+          <table class="table" aria-label="Chiarimenti sulla responsabilità">
+            <thead>
+              <tr>
+                <th>Scenario</th>
+                <th>Come viene gestito</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Informazioni non aggiornate</td>
+                <td>Il Sito può non riflettere l’ultima versione di prezzi, disponibilità, tecniche o normative.</td>
+              </tr>
+              <tr>
+                <td>Problemi con link/servizi terzi</td>
+                <td>Il Titolare non controlla policy, uptime o contenuti dei terzi.</td>
+              </tr>
+              <tr>
+                <td>Uso improprio del materiale</td>
+                <td>L’uso è a rischio dell’utente. Verifica compatibilità e diritti prima di riutilizzare contenuti.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="callout">
+            <strong>Eccezioni:</strong> nulla in questa sezione limita responsabilità in caso di dolo o colpa grave,
+            né diritti inderogabili previsti dalla legge applicabile.
+          </div>
+        </article>
+
+        <article class="panel section" id="s5">
+          <h2>5) Disponibilità, manutenzione, sicurezza</h2>
+          <p>
+            Il Sito può essere soggetto a manutenzione, aggiornamenti o interruzioni (programmate o non programmate).
+            Non è garantita la disponibilità continua, né l’assenza di errori.
+          </p>
+          <ul>
+            <li>Possiamo sospendere funzioni o parti del Sito senza preavviso per motivi tecnici o di sicurezza.</li>
+            <li>Adottiamo misure ragionevoli per la protezione del Sito, ma nessun sistema è “invulnerabile”.</li>
+            <li>Ti consigliamo di non inviare dati non necessari o riservati via moduli pubblici.</li>
+          </ul>
+        </article>
+
+        <article class="panel section" id="s6">
+          <h2>6) Link esterni e contenuti di terzi</h2>
+          <p>
+            Il Sito può includere link a social, piattaforme video, mappe, strumenti o siti terzi. Tali risorse:
+          </p>
+          <ul>
+            <li>sono gestite da terzi indipendenti;</li>
+            <li>possono cambiare senza preavviso;</li>
+            <li>possono applicare cookie, tracking e condizioni proprie.</li>
+          </ul>
+          <div class="callout">
+            <strong>Attenzione:</strong> l’apertura di un link esterno avviene sotto tua responsabilità.
+            Valuta credibilità, sicurezza e policy del fornitore.
+          </div>
+        </article>
+
+        <article class="panel section" id="s7">
+          <h2>7) Portfolio, esempi, risultati non garantiti</h2>
+          <p>
+            Il portfolio mostra esempi di lavori, stili e qualità di output. Tuttavia i risultati dipendono da molte variabili
+            (brief, location, meteo, budget, tempi, materiali forniti dal cliente, vincoli tecnici, autorizzazioni, ecc.).
+          </p>
+          <ul>
+            <li>Un esempio non implica identico risultato per ogni progetto.</li>
+            <li>Qualsiasi stima (tempi/costi) è indicativa finché non formalizzata per iscritto.</li>
+            <li>Eventuali loghi/marchi presenti nei lavori restano dei rispettivi titolari.</li>
+          </ul>
+        </article>
+
+        <article class="panel section" id="s8">
+          <h2>8) Preventivi, prezzi, tempi, revisioni</h2>
+          <p>
+            Preventivi, disponibilità, tempi di consegna, numero di revisioni e modalità operative sono definiti
+            <strong>caso per caso</strong> e diventano vincolanti solo se confermati per iscritto (es. email/accordo).
+          </p>
+          <ul>
+            <li>Prezzi e condizioni possono cambiare in base al perimetro e a richieste successive.</li>
+            <li>Urgenze, richieste “last minute” o cambi di brief possono influire su tempi e costi.</li>
+            <li>Consegne e formati possono essere soggetti a limiti tecnici (codec, bitrate, piattaforme, compatibilità).</li>
+          </ul>
+          <div class="callout">
+            <strong>Consiglio operativo:</strong> per evitare fraintendimenti, definisci sempre per iscritto:
+            obiettivo, durata, formato, canali di pubblicazione, materiali forniti, deadline, revisioni.
+          </div>
+        </article>
+
+        <article class="panel section" id="s9">
+          <h2>9) Proprietà intellettuale</h2>
+          <p>
+            Salvo diversa indicazione, i contenuti del Sito (layout, testi, grafiche, foto/video, montaggi, brand elements)
+            sono protetti da diritti di proprietà intellettuale.
+          </p>
+          <ul>
+            <li>È vietata la riproduzione/riuso non autorizzato, totale o parziale, dei contenuti.</li>
+            <li>È consentito condividere link al Sito, senza alterazioni e con corretta attribuzione.</li>
+            <li>Per licenze d’uso (es. video consegnati) valgono gli accordi scritti con il cliente.</li>
+          </ul>
+        </article>
+
+        <article class="panel section" id="s10">
+          <h2>10) Materiali inviati dall’utente</h2>
+          <p>
+            Se ci invii materiali (testi, loghi, immagini, video, musica, brief), dichiari di avere i diritti necessari
+            oppure autorizzazioni valide per l’uso e l’eventuale pubblicazione.
+          </p>
+          <ul>
+            <li>Non siamo responsabili per violazioni derivanti da materiali forniti dal cliente/utente.</li>
+            <li>Possiamo rifiutare materiali o richieste che appaiono illecite, rischiose o non gestibili.</li>
+            <li>È tua responsabilità indicare eventuali vincoli (NDA, embargo, dati sensibili, diritti musicali, liberatorie).</li>
+          </ul>
+        </article>
+
+        <article class="panel section" id="s11">
+          <h2>11) Indennizzo</h2>
+          <p>
+            Nei limiti consentiti dalla legge, accetti di tenere indenne il Titolare da richieste, danni, perdite, costi
+            (incluse spese legali ragionevoli) derivanti da:
+          </p>
+          <ul>
+            <li>uso illecito del Sito;</li>
+            <li>violazione di diritti di terzi tramite contenuti/materiali inviati;</li>
+            <li>falsa dichiarazione o abuso dei canali di contatto.</li>
+          </ul>
+        </article>
+
+        <article class="panel section" id="s12">
+          <h2>12) Privacy e cookie</h2>
+          <p>
+            Il trattamento dei dati personali e la gestione dei cookie sono descritti nelle pagine dedicate:
+            <a href="privacy.html">Privacy Policy</a> e <a href="cookie-policy.html">Cookie Policy</a>.
+          </p>
+          <div class="callout">
+            <strong>Minimizzazione:</strong> invia nel form solo i dati necessari per ricevere risposta.
+            Per richieste che includono informazioni riservate, usa canali concordati.
+          </div>
+        </article>
+
+        <article class="panel section" id="s13">
+          <h2>13) Legge applicabile e foro</h2>
+          <p>
+            Se non diversamente previsto da norme inderogabili a tutela del consumatore/utente,
+            eventuali controversie relative al Sito saranno regolate dalla legge applicabile e trattate dal foro competente
+            secondo i criteri previsti dalla normativa vigente.
+          </p>
+          <div class="callout">
+            <strong>Nota:</strong> se sei consumatore, potrebbero applicarsi regole specifiche sul foro del tuo luogo di residenza/domicilio.
+          </div>
+        </article>
+
+        <article class="panel section" id="s14">
+          <h2>14) Modifiche e contatti</h2>
+          <p>
+            Possiamo aggiornare questo Disclaimer in qualsiasi momento. La versione aggiornata sarà pubblicata qui con data di aggiornamento.
+          </p>
+          <p>
+            Per segnalazioni o richieste legali/privacy: <a href="mailto:privacy@miniutti.it">privacy@miniutti.it</a>.
+          </p>
+          <div class="callout">
+            <strong>Se noti un errore o un contenuto che ritieni lesivo:</strong> scrivi indicando URL, motivo e contatto per riscontro.
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-wrap">
+      <div class="footer-col">
+        <h4>tobia.me</h4>
+        <p>Portfolio video e contenuti di Tobia Miniutti.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Link rapidi</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legale</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="termini.html">Termini &amp; Condizioni</a></li>
+          <li><a href="disclaimer.html" aria-current="page">Disclaimer</a></li>
+          <li><a href="mailto:privacy@miniutti.it">privacy@miniutti.it</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> Tobia Miniutti · Tutti i diritti riservati
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll progress
+    const progress = document.querySelector('.scroll-progress');
+    const updateProgress = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = pct + '%';
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+  </script>
+</body>
+</html>
