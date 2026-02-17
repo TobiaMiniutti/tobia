@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+  <!--COOKIE-->
+  <link rel="stylesheet" href="https://cookie.miniutti.it/cookiebanner.css">
+  <script defer src="https://cookie.miniutti.it/cookiebanner.js"
+          data-ga="G-Q2TKV83VYM"
+          data-policy="/cookie.html"
+          data-privacy="/privacy.html"
+          data-manage="floating"
+          data-manage-pos="br"
+          data-manage-label="Preferenze cookie"></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>tobia.me | Termini &amp; Condizioni</title>
+  <meta name="description" content="Termini e Condizioni di tobia.me / miniutti.it: servizi, preventivi, pagamenti, consegne, licenze, responsabilità, recesso e legge applicabile." />
+  <meta name="theme-color" content="#121212" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --carbon:#121212;
+      --carbon-deep:#0d0d0d;
+      --golden:#c9a74c;
+      --anthracite:#b3b3b3;
+      --white:#ffffff;
+      --line:rgba(255,255,255,0.10);
+      --shadow-xl:0 14px 44px rgba(0,0,0,0.45);
+      --shadow-lg:0 10px 30px rgba(0,0,0,0.35);
+      --radius-xl:20px;
+      --radius-lg:14px;
+      --transition:0.28s ease;
+      --container:1140px;
+      --header-h:78px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:'Outfit',sans-serif;
+      color:var(--white);
+      background:
+        radial-gradient(1200px 700px at 80% -10%, rgba(201,167,76,0.08), transparent 60%),
+        radial-gradient(800px 500px at -10% 30%, rgba(201,167,76,0.05), transparent 60%),
+        var(--carbon);
+      min-height:100vh;
+    }
+
+    /* Skip link */
+    .skip-link{
+      position:absolute;
+      left:-999px;
+      top:12px;
+      background:rgba(0,0,0,0.85);
+      border:1px solid rgba(201,167,76,0.35);
+      color:var(--white);
+      padding:.65rem .9rem;
+      border-radius:12px;
+      z-index:1400;
+      text-decoration:none;
+    }
+    .skip-link:focus{left:12px;}
+
+    /* Scroll progress */
+    .scroll-progress{
+      position:fixed;
+      top:0;left:0;
+      width:0%;
+      height:2px;
+      z-index:1300;
+      background:linear-gradient(90deg, rgba(201,167,76,0.9), rgba(201,167,76,0.35));
+      box-shadow:0 0 12px rgba(201,167,76,0.55);
+    }
+
+    /* Header / Navbar */
+    header{
+      height:var(--header-h);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      background:rgba(12,12,12,0.58);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      padding:0 2rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1200;
+      box-shadow:0 2px 20px rgba(0,0,0,0.5);
+    }
+    .logo{
+      height:40px;
+      width:auto;
+      user-select:none;
+      filter:drop-shadow(0 0 1.5px rgba(0,0,0,0.6));
+    }
+    nav{
+      display:flex;
+      align-items:center;
+      gap:1.8rem;
+    }
+    nav a{
+      position:relative;
+      color:var(--white);
+      text-decoration:none;
+      font-weight:600;
+      font-size:0.98rem;
+      padding-bottom:6px;
+      transition:color var(--transition);
+      outline:none;
+    }
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:0;
+      height:3px;
+      border-radius:3px 3px 0 0;
+      background:linear-gradient(90deg,#008C45,#F4F5F0,#CD212A);
+      transition:width var(--transition);
+    }
+    nav a[aria-current="page"]::after{width:100%;}
+    nav a:hover, nav a:focus-visible{color:var(--golden);}
+    nav a:hover::after, nav a:focus-visible::after{width:100%;}
+    @supports selector(nav:has(a:hover)){
+      nav:has(a:hover:not([aria-current="page"])) a[aria-current="page"]::after,
+      nav:has(a:focus-visible:not([aria-current="page"])) a[aria-current="page"]::after{width:0;}
+    }
+
+    /* Main */
+    main{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:3.6rem 2rem 5.2rem;
+    }
+
+    /* Panels */
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid var(--line);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow-xl);
+    }
+
+    /* Hero */
+    .legal-hero{
+      padding:2.6rem;
+      text-align:center;
+      margin-bottom:1.6rem;
+      position:relative;
+      overflow:hidden;
+    }
+    .legal-hero::before{
+      content:"";
+      position:absolute;
+      inset:-60px;
+      background:
+        radial-gradient(520px 260px at 50% 10%, rgba(201,167,76,0.16), transparent 60%),
+        radial-gradient(420px 240px at 15% 85%, rgba(201,167,76,0.10), transparent 65%);
+      pointer-events:none;
+    }
+    .legal-hero > *{position:relative; z-index:1;}
+    .legal-hero h1{
+      font-size:clamp(2rem, 3.2vw, 2.7rem);
+      line-height:1.15;
+      margin-bottom:.8rem;
+    }
+    .legal-hero h1 span{color:var(--golden);}
+    .legal-hero p{
+      color:var(--anthracite);
+      line-height:1.85;
+      max-width:92ch;
+      margin:0 auto;
+      font-size:1.03rem;
+    }
+    .meta-row{
+      margin-top:1rem;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:.55rem;
+    }
+    .pill{
+      border:1px solid rgba(201,167,76,0.22);
+      background:rgba(201,167,76,0.06);
+      border-radius:999px;
+      padding:.45rem .75rem;
+      color:var(--white);
+      font-size:.92rem;
+      white-space:nowrap;
+    }
+
+    /* Layout: TOC + content */
+    .legal-grid{
+      display:grid;
+      grid-template-columns: 340px 1fr;
+      gap:1.4rem;
+      align-items:start;
+    }
+    .toc{
+      position:sticky;
+      top:calc(var(--header-h) + 16px);
+      padding:1.25rem;
+      border-radius:var(--radius-xl);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.012);
+      box-shadow:var(--shadow-lg);
+      max-height:calc(100vh - var(--header-h) - 36px);
+      overflow:auto;
+    }
+    .toc::-webkit-scrollbar{width:10px;}
+    .toc::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.10); border-radius:12px;}
+    .toc::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.16);}
+
+    .toc h2{
+      font-size:1.05rem;
+      color:var(--golden);
+      margin-bottom:.7rem;
+    }
+    .toc a{
+      display:block;
+      padding:.42rem .2rem;
+      text-decoration:none;
+      color:var(--anthracite);
+      transition:color var(--transition), transform var(--transition);
+      line-height:1.35;
+    }
+    .toc a:hover, .toc a:focus-visible{
+      color:var(--white);
+      transform:translateX(2px);
+      outline:none;
+    }
+
+    .content{
+      display:grid;
+      gap:1.2rem;
+      min-width:0;
+    }
+    .section{
+      padding:2.0rem;
+      scroll-margin-top:calc(var(--header-h) + 24px);
+    }
+    .section h2{
+      color:var(--golden);
+      font-size:1.45rem;
+      margin-bottom:.8rem;
+      line-height:1.25;
+    }
+    .section h3{
+      color:var(--white);
+      font-size:1.08rem;
+      margin:1rem 0 .45rem;
+      line-height:1.25;
+    }
+    .section p, .section li{
+      color:var(--anthracite);
+      line-height:1.9;
+      font-size:1.02rem;
+    }
+    .section ul{margin:.5rem 0 0 1.15rem;}
+    .section a{color:var(--white); text-decoration:none; border-bottom:1px solid rgba(201,167,76,0.35);}
+    .section a:hover{border-bottom-color:rgba(201,167,76,0.7);}
+
+    .callout{
+      margin-top:1rem;
+      padding:1rem 1.05rem;
+      border-radius:var(--radius-lg);
+      border:1px solid rgba(201,167,76,0.18);
+      background:rgba(201,167,76,0.05);
+    }
+    .callout strong{color:var(--white);}
+    .table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border-radius:var(--radius-lg);
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(0,0,0,0.18);
+      margin-top:.85rem;
+    }
+    .table th, .table td{
+      padding:.85rem .85rem;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      vertical-align:top;
+      text-align:left;
+    }
+    .table th{
+      color:rgba(255,255,255,0.92);
+      font-weight:700;
+      background:rgba(255,255,255,0.03);
+    }
+    .table td{color:var(--anthracite);}
+    .table tr:last-child td{border-bottom:none;}
+
+    /* Footer */
+    footer{
+      background:var(--carbon-deep);
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:2.6rem 2rem 2rem;
+    }
+    .footer-wrap{
+      max-width:var(--container);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:1.8rem;
+    }
+    .footer-col h4{
+      color:var(--golden);
+      margin-bottom:.8rem;
+      font-size:1.03rem;
+    }
+    .footer-col p,
+    .footer-col li,
+    .footer-col a{
+      color:var(--anthracite);
+      text-decoration:none;
+      line-height:1.7;
+    }
+    .footer-col ul{list-style:none;}
+    .footer-col a:hover,
+    .footer-col a:focus-visible{color:var(--white); outline:none;}
+    .footer-bottom{
+      max-width:var(--container);
+      margin:1.8rem auto 0;
+      border-top:1px solid rgba(255,255,255,0.05);
+      padding-top:1rem;
+      text-align:center;
+      color:var(--anthracite);
+      font-size:.9rem;
+    }
+
+    a:focus-visible{
+      outline:2px solid rgba(201,167,76,0.65);
+      outline-offset:3px;
+      border-radius:8px;
+    }
+
+    @media (max-width: 980px){
+      header{padding:0 1rem;}
+      main{padding:3.2rem 1rem 4.5rem;}
+      .legal-grid{grid-template-columns:1fr;}
+      .toc{position:relative; top:auto; max-height:none;}
+    }
+    @media (max-width: 640px){
+      :root{--header-h:72px;}
+      nav{gap:1rem;}
+      nav a{font-size:0.92rem;}
+      .legal-hero{padding:2.0rem 1.2rem;}
+      .section{padding:1.55rem;}
+      .section p, .section li{font-size:1.0rem;}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto;}
+      *, *::before, *::after{transition:none !important; animation:none !important;}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenuto">Salta al contenuto</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <header>
+    <a href="index.html" aria-label="Torna alla home">
+      <img src="favicon.png" alt="Logo tobia.me" class="logo" />
+    </a>
+    <nav aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contatti.html">Contatti</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="termini.html" aria-current="page">Termini</a>
+    </nav>
+  </header>
+
+  <main id="contenuto">
+    <!-- HERO -->
+    <section class="panel legal-hero">
+      <h1>Termini <span>&amp; Condizioni</span></h1>
+      <p>
+        Questi Termini regolano l’uso dei siti <strong>tobia.me</strong> e/o <strong>miniutti.it</strong> e,
+        ove applicabile, la fornitura di servizi creativi (es. foto/video, riprese drone, montaggio, consegne digitali).
+        Se non accetti questi Termini, ti invitiamo a non utilizzare il sito e a non inviare richieste tramite il modulo contatti.
+      </p>
+      <div class="meta-row">
+        <span class="pill"><strong>Ultimo aggiornamento:</strong> 17/02/2026</span>
+        <span class="pill"><strong>Contatto legale:</strong> <a href="mailto:privacy@miniutti.it" style="border-bottom:0">privacy@miniutti.it</a></span>
+      </div>
+    </section>
+
+    <!-- GRID -->
+    <section class="legal-grid">
+      <!-- TOC -->
+      <aside class="toc" aria-label="Indice">
+        <h2>Indice</h2>
+        <a href="#s1">1. Chi siamo, definizioni, ambito</a>
+        <a href="#s2">2. Uso del sito</a>
+        <a href="#s3">3. Preventivi, ordine, priorità tra documenti</a>
+        <a href="#s4">4. Prezzi, pagamenti, fatture/ricevute</a>
+        <a href="#s5">5. Consegne, revisioni, approvazione</a>
+        <a href="#s6">6. Obblighi del cliente e materiali forniti</a>
+        <a href="#s7">7. Diritto d’autore, licenze, portfolio</a>
+        <a href="#s8">8. Riprese con drone e conformità normativa</a>
+        <a href="#s9">9. Cancellazioni, rinvii, recesso</a>
+        <a href="#s10">10. Limitazioni di responsabilità</a>
+        <a href="#s11">11. Manleva e responsabilità del cliente</a>
+        <a href="#s12">12. Servizi terzi, link ed embed</a>
+        <a href="#s13">13. Privacy e cookie</a>
+        <a href="#s14">14. Forza maggiore</a>
+        <a href="#s15">15. Legge applicabile e foro</a>
+        <a href="#s16">16. Modifiche ai Termini</a>
+      </aside>
+
+      <!-- CONTENT -->
+      <div class="content">
+
+        <article class="panel section" id="s1">
+          <h2>1) Chi siamo, definizioni, ambito</h2>
+
+          <h3>1.1 Fornitore / Titolare</h3>
+          <p>
+            Il sito e i servizi (quando concordati) sono offerti da <strong>Tobia Miniutti</strong> (persona fisica),
+            con contatto ufficiale <a href="mailto:privacy@miniutti.it">privacy@miniutti.it</a>.
+          </p>
+
+          <h3>1.2 Definizioni</h3>
+          <ul>
+            <li><strong>Sito:</strong> tobia.me e/o miniutti.it e relative pagine.</li>
+            <li><strong>Cliente:</strong> persona o organizzazione che richiede o acquista un servizio.</li>
+            <li><strong>Servizi:</strong> attività creative e tecniche (es. riprese, montaggio, consegna file, consulenza contenuti).</li>
+            <li><strong>Deliverable:</strong> output concordato (es. video finale, foto, clip, file progetto se previsto).</li>
+            <li><strong>Brief:</strong> specifiche, obiettivi, stile e vincoli comunicati dal Cliente.</li>
+          </ul>
+
+          <div class="callout">
+            <strong>Ambito:</strong> questi Termini coprono (a) navigazione del sito e (b) regole generali di fornitura
+            servizi, che verranno <strong>personalizzati in preventivo/accordo scritto</strong>.
+          </div>
+        </article>
+
+        <article class="panel section" id="s2">
+          <h2>2) Uso del sito</h2>
+
+          <h3>2.1 Accesso e corretto utilizzo</h3>
+          <p>
+            Ti impegni a usare il sito in modo lecito, senza tentare di compromettere sicurezza, disponibilità o integrità
+            (es. scraping aggressivo, probe, exploit, invio di codice malevolo, spam sul form).
+          </p>
+
+          <h3>2.2 Proprietà dei contenuti del sito</h3>
+          <p>
+            Grafica, testi, layout, loghi, foto e video presenti sul sito sono protetti dalla normativa applicabile.
+            È vietata la riproduzione/riutilizzo non autorizzato, salvo quanto consentito dalla legge.
+          </p>
+
+          <h3>2.3 Disponibilità</h3>
+          <p>
+            Il sito può essere aggiornato, sospeso o modificato senza preavviso per esigenze tecniche e operative.
+            Non garantiamo continuità assoluta o assenza di errori.
+          </p>
+        </article>
+
+        <article class="panel section" id="s3">
+          <h2>3) Preventivi, ordine, priorità tra documenti</h2>
+
+          <h3>3.1 Richiesta e preventivo</h3>
+          <p>
+            Le richieste inviate tramite modulo contatti o email non costituiscono ordine vincolante.
+            Il preventivo (se emesso) descrive: scope, deliverable, tempistiche, prezzo, condizioni specifiche.
+          </p>
+
+          <h3>3.2 Accettazione</h3>
+          <p>
+            L’ordine si considera accettato solo quando: (a) il Cliente conferma per iscritto (email ok) e
+            (b) vengono soddisfatte eventuali condizioni (es. acconto, invio materiali, conferma date).
+          </p>
+
+          <h3>3.3 Priorità documentale</h3>
+          <p>
+            In caso di conflitto tra documenti, prevale questo ordine:
+            <strong>(1)</strong> accordo/contratto firmato (se presente),
+            <strong>(2)</strong> preventivo/ordine scritto,
+            <strong>(3)</strong> questi Termini,
+            <strong>(4)</strong> contenuti del sito.
+          </p>
+
+          <div class="callout">
+            <strong>Change request:</strong> qualsiasi attività fuori scope (nuove riprese, varianti, formati extra, nuove versioni)
+            può richiedere nuovo preventivo o adeguamento del prezzo/tempi.
+          </div>
+        </article>
+
+        <article class="panel section" id="s4">
+          <h2>4) Prezzi, pagamenti, fatture/ricevute</h2>
+
+          <h3>4.1 Prezzi</h3>
+          <p>
+            I prezzi sono indicati in preventivo. Se non diversamente specificato, eventuali costi extra (es. trasferte,
+            location, permessi, figuranti, attrezzature speciali, musica/licenze) sono esclusi e verranno concordati.
+          </p>
+
+          <h3>4.2 Acconti e saldo</h3>
+          <p>
+            Possiamo richiedere un <strong>acconto</strong> per bloccare date e avviare lavorazioni. In assenza di diverso accordo,
+            l’acconto è imputato al prezzo finale. Il <strong>saldo</strong> è normalmente dovuto prima della consegna finale
+            (o secondo milestone concordate).
+          </p>
+
+          <h3>4.3 Ritardi di pagamento</h3>
+          <p>
+            In caso di ritardi, possiamo sospendere consegne e lavorazioni fino a regolarizzazione.
+            Eventuali scadenze e consegne si considerano automaticamente prorogate in misura ragionevole.
+          </p>
+
+          <h3>4.4 Documentazione fiscale</h3>
+          <p>
+            La documentazione (ricevuta/fattura, quando applicabile) segue modalità e requisiti concordati e previsti dalla normativa.
+            Il Cliente è responsabile di fornire dati corretti per l’intestazione.
+          </p>
+        </article>
+
+        <article class="panel section" id="s5">
+          <h2>5) Consegne, revisioni, approvazione</h2>
+
+          <h3>5.1 Tempistiche</h3>
+          <p>
+            Le tempistiche indicate sono stime basate sul brief e sulla collaborazione del Cliente
+            (feedback tempestivi, materiali completi, disponibilità). Ritardi nel feedback/materiali possono spostare la consegna.
+          </p>
+
+          <h3>5.2 Revisioni incluse</h3>
+          <p>
+            Il preventivo può includere un numero definito di revisioni (es. 1–2 giri). Revisioni aggiuntive o richieste
+            sostanziali (cambio concept, montaggio completamente diverso, nuova scaletta) possono essere fatturate a parte.
+          </p>
+
+          <h3>5.3 Approvazione e “silenzio-assenso” operativo</h3>
+          <p>
+            Se chiediamo approvazioni su scelte operative (taglio, musica, colori, titolazione, loghi) e il Cliente non risponde
+            entro un termine ragionevole comunicato, potremmo procedere per rispettare la timeline, usando l’ultima indicazione valida.
+          </p>
+
+          <h3>5.4 Consegna e formati</h3>
+          <p>
+            I deliverable sono consegnati nei formati concordati (es. MP4/H.264, ProRes se previsto, JPG/PNG).
+            La consegna può avvenire via link (cloud), email o supporto fisico se concordato.
+          </p>
+
+          <div class="callout">
+            <strong>Archiviazione:</strong> salvo diverso accordo, non garantiamo conservazione dei file sorgenti/progetti oltre
+            un periodo ragionevole dopo la consegna (consigliato: il Cliente effettua backup immediato).
+          </div>
+        </article>
+
+        <article class="panel section" id="s6">
+          <h2>6) Obblighi del cliente e materiali forniti</h2>
+
+          <h3>6.1 Brief e informazioni</h3>
+          <p>
+            Il Cliente deve fornire un brief chiaro e completo e segnalare vincoli (brand guideline, riferimenti, divieti,
+            liberatorie, permessi location, soggetti ripresi, ecc.).
+          </p>
+
+          <h3>6.2 Materiali del Cliente</h3>
+          <p>
+            Se il Cliente fornisce loghi, musiche, video/foto di terzi o altri materiali, garantisce di avere i diritti e le licenze
+            necessarie. Non siamo responsabili per violazioni derivanti da materiali forniti dal Cliente.
+          </p>
+
+          <h3>6.3 Liberatorie e autorizzazioni</h3>
+          <p>
+            Quando necessari (es. persone identificabili, proprietà private, marchi, location), il Cliente è responsabile di ottenere
+            liberatorie e autorizzazioni, salvo diverso accordo scritto.
+          </p>
+        </article>
+
+        <article class="panel section" id="s7">
+          <h2>7) Diritto d’autore, licenze, portfolio</h2>
+
+          <h3>7.1 Proprietà intellettuale</h3>
+          <p>
+            Salvo diverso accordo, la proprietà intellettuale del lavoro creativo resta dell’autore, mentre al Cliente viene concessa
+            una <strong>licenza d’uso</strong> come da preventivo (ambito, canali, durata).
+          </p>
+
+          <h3>7.2 Licenza al Cliente</h3>
+          <p>
+            In assenza di specifiche, la licenza si intende <strong>non esclusiva</strong>, <strong>non trasferibile</strong>,
+            limitata agli scopi comunicati (es. pubblicazione su social/sito del Cliente). Qualsiasi uso diverso (es. advertising
+            massivo, TV, affissioni, rivendita, stock) richiede accordo scritto.
+          </p>
+
+          <h3>7.3 Modifiche da parte del Cliente</h3>
+          <p>
+            Modifiche autonome del Cliente (es. re-edit, filtri pesanti, rimozione watermark, compressioni estreme) sono consentite
+            solo se non danneggiano reputazione/attribuzione e se conformi alla licenza concordata. Possiamo richiedere di non
+            attribuirci versioni alterate in modo fuorviante.
+          </p>
+
+          <h3>7.4 Uso in portfolio</h3>
+          <p>
+            Salvo accordo contrario, possiamo mostrare estratti o versioni ridotte del lavoro per portfolio personale, social e
+            presentazioni, <strong>solo dopo pubblicazione del Cliente</strong> o dopo un periodo concordato.
+            Per lavori “riservati” (NDA), l’uso portfolio è escluso.
+          </p>
+
+          <div class="callout">
+            <strong>Musica/font/licenze terze:</strong> se un progetto usa risorse con licenze specifiche, si applicano anche
+            le condizioni del relativo licenziante (es. divieti, territorialità, durata).
+          </div>
+        </article>
+
+        <article class="panel section" id="s8">
+          <h2>8) Riprese con drone e conformità normativa</h2>
+
+          <h3>8.1 Conformità e limitazioni operative</h3>
+          <p>
+            Le riprese aeree sono soggette a condizioni meteo, vincoli di sicurezza, restrizioni geografiche e normative.
+            Se un’area o una richiesta non è operabile in sicurezza o legalmente, potremmo rifiutare o proporre alternative.
+          </p>
+
+          <h3>8.2 Permessi e responsabilità</h3>
+          <p>
+            Se servono permessi/autorità/gestori, devono essere ottenuti dal Cliente salvo diverso accordo scritto.
+            Il Cliente deve informare su rischi, divieti o regole del luogo (eventi, aree private, siti sensibili).
+          </p>
+
+          <h3>8.3 Risultato e condizioni esterne</h3>
+          <p>
+            Non garantiamo un risultato specifico in presenza di condizioni esterne (vento, pioggia, affollamento, restrizioni
+            improvvise, interferenze). In tali casi si concorda riprogrammazione o consegna alternativa secondo ragionevolezza.
+          </p>
+
+          <div class="callout">
+            <strong>Sicurezza prima di tutto:</strong> eventuali scelte operative (quota, traiettorie, orari) possono essere adattate
+            sul posto per ridurre rischio e rispettare le regole.
+          </div>
+        </article>
+
+        <article class="panel section" id="s9">
+          <h2>9) Cancellazioni, rinvii, recesso</h2>
+
+          <h3>9.1 Cancellazione / rinvio</h3>
+          <p>
+            Le date bloccate hanno valore organizzativo. Se il Cliente cancella o rinvia, possiamo trattenere l’acconto in tutto o in parte
+            per coprire pianificazione, pre-produzione e opportunità perse, secondo quanto indicato nel preventivo.
+          </p>
+
+          <h3>9.2 Recesso del Cliente (se applicabile)</h3>
+          <p>
+            Se il Cliente è “consumatore” e la normativa lo prevede, il diritto di recesso può non applicarsi ai servizi già eseguiti
+            o ai contenuti digitali forniti con consenso all’esecuzione immediata. I dettagli dipendono dal caso concreto e dall’accordo.
+          </p>
+
+          <h3>9.3 Recesso/risoluzione per inadempimento</h3>
+          <p>
+            In caso di mancata collaborazione, mancato pagamento o violazioni materiali, possiamo sospendere/risolvere il rapporto,
+            trattenendo quanto dovuto per lavoro già svolto e costi sostenuti.
+          </p>
+        </article>
+
+        <article class="panel section" id="s10">
+          <h2>10) Limitazioni di responsabilità</h2>
+
+          <h3>10.1 Nessuna responsabilità per eventi indiretti</h3>
+          <p>
+            Nei limiti di legge, non rispondiamo per danni indiretti o consequenziali (perdita di profitto, interruzione attività,
+            perdita di dati) derivanti da uso del sito o dai deliverable.
+          </p>
+
+          <h3>10.2 Responsabilità massima</h3>
+          <p>
+            Nei limiti consentiti, l’eventuale responsabilità complessiva non può eccedere l’importo effettivamente pagato dal Cliente
+            per il progetto specifico che ha generato la contestazione.
+          </p>
+
+          <h3>10.3 Backup e perdita dati</h3>
+          <p>
+            Il Cliente è responsabile di effettuare backup dei file ricevuti. Non rispondiamo per perdite dovute a mancato backup
+            o conservazione oltre i tempi indicati.
+          </p>
+
+          <div class="callout">
+            <strong>Garanzie:</strong> forniamo i servizi con cura professionale, ma non garantiamo risultati “promessi”
+            se dipendono da fattori esterni (algoritmi social, campagne, meteo, terzi, autorizzazioni).
+          </div>
+        </article>
+
+        <article class="panel section" id="s11">
+          <h2>11) Manleva e responsabilità del cliente</h2>
+
+          <h3>11.1 Manleva</h3>
+          <p>
+            Il Cliente si impegna a manlevare e tenere indenne il Fornitore da pretese di terzi derivanti da:
+            materiali forniti dal Cliente, istruzioni illecite, mancate liberatorie/permessi, uso non conforme alla licenza,
+            pubblicazione in violazione di diritti (immagine, copyright, marchi).
+          </p>
+
+          <h3>11.2 Istruzioni e conformità</h3>
+          <p>
+            Non eseguiamo richieste che riteniamo illecite o rischiose. Se una richiesta è ambigua, possiamo chiedere chiarimenti
+            e sospendere fino a definizione.
+          </p>
+        </article>
+
+        <article class="panel section" id="s12">
+          <h2>12) Servizi terzi, link ed embed</h2>
+
+          <h3>12.1 Link esterni</h3>
+          <p>
+            Il sito può contenere link a siti/piattaforme terze (es. social, video). Non controlliamo tali siti e non siamo responsabili
+            per contenuti o pratiche di terzi.
+          </p>
+
+          <h3>12.2 Piattaforme di consegna</h3>
+          <p>
+            La consegna può avvenire tramite servizi terzi (cloud/email). L’accesso e la disponibilità dipendono anche dai relativi fornitori.
+            In caso di indisponibilità, useremo canali alternativi ragionevoli.
+          </p>
+        </article>
+
+        <article class="panel section" id="s13">
+          <h2>13) Privacy e cookie</h2>
+          <p>
+            Il trattamento dei dati personali è descritto nella <a href="privacy.html">Privacy Policy</a>.
+            Le preferenze cookie e l’eventuale analytics (solo con consenso) sono descritte nella
+            <a href="cookie-policy.html">Cookie Policy</a>.
+          </p>
+          <div class="callout">
+            <strong>Nessuna vendita dati:</strong> non vendiamo dati personali. Usiamo solo quanto necessario per funzionamento,
+            sicurezza e gestione richieste.
+          </div>
+        </article>
+
+        <article class="panel section" id="s14">
+          <h2>14) Forza maggiore</h2>
+          <p>
+            Non saremo responsabili per ritardi o inadempimenti dovuti a cause fuori dal nostro controllo (es. eventi meteo estremi,
+            guasti, blackout, indisponibilità fornitori, restrizioni, malattie/infortuni, provvedimenti autorità).
+            In tali casi le scadenze si prorogano e si concordano soluzioni alternative.
+          </p>
+        </article>
+
+        <article class="panel section" id="s15">
+          <h2>15) Legge applicabile e foro</h2>
+
+          <h3>15.1 Legge</h3>
+          <p>
+            Salvo diverse norme inderogabili applicabili (es. consumatori), i presenti Termini sono regolati dalla legge italiana.
+          </p>
+
+          <h3>15.2 Foro competente</h3>
+          <p>
+            Salvo norme inderogabili, per ogni controversia è competente in via esclusiva il foro del luogo del Fornitore
+            (area Bologna).
+          </p>
+
+          <div class="callout">
+            <strong>Consumatori:</strong> se agisci come consumatore, potrebbero applicarsi diritti e fori inderogabili previsti
+            dalla normativa.
+          </div>
+        </article>
+
+        <article class="panel section" id="s16">
+          <h2>16) Modifiche ai Termini</h2>
+          <p>
+            Possiamo aggiornare questi Termini. La versione aggiornata sarà pubblicata su questa pagina con la data di aggiornamento.
+            Per progetti già avviati, valgono le condizioni concordate al momento dell’ordine salvo accordo diverso.
+          </p>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-wrap">
+      <div class="footer-col">
+        <h4>tobia.me</h4>
+        <p>Portfolio video e contenuti di Tobia Miniutti.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Link rapidi</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legale</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="termini.html" aria-current="page">Termini &amp; Condizioni</a></li>
+          <li><a href="mailto:privacy@miniutti.it">privacy@miniutti.it</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> Tobia Miniutti · Tutti i diritti riservati
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll progress
+    const progress = document.querySelector('.scroll-progress');
+    const updateProgress = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = pct + '%';
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+  </script>
+</body>
+</html>
