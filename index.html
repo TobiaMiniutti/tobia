@@ -661,128 +661,103 @@
       }
     }
 
-    /* Site Status Banner (tobia.me style) */
-.site-banner{
-  position: sticky;
-  top: var(--header-h);
-  z-index: 1100;
-  padding: 0.75rem 2rem;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  background: rgba(12, 12, 12, 0.62);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+    /* Dev Status Bar (cookie-banner style) */
+.devbar{
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2000;
+  padding: 0.9rem 1rem;
+  background: rgba(10,10,10,0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 
-.site-banner__inner{
+.devbar__inner{
   max-width: var(--container);
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 0.95rem;
-  align-items: start;
-  padding: 0.9rem 1rem;
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(201, 167, 76, 0.24);
-  background:
-    radial-gradient(520px 220px at 30% 0%, rgba(201,167,76,0.10), transparent 60%),
-    rgba(255,255,255,0.015);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
-}
-
-.site-banner__icon{
-  width: 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
-  border-radius: 12px;
-  border: 1px solid rgba(201, 167, 76, 0.28);
-  background: rgba(201,167,76,0.08);
-  box-shadow: 0 0 0 1px rgba(201,167,76,0.06) inset;
-  user-select: none;
-}
-
-.site-banner__title{
-  color: var(--golden);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.25rem;
-}
-
-.site-banner__text{
-  color: var(--anthracite);
-  line-height: 1.6;
-}
-
-.site-banner__actions{
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 0.7rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(201,167,76,0.18);
+  background:
+    radial-gradient(520px 220px at 30% 0%, rgba(201,167,76,0.08), transparent 60%),
+    rgba(255,255,255,0.012);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.45);
 }
 
-.site-banner__link{
+.devbar__text{
+  color: var(--anthracite);
+  line-height: 1.45;
+  font-size: 0.95rem;
+}
+.devbar__text strong{ color: var(--white); }
+
+.devbar__actions{
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.devbar__link{
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 0.52rem 0.85rem;
+  padding: 0.48rem 0.75rem;
   border-radius: 999px;
-  border: 1px solid rgba(201, 167, 76, 0.26);
+  border: 1px solid rgba(201,167,76,0.20);
   color: var(--white);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   background: rgba(255,255,255,0.01);
   transition: transform var(--transition), border-color var(--transition),
               background var(--transition), color var(--transition);
 }
-
-.site-banner__link:hover,
-.site-banner__link:focus-visible{
+.devbar__link:hover,
+.devbar__link:focus-visible{
   transform: translateY(-2px);
-  border-color: rgba(201, 167, 76, 0.44);
+  border-color: rgba(201,167,76,0.42);
   background: rgba(255,255,255,0.03);
   color: var(--golden);
   outline: none;
 }
 
-.site-banner__close{
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.10);
-  background: rgba(255,255,255,0.02);
+.devbar__btn{
+  padding: 0.48rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(201,167,76,0.26);
+  background: rgba(201,167,76,0.10);
   color: var(--white);
+  font-weight: 700;
   cursor: pointer;
   transition: transform var(--transition), border-color var(--transition),
               background var(--transition);
 }
-
-.site-banner__close:hover,
-.site-banner__close:focus-visible{
+.devbar__btn:hover,
+.devbar__btn:focus-visible{
   transform: translateY(-2px);
-  border-color: rgba(201, 167, 76, 0.40);
-  background: rgba(201,167,76,0.08);
+  border-color: rgba(201,167,76,0.46);
+  background: rgba(201,167,76,0.16);
   outline: none;
 }
 
-/* small screens */
-@media (max-width: 640px){
-  .site-banner{ padding: 0.65rem 1rem; }
-  .site-banner__inner{
-    grid-template-columns: auto 1fr;
-    grid-template-areas:
-      "icon content"
-      "close close";
+/* Mobile: impila e resta compatto */
+@media (max-width: 720px){
+  .devbar__inner{
+    flex-direction: column;
+    align-items: flex-start;
   }
-  .site-banner__icon{ grid-area: icon; }
-  .site-banner__content{ grid-area: content; }
-  .site-banner__close{
-    grid-area: close;
+  .devbar__actions{
     width: 100%;
-    height: 40px;
-    border-radius: 999px;
+    justify-content: flex-start;
   }
 }
+
+  /* fine banner stato*/
 
   </style>
 </head>
@@ -801,31 +776,6 @@
       <a href="contatti.html">Contatti</a>
     </nav>
   </header>
-
-  <!-- Site Status Banner -->
-<section class="site-banner" id="siteBanner" role="status" aria-live="polite" aria-label="Avviso sito in sviluppo">
-  <div class="site-banner__inner">
-    <div class="site-banner__icon" aria-hidden="true">⚠️</div>
-
-    <div class="site-banner__content">
-      <p class="site-banner__title">Sito in fase di sviluppo</p>
-      <p class="site-banner__text">
-        Stiamo completando l’inserimento dei <strong>cookie</strong> e aggiornando <strong>condizioni</strong> e
-        <strong>informative</strong>. Alcune sezioni potrebbero cambiare.
-      </p>
-
-      <div class="site-banner__actions" aria-label="Azioni avviso">
-        <a class="site-banner__link" href="privacy.html">Privacy & Cookie</a>
-        <a class="site-banner__link" href="termini.html">Condizioni</a>
-      </div>
-    </div>
-
-    <button class="site-banner__close" type="button" id="siteBannerClose" aria-label="Chiudi avviso">
-      ✕
-    </button>
-  </div>
-</section>
-
 
   <section class="hero" aria-label="Presentazione">
     <div class="hero-content fade-up">
@@ -1038,23 +988,41 @@
     window.addEventListener('scroll', updateProgress, { passive: true });
     window.addEventListener('resize', updateProgress);
 
-    // Site Status Banner: dismiss + persistence
-(() => {
-  const KEY = "tobia_site_banner_v1_dismissed";
-  const banner = document.getElementById("siteBanner");
-  const closeBtn = document.getElementById("siteBannerClose");
+  /* DEV STATUS*/
+  <!-- Dev Status (cookie-style) -->
+<div class="devbar" id="devBar" role="status" aria-live="polite" aria-label="Avviso sito in sviluppo">
+  <div class="devbar__inner">
+    <p class="devbar__text">
+      <strong>Sito in sviluppo:</strong> stiamo inserendo i <strong>cookie</strong> e aggiornando <strong>condizioni</strong>.
+    </p>
 
-  if (!banner || !closeBtn) return;
+    <div class="devbar__actions" aria-label="Azioni avviso">
+      <a class="devbar__link" href="privacy.html">Privacy & Cookie</a>
+      <a class="devbar__link" href="termini.html">Condizioni</a>
+      <button class="devbar__btn" type="button" id="devBarClose" aria-label="Chiudi avviso">
+        Ok
+      </button>
+    </div>
+  </div>
+</div>
 
-  const dismissed = localStorage.getItem(KEY) === "1";
-  if (dismissed) banner.style.display = "none";
+    (() => {
+  const KEY = "tobia_devbar_v1_dismissed";
+  const bar = document.getElementById("devBar");
+  const close = document.getElementById("devBarClose");
+  if (!bar || !close) return;
 
-  closeBtn.addEventListener("click", () => {
-    banner.style.display = "none";
+  if (localStorage.getItem(KEY) === "1") {
+    bar.style.display = "none";
+    return;
+  }
+
+  close.addEventListener("click", () => {
+    bar.style.display = "none";
     localStorage.setItem(KEY, "1");
   });
 })();
 
-  </script>
+
 </body>
 </html>
