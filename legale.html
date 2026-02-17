@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>tobia.me | Legale</title>
+  <meta name="description" content="Sezione legale: accesso rapido a privacy, cookie, termini e disclaimer." />
+  <meta name="theme-color" content="#121212" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --carbon:#121212;
+      --carbon-deep:#0d0d0d;
+      --surface:#141414;
+
+      --golden:#c9a74c;
+      --golden-soft:rgba(201,167,76,0.18);
+
+      --anthracite:#b3b3b3;
+      --white:#ffffff;
+
+      --line:rgba(255,255,255,0.10);
+      --line-strong:rgba(255,255,255,0.20);
+
+      --shadow-xl:0 14px 44px rgba(0,0,0,0.45);
+      --shadow-lg:0 10px 30px rgba(0,0,0,0.35);
+
+      --radius-xl:20px;
+      --radius-lg:14px;
+
+      --transition:0.28s ease;
+      --container:1140px;
+      --header-h:78px;
+    }
+
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+
+    body{
+      font-family:'Outfit', sans-serif;
+      background:
+        radial-gradient(1200px 700px at 80% -10%, rgba(201,167,76,0.08), transparent 60%),
+        radial-gradient(800px 500px at -10% 30%, rgba(201,167,76,0.05), transparent 60%),
+        var(--carbon);
+      color:var(--white);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+      line-height:1.6;
+    }
+
+    .skip-link{
+      position:absolute;
+      left:-999px;
+      top:10px;
+      background:var(--white);
+      color:#000;
+      padding:10px 14px;
+      border-radius:10px;
+      z-index:9999;
+      font-weight:600;
+    }
+    .skip-link:focus{ left:10px; }
+
+    .scroll-progress{
+      position:fixed;
+      top:0; left:0;
+      width:0%;
+      height:2px;
+      z-index:1300;
+      background:linear-gradient(90deg, rgba(201,167,76,0.9), rgba(201,167,76,0.35));
+      box-shadow:0 0 12px rgba(201,167,76,0.55);
+    }
+
+    header{
+      height:var(--header-h);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      background:rgba(12,12,12,0.58);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      padding:0 2rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1200;
+      box-shadow:0 2px 20px rgba(0,0,0,0.5);
+    }
+
+    .logo{
+      height:40px;
+      width:auto;
+      user-select:none;
+      filter:drop-shadow(0 0 1.5px rgba(0,0,0,0.6));
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:1.8rem;
+    }
+
+    nav a{
+      position:relative;
+      color:var(--white);
+      text-decoration:none;
+      font-weight:600;
+      font-size:0.98rem;
+      padding-bottom:6px;
+      transition:color var(--transition);
+      outline:none;
+    }
+
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:0;
+      height:3px;
+      border-radius:3px 3px 0 0;
+      background:linear-gradient(90deg, #008C45, #F4F5F0, #CD212A);
+      transition:width var(--transition);
+    }
+
+    nav a[aria-current="page"]{ color:var(--white); }
+    nav a[aria-current="page"]::after{ width:100%; }
+
+    nav a:hover,
+    nav a:focus-visible{ color:var(--golden); }
+    nav a:hover::after,
+    nav a:focus-visible::after{ width:100%; }
+
+    @supports selector(nav:has(a:hover)){
+      nav:has(a:hover:not([aria-current="page"])) a[aria-current="page"]::after,
+      nav:has(a:focus-visible:not([aria-current="page"])) a[aria-current="page"]::after{
+        width:0;
+      }
+    }
+
+    main{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:4.6rem 2rem 5.2rem;
+    }
+
+    .section-title{
+      font-size:clamp(1.8rem, 3vw, 2.4rem);
+      color:var(--golden);
+      text-align:center;
+      margin-bottom:1.1rem;
+      line-height:1.2;
+    }
+
+    .section-sub{
+      text-align:center;
+      color:var(--anthracite);
+      max-width:70ch;
+      margin:0 auto 2.3rem;
+      line-height:1.75;
+    }
+
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid var(--line);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow-xl);
+    }
+
+    .fade-up{
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity 0.9s ease, transform 0.9s ease;
+    }
+    .fade-up.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .legal-hero{
+      padding:2.6rem 2.2rem;
+      text-align:left;
+      overflow:hidden;
+      position:relative;
+      isolation:isolate;
+    }
+
+    .legal-hero::before{
+      content:"";
+      position:absolute;
+      inset:-40px -40px auto -40px;
+      height:220px;
+      background:radial-gradient(520px 220px at 20% 40%, rgba(201,167,76,0.12), transparent 68%);
+      z-index:-1;
+    }
+
+    .legal-hero h2{
+      color:var(--golden);
+      font-size:clamp(1.45rem, 2.6vw, 1.9rem);
+      margin-bottom:0.55rem;
+      line-height:1.2;
+    }
+
+    .legal-hero p{
+      color:var(--anthracite);
+      max-width:72ch;
+      line-height:1.75;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:1rem;
+      margin-top:1.2rem;
+    }
+
+    .link-card{
+      border:1px solid rgba(201,167,76,0.24);
+      border-radius:var(--radius-lg);
+      padding:1.05rem 1.05rem 1rem;
+      background:rgba(255,255,255,0.015);
+      transition:transform var(--transition), border-color var(--transition),
+                background var(--transition), box-shadow var(--transition);
+      display:flex;
+      flex-direction:column;
+      gap:0.35rem;
+      min-height:132px;
+    }
+    .link-card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(201,167,76,0.42);
+      background:rgba(255,255,255,0.03);
+      box-shadow:0 10px 24px rgba(0,0,0,0.28),
+                0 0 0 1px rgba(201,167,76,0.08) inset;
+    }
+
+    .link-card h3{
+      font-size:1.06rem;
+      color:var(--white);
+      line-height:1.3;
+    }
+
+    .link-card p{
+      color:var(--anthracite);
+      line-height:1.62;
+      font-size:0.97rem;
+    }
+
+    .link-card a{
+      margin-top:auto;
+      width:fit-content;
+    }
+
+    .btn-golden{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:0.78rem 1.35rem;
+      border:2px solid var(--golden);
+      border-radius:999px;
+      color:var(--golden);
+      text-decoration:none;
+      font-weight:600;
+      transition:transform var(--transition), box-shadow var(--transition),
+                background var(--transition), color var(--transition);
+      will-change:transform;
+    }
+    .btn-golden:hover,
+    .btn-golden:focus-visible{
+      transform:translateY(-2px);
+      background:var(--golden);
+      color:var(--carbon);
+      box-shadow:0 10px 24px rgba(201,167,76,0.38);
+      outline:none;
+    }
+
+    .note{
+      margin-top:1.1rem;
+      padding:1.05rem 1.2rem;
+      border-radius:var(--radius-lg);
+      border:1px solid rgba(255,255,255,0.10);
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(0,0,0,0.20));
+      color:var(--anthracite);
+      line-height:1.7;
+    }
+    .note strong{ color:var(--white); font-weight:600; }
+
+    footer{
+      background:var(--carbon-deep);
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:2.6rem 2rem 2rem;
+    }
+
+    .footer-wrap{
+      max-width:var(--container);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:1.8rem;
+    }
+
+    .footer-col h4{
+      color:var(--golden);
+      margin-bottom:0.8rem;
+      font-size:1.03rem;
+    }
+
+    .footer-col p,
+    .footer-col li,
+    .footer-col a{
+      color:var(--anthracite);
+      text-decoration:none;
+      line-height:1.7;
+    }
+
+    .footer-col ul{ list-style:none; }
+
+    .footer-col a:hover,
+    .footer-col a:focus-visible{
+      color:var(--white);
+      outline:none;
+    }
+
+    .footer-bottom{
+      max-width:var(--container);
+      margin:1.8rem auto 0;
+      border-top:1px solid rgba(255,255,255,0.05);
+      padding-top:1rem;
+      text-align:center;
+      color:var(--anthracite);
+      font-size:0.9rem;
+    }
+
+    a:focus-visible{
+      outline:2px solid rgba(201,167,76,0.65);
+      outline-offset:3px;
+      border-radius:8px;
+    }
+
+    @media (max-width:920px){
+      header{ padding:0 1rem; }
+      nav{ gap:1rem; }
+      main{ padding:4rem 1rem 4.5rem; }
+      .grid{ grid-template-columns:1fr; }
+      .legal-hero{ padding:1.6rem; }
+    }
+
+    @media (max-width:640px){
+      :root{ --header-h:72px; }
+      nav a{ font-size:0.92rem; }
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      html{ scroll-behavior:auto; }
+      *,*::before,*::after{ animation:none !important; transition:none !important; }
+      .fade-up{ opacity:1 !important; transform:none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenuto">Salta al contenuto</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <header>
+    <a href="index.html" aria-label="Torna alla home">
+      <img src="favicon.png" alt="Logo tobia.me" class="logo" />
+    </a>
+
+    <nav aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contatti.html">Contatti</a>
+      <a href="legale.html" aria-current="page">Legale</a>
+    </nav>
+  </header>
+
+  <main id="contenuto">
+    <h1 class="section-title fade-up">Area legale</h1>
+    <p class="section-sub fade-up">
+      Qui trovi i documenti principali. Contenuto volutamente essenziale: ogni sezione è consultabile nella sua pagina dedicata.
+    </p>
+
+    <section class="panel legal-hero fade-up" aria-label="Accesso rapido documenti legali">
+      <h2>Documenti e policy</h2>
+      <p>
+        Per trasparenza e conformità, i testi completi sono separati in pagine dedicate.
+        Se ti serve un chiarimento specifico, trovi anche i contatti.
+      </p>
+
+      <div class="grid" role="list" aria-label="Sezioni legali">
+        <article class="link-card" role="listitem">
+          <h3>Privacy Policy</h3>
+          <p>Come vengono gestiti i dati personali (informativa completa).</p>
+          <a class="btn-golden" href="privacy.html">Apri Privacy</a>
+        </article>
+
+        <article class="link-card" role="listitem">
+          <h3>Cookie Policy</h3>
+          <p>Uso dei cookie e strumenti di tracciamento (se presenti).</p>
+          <a class="btn-golden" href="cookie.html">Apri Cookie</a>
+        </article>
+
+        <article class="link-card" role="listitem">
+          <h3>Termini &amp; Condizioni</h3>
+          <p>Regole di utilizzo del sito e dei servizi, limitazioni e responsabilità.</p>
+          <a class="btn-golden" href="termini.html">Apri Termini</a>
+        </article>
+
+        <article class="link-card" role="listitem">
+          <h3>Disclaimer</h3>
+          <p>Note legali rapide: contenuti, link esterni, disponibilità e accuratezza.</p>
+          <a class="btn-golden" href="disclaimer.html">Apri Disclaimer</a>
+        </article>
+
+        <article class="link-card" role="listitem">
+          <h3>Gestisci preferenze cookie</h3>
+          <p>Riapri il pannello preferenze (se il cookie banner è installato).</p>
+          <a class="btn-golden" href="cookie.html#preferenze" id="open-cookie-prefs">Preferenze</a>
+        </article>
+
+        <article class="link-card" role="listitem">
+          <h3>Contatti legali</h3>
+          <p>Richieste su privacy/cookie o segnalazioni: canali dedicati.</p>
+          <a class="btn-golden" href="contatti.html">Vai ai Contatti</a>
+        </article>
+      </div>
+
+      <div class="note" role="note" aria-label="Nota">
+        <strong>Nota:</strong> questa pagina non sostituisce i documenti completi.
+        Per richieste ufficiali, usa i recapiti indicati nelle rispettive sezioni.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-wrap">
+      <div class="footer-col">
+        <h4>tobia.me</h4>
+        <p>Portfolio fotografico e video di Tobia Miniutti – progetti, idee e sviluppo.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Link rapidi</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="legale.html" aria-current="page">Legale</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Documenti</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="cookie.html">Cookie</a></li>
+          <li><a href="termini.html">Termini</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">© 2026 tobia.me – Tutti i diritti riservati</div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const faders = document.querySelectorAll('.fade-up');
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.16, rootMargin: "0px 0px -40px 0px" });
+    faders.forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i * 45, 220)}ms`;
+      revealObserver.observe(el);
+    });
+
+    // Scroll progress
+    const progress = document.querySelector('.scroll-progress');
+    const updateProgress = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = pct + '%';
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+
+    // Cookie preferences hook (compatibile con banner custom: prova eventi comuni)
+    const openPrefsBtn = document.getElementById('open-cookie-prefs');
+    if (openPrefsBtn) {
+      openPrefsBtn.addEventListener('click', (e) => {
+        // Se il tuo cookiebanner espone una funzione globale, intercettala qui
+        // Esempi (adatta al tuo script):
+        // window.CookieBanner?.openPreferences?.();
+        // window.cookieConsent?.showSettings?.();
+        // Se non esiste nulla, il link resta un normale redirect a cookie.html#preferenze
+      });
+    }
+  </script>
+</body>
+</html>
