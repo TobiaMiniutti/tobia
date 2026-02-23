@@ -1,614 +1,35 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-
   <!--COOKIE-->
-<link rel="stylesheet" href="https://cookie.miniutti.it/cookiebanner.css">
-<script defer src="https://cookie.miniutti.it/cookiebanner.js"
-        data-ga="G-Q2TKV83VYM"
-        data-policy="/cookie.html"
-        data-privacy="/privacy.html"
-        data-manage="floating"
-        data-manage-pos="br"
-        data-manage-label="Preferenze cookie"></script>
-  
+  <link rel="stylesheet" href="https://cookie.miniutti.it/cookiebanner.css">
+  <script defer src="https://cookie.miniutti.it/cookiebanner.js"
+          data-ga="G-Q2TKV83VYM"
+          data-policy="/cookie.html"
+          data-privacy="/privacy.html"
+          data-manage="floating"
+          data-manage-pos="br"
+          data-manage-label="Preferenze cookie"></script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>tobia.me | Portfolio</title>
   <meta name="description" content="Portfolio di Tobia Miniutti — videomaker a Bologna. Progetti video, riprese da terra e aeree." />
   <meta name="theme-color" content="#121212" />
-  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <style>
-    :root{
-      --carbon:#121212;
-      --carbon-deep:#0d0d0d;
-      --surface:#141414;
-
-      --golden:#c9a74c;
-      --golden-soft: rgba(201, 167, 76, 0.18);
-
-      --anthracite:#b3b3b3;
-      --white:#ffffff;
-
-      --line: rgba(255,255,255,0.10);
-      --line-strong: rgba(255,255,255,0.20);
-
-      --shadow-xl: 0 14px 44px rgba(0,0,0,0.45);
-      --shadow-lg: 0 10px 30px rgba(0,0,0,0.35);
-
-      --radius-xl: 20px;
-      --radius-lg: 14px;
-
-      --transition: 0.28s ease;
-      --container: 1140px;
-      --header-h: 78px;
-    }
-
-    *{ margin:0; padding:0; box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-
-    body{
-      font-family:'Outfit',sans-serif;
-      background:
-        radial-gradient(1200px 700px at 80% -10%, rgba(201,167,76,0.08), transparent 60%),
-        radial-gradient(800px 500px at -10% 30%, rgba(201,167,76,0.05), transparent 60%),
-        var(--carbon);
-      color:var(--white);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      overflow-x:hidden;
-      line-height:1.6;
-    }
-
-    /* Accessibilità */
-    .skip-link{
-      position:absolute;
-      left:-999px;
-      top:10px;
-      background:var(--white);
-      color:#000;
-      padding:10px 14px;
-      border-radius:10px;
-      z-index:9999;
-      font-weight:600;
-    }
-    .skip-link:focus{ left:10px; }
-
-    a:focus-visible, button:focus-visible{
-      outline: 2px solid rgba(201, 167, 76, 0.65);
-      outline-offset: 3px;
-      border-radius: 10px;
-    }
-
-    /* Progress bar */
-    .scroll-progress{
-      position:fixed;
-      top:0; left:0;
-      width:0%;
-      height:2px;
-      z-index:1300;
-      background: linear-gradient(90deg, rgba(201,167,76,0.9), rgba(201,167,76,0.35));
-      box-shadow: 0 0 12px rgba(201,167,76,0.55);
-    }
-
-    /* Navbar */
-    header{
-      height: var(--header-h);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      background: rgba(12,12,12,0.58);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding: 0 2rem;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      position:sticky;
-      top:0;
-      z-index:1200;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.5);
-    }
-
-    .logo{
-      height:40px;
-      width:auto;
-      user-select:none;
-      filter: drop-shadow(0 0 1.5px rgba(0,0,0,0.6));
-    }
-
-    nav{
-      display:flex;
-      align-items:center;
-      gap:1.8rem;
-    }
-
-    nav a{
-      position:relative;
-      color:var(--white);
-      text-decoration:none;
-      font-weight:600;
-      font-size:0.98rem;
-      padding-bottom:6px;
-      transition: color var(--transition);
-      outline:none;
-    }
-
-    nav a::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:0;
-      width:0;
-      height:3px;
-      border-radius:3px 3px 0 0;
-      background: linear-gradient(90deg, #008C45, #F4F5F0, #CD212A);
-      transition: width var(--transition);
-    }
-
-    nav a[aria-current="page"]::after{ width:100%; }
-    nav a:hover, nav a:focus-visible{ color:var(--golden); }
-    nav a:hover::after, nav a:focus-visible::after{ width:100%; }
-
-    @supports selector(nav:has(a:hover)) {
-      nav:has(a:hover:not([aria-current="page"])) a[aria-current="page"]::after,
-      nav:has(a:focus-visible:not([aria-current="page"])) a[aria-current="page"]::after{
-        width:0;
-      }
-    }
-
-    /* Layout */
-    main{
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 5rem 2rem 5.5rem;
-    }
-
-    main > section{
-      scroll-margin-top: calc(var(--header-h) + 24px);
-      content-visibility:auto;
-      contain-intrinsic-size: 780px;
-    }
-
-    .section-title{
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      color: var(--golden);
-      text-align:center;
-      margin-bottom: 1.2rem;
-      line-height:1.2;
-    }
-
-    .section-subtitle{
-      text-align:center;
-      color: var(--anthracite);
-      max-width: 760px;
-      margin: 0 auto 2.1rem;
-      font-size: 1.02rem;
-    }
-
-    .panel{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-xl);
-    }
-
-    /* Motion */
-    .fade-up{
-      opacity:0;
-      transform: translateY(24px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-    .fade-up.visible{
-      opacity:1;
-      transform: translateY(0);
-    }
-
-    /* Filter bar */
-    .filters{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:0.7rem;
-      margin-bottom: 1.8rem;
-    }
-
-    .chip{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.02);
-      color: var(--white);
-      padding: 0.65rem 1rem;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor:pointer;
-      transition: transform var(--transition), border-color var(--transition), background var(--transition), color var(--transition), box-shadow var(--transition);
-      user-select:none;
-    }
-
-    .chip:hover{
-      transform: translateY(-2px);
-      border-color: var(--line-strong);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-    }
-
-    .chip[aria-pressed="true"]{
-      border-color: rgba(201,167,76,0.55);
-      background: rgba(201,167,76,0.12);
-      color: var(--golden);
-      box-shadow: 0 10px 26px rgba(201,167,76,0.10);
-    }
-
-    /* Grid + cards */
-    .projects-grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-      gap: 1.4rem;
-      align-items: stretch;
-    }
-
-    .project-card{
-      display:flex;
-      flex-direction:column;
-      overflow:hidden;
-      min-height: 395px;
-      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition), opacity var(--transition);
-      will-change: transform;
-    }
-
-    .project-card:hover{
-      transform: translateY(-4px);
-      border-color: var(--line-strong);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.46);
-    }
-
-    .project-media{
-      aspect-ratio: 16 / 10;
-      overflow:hidden;
-      border-bottom: 1px solid var(--line);
-      background: rgba(0,0,0,0.28);
-      position: relative;
-    }
-
-    .project-media img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:cover;
-      transition: transform 0.45s ease;
-    }
-
-    .project-card:hover .project-media img{
-      transform: scale(1.04);
-    }
-
-    /* YouTube placeholder */
-    .yt-placeholder{
-      width:100%;
-      height:100%;
-      display:grid;
-      place-items:center;
-      background:
-        radial-gradient(700px 340px at 70% 10%, rgba(201,167,76,0.14), transparent 60%),
-        rgba(0,0,0,0.25);
-      cursor:pointer;
-      position: relative;
-    }
-
-    .yt-placeholder::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.22));
-      pointer-events:none;
-    }
-
-    .play-badge{
-      position: relative;
-      z-index: 1;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding: 0.72rem 1.05rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(12,12,12,0.55);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
-      transition: transform var(--transition), border-color var(--transition);
-    }
-
-    .yt-placeholder:hover .play-badge{
-      transform: translateY(-2px);
-      border-color: rgba(201,167,76,0.45);
-    }
-
-    .play-icon{
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      display:grid;
-      place-items:center;
-      background: rgba(201,167,76,0.16);
-      border: 1px solid rgba(201,167,76,0.35);
-    }
-    .play-icon svg{ width:18px; height:18px; fill: var(--golden); }
-
-    .play-text{
-      display:flex;
-      flex-direction:column;
-      line-height:1.1;
-    }
-    .play-text strong{ font-size:0.98rem; }
-    .play-text span{ font-size:0.86rem; color: var(--anthracite); }
-
-    .project-info{
-      padding: 1.2rem 1.2rem 1.3rem;
-      display:flex;
-      flex-direction:column;
-      gap:0.7rem;
-      flex:1;
-    }
-
-    .project-info h3{
-      color: var(--golden);
-      font-size: 1.25rem;
-      line-height:1.25;
-    }
-
-    .project-info p{
-      color: var(--anthracite);
-      line-height:1.65;
-      flex:1;
-    }
-
-    .btn-row{
-      display:flex;
-      gap:0.8rem;
-      flex-wrap: wrap;
-      align-items:center;
-    }
-
-    .btn-golden{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding: 0.85rem 1.6rem;
-      border:2px solid var(--golden);
-      border-radius:999px;
-      color: var(--golden);
-      text-decoration:none;
-      font-weight:600;
-      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
-      width: fit-content;
-    }
-
-    .btn-golden:hover,
-    .btn-golden:focus-visible{
-      transform: translateY(-2px);
-      background: var(--golden);
-      color: var(--carbon);
-      box-shadow: 0 10px 24px rgba(201,167,76,0.38);
-      outline:none;
-    }
-
-    .btn-ghost{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding: 0.85rem 1.2rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--white);
-      background: rgba(255,255,255,0.02);
-      text-decoration:none;
-      font-weight:600;
-      transition: transform var(--transition), border-color var(--transition), background var(--transition);
-      cursor:pointer;
-    }
-
-    .btn-ghost:hover{
-      transform: translateY(-2px);
-      border-color: var(--line-strong);
-      background: rgba(255,255,255,0.03);
-    }
-
-    /* Filtered-out animation */
-    .project-card.is-hidden{
-      opacity:0;
-      pointer-events:none;
-      transform: translateY(8px) scale(0.98);
-    }
-
-    /* Modal */
-    .modal{
-      position:fixed;
-      inset:0;
-      z-index: 2000;
-      display:none;
-    }
-
-    .modal[aria-hidden="false"]{
-      display:block;
-    }
-
-    .modal-backdrop{
-      position:absolute;
-      inset:0;
-      background: rgba(0,0,0,0.62);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-
-    .modal-dialog{
-      position: relative;
-      max-width: 980px;
-      margin: 6vh auto;
-      padding: 0 1rem;
-    }
-
-    .modal-panel{
-      position: relative;
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(255,255,255,0.10);
-      background:
-        radial-gradient(900px 480px at 70% 0%, rgba(201,167,76,0.12), transparent 60%),
-        rgba(15,15,15,0.92);
-      box-shadow: 0 30px 90px rgba(0,0,0,0.65);
-      overflow:hidden;
-    }
-
-    .modal-topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 1rem;
-      padding: 0.9rem 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .modal-title{
-      font-weight:700;
-      color: var(--white);
-      font-size: 1rem;
-    }
-
-    .icon-btn{
-      display:inline-grid;
-      place-items:center;
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.03);
-      cursor:pointer;
-      transition: transform var(--transition), border-color var(--transition), background var(--transition);
-    }
-
-    .icon-btn:hover{
-      transform: translateY(-2px);
-      border-color: rgba(201,167,76,0.35);
-      background: rgba(201,167,76,0.08);
-    }
-
-    .icon-btn svg{ width:18px; height:18px; fill: var(--white); opacity:0.9; }
-
-    .modal-media{
-      aspect-ratio: 16 / 9;
-      background: rgba(0,0,0,0.35);
-    }
-
-    .modal-media iframe,
-    .modal-media img{
-      width:100%;
-      height:100%;
-      border:0;
-      display:block;
-      object-fit:cover;
-      background: #000;
-    }
-
-    .modal-body{
-      padding: 1rem 1rem 1.1rem;
-      color: var(--anthracite);
-      line-height:1.7;
-    }
-
-    /* Footer */
-    footer{
-      background: var(--carbon-deep);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 2.6rem 2rem 2rem;
-    }
-
-    .footer-wrap{
-      max-width: var(--container);
-      margin: 0 auto;
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.8rem;
-    }
-
-    .footer-col h4{
-      color: var(--golden);
-      margin-bottom: 0.8rem;
-      font-size: 1.03rem;
-    }
-
-    .footer-col p,
-    .footer-col li,
-    .footer-col a{
-      color: var(--anthracite);
-      text-decoration:none;
-      line-height:1.7;
-    }
-
-    .footer-col ul{ list-style:none; }
-
-    .footer-col a:hover,
-    .footer-col a:focus-visible{
-      color: var(--white);
-      outline:none;
-    }
-
-    .footer-bottom{
-      max-width: var(--container);
-      margin: 1.8rem auto 0;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding-top: 1rem;
-      text-align:center;
-      color: var(--anthracite);
-      font-size: 0.9rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 920px){
-      header{ padding:0 1rem; }
-      nav{ gap:1rem; }
-      main{ padding: 4rem 1rem 4.5rem; }
-      .modal-dialog{ margin: 5vh auto; }
-    }
-
-    @media (max-width: 640px){
-      :root{ --header-h: 72px; }
-      nav a{ font-size: 0.92rem; }
-      .project-info p{ line-height:1.7; }
-      .btn-golden{ width:100%; justify-content:center; }
-      .btn-ghost{ width:100%; justify-content:center; }
-    }
-
-    /* Motion safety */
-    @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior:auto; }
-      *, *::before, *::after{
-        animation:none !important;
-        transition:none !important;
-      }
-      .fade-up{ opacity:1 !important; transform:none !important; }
-      .project-card.is-hidden{ opacity:1; transform:none; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
   <a class="skip-link" href="#contenuto">Salta al contenuto</a>
   <div class="scroll-progress" aria-hidden="true"></div>
 
-  <header>
-    <a href="index.html" aria-label="Torna alla home">
-      <img src="favicon.png" alt="Logo tobia.me" class="logo" />
-    </a>
-
-    <nav aria-label="Navigazione principale">
-      <a href="index.html">Home</a>
-      <a href="portfolio.html" aria-current="page">Portfolio</a>
-      <a href="contatti.html">Contatti</a>
-    </nav>
-  </header>
+  <div data-include="components/header.html"></div>
 
   <main id="contenuto">
     <section id="portfolio" class="fade-up" aria-labelledby="portfolio-title">
@@ -624,13 +45,14 @@
       </div>
 
       <div class="projects-grid" id="grid" aria-live="polite">
-        <!-- 1: YouTube (lazy) -->
+        <!-- 1: YouTube -->
         <article class="project-card panel fade-up"
           data-category="aria"
           data-type="youtube"
           data-title="Colli by Air"
           data-description="Riprese aeree sui colli di Bologna: strade panoramiche, colline e scorci sulla città visti dall’alto. Volo realizzato con DJI Air 3S, con movimenti fluidi e inquadrature pensate per valorizzare il paesaggio."
           data-youtube-id="GM1dVLFfNEg">
+
           <div class="project-media">
             <div class="yt-placeholder" role="button" tabindex="0" aria-label="Apri anteprima: Colli by Air">
               <div class="play-badge">
@@ -661,23 +83,21 @@
           </div>
         </article>
 
-        <!-- 2: immagine + link (cars / shorts) -->
+        <!-- 2: immagine + link -->
         <article class="project-card panel fade-up"
           data-category="terra brevi"
           data-type="image"
           data-title="First car shooting"
           data-description="Primo shooting automobilistico: Aixam 721 Sport con modifiche estetiche. Video dedicato con tagli rapidi e dettagli sul mezzo."
-          data-image-src="progetto_2.png">
+          data-image-src="assets/img/progetto_2.png">
+
           <div class="project-media">
-            <img src="progetto_2.png" alt="Anteprima First car shooting" loading="lazy" decoding="async" />
+            <img src="assets/img/progetto_2.png" alt="Anteprima First car shooting" loading="lazy" decoding="async" />
           </div>
 
           <div class="project-info">
             <h3>First car shooting</h3>
-            <p>
-              Primo shooting automobilistico: Aixam 721 Sport con modifiche estetiche. Video dedicato con tagli rapidi
-              e dettagli sul mezzo.
-            </p>
+            <p>Primo shooting automobilistico: Aixam 721 Sport con modifiche estetiche. Video dedicato con tagli rapidi e dettagli sul mezzo.</p>
 
             <div class="btn-row">
               <button class="btn-ghost" type="button" data-action="preview">Anteprima</button>
@@ -694,9 +114,10 @@
           data-type="image"
           data-title="Progetto 3"
           data-description="Descrizione accurata del progetto 3."
-          data-image-src="progetto_3.png">
+          data-image-src="assets/img/progetto_3.png">
+
           <div class="project-media">
-            <img src="progetto_3.png" alt="Anteprima Progetto 3" loading="lazy" decoding="async" />
+            <img src="assets/img/progetto_3.png" alt="Anteprima Progetto 3" loading="lazy" decoding="async" />
           </div>
 
           <div class="project-info">
@@ -734,193 +155,10 @@
     </div>
   </div>
 
-  <footer>
-    <div class="footer-wrap">
-      <div class="footer-col">
-        <h4>tobia.me</h4>
-        <p>Portfolio ufficiale di Tobia Miniutti — progetti, idee e sviluppo.</p>
-      </div>
+  <div data-include="components/footer.html"></div>
 
-      <div class="footer-col">
-        <h4>Link rapidi</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="contatti.html">Contatti</a></li>
-          <li><a href="legale.html">Legale</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Contatti</h4>
-        <ul>
-          <li><a href="mailto:hello@tobia.me">Email: hello@tobia.me</a></li>
-          <li><a href="tel:+393791128232">Tel: +39 379 112 8232</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">© 2025 tobia.me — Tutti i diritti riservati</div>
-  </footer>
-
-  <script>
-    // Reveal on scroll (fade-up)
-    const faders = document.querySelectorAll('.fade-up');
-    const revealObserver = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        obs.unobserve(entry.target);
-      });
-    }, { threshold: 0.16, rootMargin: "0px 0px -40px 0px" });
-
-    faders.forEach((el, i) => {
-      el.style.transitionDelay = `${Math.min(i * 45, 220)}ms`;
-      revealObserver.observe(el);
-    });
-
-    // Scroll progress
-    const progress = document.querySelector('.scroll-progress');
-    const updateProgress = () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progress.style.width = pct + '%';
-    };
-    updateProgress();
-    window.addEventListener('scroll', updateProgress, { passive: true });
-    window.addEventListener('resize', updateProgress);
-
-    // --- FILTERS ---
-    const chips = document.querySelectorAll('.chip');
-    const cards = Array.from(document.querySelectorAll('.project-card'));
-
-    function setActiveChip(activeFilter){
-      chips.forEach(c => c.setAttribute('aria-pressed', String(c.dataset.filter === activeFilter)));
-    }
-
-    function applyFilter(filter){
-      cards.forEach(card => {
-        const cat = (card.dataset.category || "").toLowerCase();
-        const match = (filter === 'all') || cat.split(/\s+/).includes(filter);
-        card.classList.toggle('is-hidden', !match);
-      });
-    }
-
-    chips.forEach(chip => {
-      chip.addEventListener('click', () => {
-        const filter = chip.dataset.filter;
-        setActiveChip(filter);
-        applyFilter(filter);
-      });
-    });
-
-    // --- MODAL PREVIEW ---
-    const modal = document.getElementById('modal');
-    const modalMedia = document.getElementById('modalMedia');
-    const modalBody = document.getElementById('modalBody');
-    const modalTitle = document.getElementById('modalTitle');
-    let lastFocus = null;
-
-    function openModalFromCard(card){
-      lastFocus = document.activeElement;
-
-      const title = card.dataset.title || 'Anteprima';
-      const desc  = card.dataset.description || '';
-      const type  = card.dataset.type || 'image';
-
-      modalTitle.textContent = title;
-      modalBody.textContent = desc;
-      modalMedia.innerHTML = '';
-
-      if(type === 'youtube'){
-        const yt = card.dataset.youtubeId;
-        const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube.com/embed/${yt}?autoplay=1&rel=0&modestbranding=1`;
-        iframe.title = `${title} — YouTube`;
-        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-        iframe.referrerPolicy = "strict-origin-when-cross-origin";
-        iframe.allowFullscreen = true;
-        modalMedia.appendChild(iframe);
-      } else {
-        const src = card.dataset.imageSrc;
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = `Anteprima ${title}`;
-        img.loading = 'eager';
-        modalMedia.appendChild(img);
-      }
-
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-
-      // focus sul bottone close
-      const closeBtn = modal.querySelector('[data-action="close"]');
-      closeBtn && closeBtn.focus({ preventScroll:true });
-    }
-
-    function closeModal(){
-      modal.setAttribute('aria-hidden', 'true');
-      modalMedia.innerHTML = '';
-      document.body.style.overflow = '';
-
-      if(lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll:true });
-      lastFocus = null;
-    }
-
-    // open handlers
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('[data-action="preview"]');
-      if(btn){
-        const card = btn.closest('.project-card');
-        if(card) openModalFromCard(card);
-      }
-
-      const ph = e.target.closest('.yt-placeholder');
-      if(ph){
-        const card = ph.closest('.project-card');
-        if(card) openModalFromCard(card);
-      }
-
-      const close = e.target.closest('[data-action="close"]');
-      if(close) closeModal();
-    });
-
-    // keyboard
-    document.addEventListener('keydown', (e) => {
-      if(modal.getAttribute('aria-hidden') === 'false' && e.key === 'Escape'){
-        closeModal();
-      }
-      // Enter/Space sul placeholder
-      const active = document.activeElement;
-      if((e.key === 'Enter' || e.key === ' ') && active && active.classList && active.classList.contains('yt-placeholder')){
-        e.preventDefault();
-        const card = active.closest('.project-card');
-        if(card) openModalFromCard(card);
-      }
-    });
-
-    // --- LAZY LOAD YT (solo quando il card entra in viewport, non autoplay) ---
-    const ytCards = document.querySelectorAll('.project-card[data-type="youtube"]');
-
-    const ytObserver = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if(!entry.isIntersecting) return;
-        const card = entry.target;
-        const media = card.querySelector('.project-media');
-        const placeholder = card.querySelector('.yt-placeholder');
-        const yt = card.dataset.youtubeId;
-
-        // se già fatto, stop
-        if(card.dataset.ytReady === '1') { obs.unobserve(card); return; }
-
-        card.dataset.ytReady = '1';
-
-        obs.unobserve(card);
-      });
-    }, { threshold: 0.22, rootMargin: "120px 0px 120px 0px" });
-
-    ytCards.forEach(c => ytObserver.observe(c));
-  </script>
+  <script defer src="js/include-components.js"></script>
+  <script defer src="js/main.js"></script>
+  <script defer src="js/pages/portfolio.js"></script>
 </body>
 </html>

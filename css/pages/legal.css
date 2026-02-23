@@ -1,0 +1,99 @@
+/* ===== Legal pages ===== */
+
+main{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 5rem 2rem 5.5rem;
+}
+
+.legal-wrap{
+  padding: 2.6rem;
+}
+
+.legal-wrap h1{
+  color: var(--golden);
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  letter-spacing: 0.2px;
+}
+
+.legal-wrap .updated{
+  color: var(--anthracite);
+  margin-bottom: 1.9rem;
+  font-size: 0.98rem;
+}
+
+.legal-wrap h2{
+  color: var(--golden);
+  font-size: 1.45rem;
+  line-height: 1.25;
+  margin: 2rem 0 0.8rem;
+}
+
+.legal-wrap h3{
+  color: var(--white);
+  font-size: 1.12rem;
+  line-height: 1.35;
+  margin: 1.4rem 0 0.6rem;
+}
+
+.legal-wrap p,
+.legal-wrap li{
+  color: var(--anthracite);
+  line-height: 1.78;
+}
+
+.legal-wrap p{ margin: 0.8rem 0; }
+
+.legal-wrap ul,
+.legal-wrap ol{
+  margin: 0.6rem 0 1rem 1.15rem;
+}
+
+.legal-wrap a{
+  color: var(--golden);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201,167,76,0.35);
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.legal-wrap a:hover,
+.legal-wrap a:focus-visible{
+  color: var(--white);
+  border-color: rgba(255,255,255,0.28);
+  outline: none;
+}
+
+.legal-toc{
+  margin: 1.4rem 0 2rem;
+  padding: 1.2rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.01);
+}
+
+.legal-toc strong{
+  display:block;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+
+.legal-toc a{
+  display:inline-block;
+  margin: 0.25rem 0.6rem 0.25rem 0;
+}
+
+.note-box{
+  margin-top: 1.6rem;
+  padding: 1rem 1rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(201,167,76,0.28);
+  background: rgba(201,167,76,0.06);
+  color: var(--anthracite);
+}
+
+@media (max-width: 920px){
+  main{ padding: 4rem 1rem 4.5rem; }
+  .legal-wrap{ padding: 1.6rem; }
+}

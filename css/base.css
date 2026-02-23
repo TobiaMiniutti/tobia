@@ -1,0 +1,61 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background:
+    radial-gradient(1200px 700px at 80% -10%, rgba(201,167,76,0.08), transparent 60%),
+    radial-gradient(800px 500px at -10% 30%, rgba(201,167,76,0.05), transparent 60%),
+    var(--carbon);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 10px;
+  background: var(--white);
+  color: #000;
+  padding: 10px 14px;
+  border-radius: 10px;
+  z-index: 9999;
+  font-weight: 600;
+}
+.skip-link:focus { left: 10px; }
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  z-index: 1300;
+  background: linear-gradient(90deg, rgba(201,167,76,0.9), rgba(201,167,76,0.35));
+  box-shadow: 0 0 12px rgba(201,167,76,0.55);
+}
+
+/* Motion */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* Focus */
+a:focus-visible {
+  outline: 2px solid rgba(201, 167, 76, 0.65);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* Motion safety */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .fade-up, .hero-content { opacity: 1 !important; transform: none !important; }
+}

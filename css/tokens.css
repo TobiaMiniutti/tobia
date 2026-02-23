@@ -1,0 +1,26 @@
+:root {
+  --carbon: #121212;
+  --carbon-deep: #0d0d0d;
+  --surface: #141414;
+
+  --golden: #c9a74c;
+  --golden-soft: rgba(201, 167, 76, 0.18);
+
+  --anthracite: #b3b3b3;
+  --white: #ffffff;
+
+  --line: rgba(255, 255, 255, 0.10);
+  --line-strong: rgba(255, 255, 255, 0.20);
+
+  --shadow-xl: 0 14px 44px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+  --radius-xl: 20px;
+  --radius-lg: 14px;
+
+  --transition: 0.28s ease;
+  --container: 1140px;
+  --header-h: 78px;
+
+  --error-red:#cc4444;
+}
