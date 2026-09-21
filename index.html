@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Sito in manutenzione | tobia.me</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="icon" href="/favicon.png">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      background: #fff;
+      color: #2f2f2f;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      width: min(1080px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 52px 0 40px;
+    }
+
+    .header {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 72px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(58px, 8vw, 82px);
+      line-height: 1;
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      color: #404040;
+    }
+
+    .domain {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 15px;
+      color: #555;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 300;
+      color: #929292;
+    }
+
+    .content {
+      max-width: 650px;
+    }
+
+    section {
+      margin-bottom: 34px;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 35px;
+      line-height: 1.2;
+      font-weight: 400;
+      color: #292929;
+    }
+
+    p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: #0055cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .redirect {
+      margin-top: 46px;
+      padding: 22px 0;
+      border-top: 1px solid #e5e5e5;
+      border-bottom: 1px solid #e5e5e5;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .redirect-text {
+      font-size: 15px;
+      color: #555;
+    }
+
+    .button {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 42px;
+      padding: 0 20px;
+
+      border: 1px solid #0055cc;
+      border-radius: 4px;
+
+      color: #0055cc;
+      font-size: 15px;
+      text-decoration: none;
+
+      transition:
+        background-color 150ms ease,
+        color 150ms ease;
+    }
+
+    .button:hover {
+      background: #0055cc;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding-top: 24px;
+      border-top: 1px solid #e8e8e8;
+
+      font-size: 13px;
+      color: #6d6d6d;
+    }
+
+    @media (max-width: 650px) {
+      main {
+        width: min(100% - 36px, 1080px);
+        padding-top: 34px;
+      }
+
+      .header {
+        margin-bottom: 56px;
+        gap: 14px;
+      }
+
+      h1 {
+        font-size: 58px;
+      }
+
+      .subtitle {
+        font-size: 27px;
+      }
+
+      h2 {
+        font-size: 29px;
+      }
+
+      .redirect {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+
+    <header class="header">
+      <div>
+        <h1>Maintenance</h1>
+        <div class="subtitle">tobia.me è temporaneamente offline</div>
+      </div>
+
+      <div class="domain">tobia.me</div>
+    </header>
+
+
+    <div class="content">
+
+      <section>
+        <h2>Cosa sta succedendo?</h2>
+
+        <p>
+          Il sito <strong>tobia.me</strong> è attualmente in manutenzione.
+          Alcuni contenuti e servizi sono stati temporaneamente disattivati
+          durante l'aggiornamento dell'infrastruttura.
+        </p>
+      </section>
+
+
+      <section>
+        <h2>Dove posso andare?</h2>
+
+        <p>
+          Il sito principale è ora disponibile su
+          <a href="https://miniutti.it">miniutti.it</a>.
+          Verrai reindirizzato automaticamente tra
+          <strong><span id="countdown">8</span> secondi</strong>.
+        </p>
+      </section>
+
+
+      <div class="redirect">
+        <div class="redirect-text">
+          Reindirizzamento automatico verso miniutti.it
+        </div>
+
+        <a class="button" href="https://miniutti.it">
+          Continua ora
+        </a>
+      </div>
+
+    </div>
+
+
+    <footer>
+      tobia.me &nbsp;•&nbsp; Sito temporaneamente in manutenzione
+    </footer>
+
+  </main>
+
+
+  <script>
+    const destination = "https://miniutti.it";
+    let remaining = 8;
+
+    const countdown = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      remaining--;
+
+      if (remaining <= 0) {
+        clearInterval(timer);
+        window.location.href = destination;
+        return;
+      }
+
+      countdown.textContent = remaining;
+    }, 1000);
+  </script>
+</body>
+</html>
